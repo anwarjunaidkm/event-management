@@ -22,9 +22,9 @@
 
 }
 /* ----------header------- */
-.header-logo img{
+.header-logo{
   height: 30px;
-  width: 30px;
+ 
 }
 
 
@@ -37,25 +37,55 @@
 /* ---------banner--------- */
 
 .banner{
-  /* background-color: rgb(149, 146, 146); */
-  background-image: linear-gradient(to right, #578777, #f0a6aa);
+  background-color: rgb(213 213 213 / 48%);
+  /* background-image: linear-gradient(to right, #578777, #f0a6aa); */
+
  
 
 }
 .banner-body{
-  min-height: 350px;
-  
+  min-height: 92vh;
+
+
+}
+.right-card{
+  background-color:#214a3f  !important; 
+  min-height: 500px  !important;
+  width: 330px  !important;
+  border-radius: 50px  !important;
+  border-color:rgb(213, 213, 213)  !important;
  
-
+}
+.banner-text{
+  color: #000000c2;
+  font: caption;
+  
 
 
 }
-.right-banner{
-  flex: 1;
-}
-.left-banner{
-  flex: 1;
-}
+ .search_input{
+  /* border: 5px; */
+  /* outline: 0; */
+  /* background: none; */
+  /* width: 10px; */
+  caret-color:transparent;
+  line-height: 40px;
+  transition: width 0.4s linear; 
+  background-color:#ffffff;
+  border-radius: 20px;
+border-color: white;
+ }
+ .search-butn{
+  line-height: 40px;
+  /* transition: width 0.4s linear;  */
+  background-color:#214a3f;
+  border-radius: 20px;
+  color: rgb(255, 255, 255);
+  width: 85px;
+  border-color: #214a3f;
+ }
+
+
 
 
 
