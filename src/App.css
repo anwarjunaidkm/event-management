@@ -57,9 +57,19 @@ select:focus-visible {
 
 .banner{
   background-color: rgb(213 213 213 / 48%);
+  /* background: linear-gradient(to right, rgba(255,255,255,0) 20%,
+              rgba(255,255,255,1)),url(./components/image/c2.png) ; */
   /* background-image: linear-gradient(to right, #578777, #f0a6aa); */
 
  
+
+}
+.banner-cover{
+  object-fit: cover;
+  min-height: 50%;
+  max-width:100%;
+  padding: 10px;
+  border-radius: 20px;
 
 }
 .banner-body{
@@ -68,8 +78,9 @@ select:focus-visible {
 
 }
 .right-card{
-  background-color:var(--primary-coffie)  !important; 
-  min-height: 500px  !important;
+  background-color:white  !important; 
+  /* background-color:var(--primary-coffie)  !important;  for bagcord whitw */
+  /* min-height: 500px  !important; --for banner card height*/ 
   width: 330px  !important;
   border-radius: 50px  !important;
   border-color:rgb(213, 213, 213)  !important;
@@ -79,6 +90,7 @@ select:focus-visible {
 .banner-text{
   color: #000000c2;
   font: caption;
+  padding-bottom: 15px;
   
 
 

@@ -2,6 +2,7 @@ import React from 'react'
 import { Card, TabContainer } from 'react-bootstrap'
 import { Container } from 'react-bootstrap'
 import { Col, Row } from 'reactstrap';
+import { c1, c2, c3 } from '../image/image';
 
 function Banner() {
   return (
@@ -54,8 +55,33 @@ function Banner() {
               md={6}
               className="d-flex justify-content-md-end align-items-center"
             >
+               
               <Card className="right-card ">
-                <h1>d</h1>
+{/* ---------------gridview-------------- */}
+                {/* <Row>
+                    <Col>
+                    <img className='banner-cover' src={c2} alt="" />
+                    </Col>
+                    <Col>
+                        <h1>2</h1>
+                    </Col>
+
+                </Row>
+                <Row>
+                    <Col>
+                        <h1>3</h1>
+                    </Col>
+                    <Col>
+                    <img className='banner-cover' src={c2} alt="" />
+                    </Col>
+
+                </Row> */}
+{/* ---------------end gridview-------------- */}
+
+
+                <div>
+                    <img className='banner-cover' src={c2} alt="" />
+                </div>
               </Card>
             </Col>
           </Row>
