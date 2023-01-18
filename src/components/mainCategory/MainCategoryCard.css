@@ -1,6 +1,6 @@
 .main-category-card{
     /* background-color: rgb(255, 0, 0); */
-    min-height: 300px;
+    min-height: 100vh;
   
 }
 
@@ -13,12 +13,23 @@
 .card-title{
     font-size: 18px;
     text-align: center;
-    color: rgb(255, 255, 255);
+    color: rgba(0, 0, 0, 0.767);
 
 }
 .card{
     border-color:white;
+    border-radius: 20px !important;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    
+   
   
+
+}
+.card-image{
+    object-fit: cover;
+    min-height: 10px;
+    padding: 10px;
+    border-radius: 20px;
 
 }
 .main-category-title{
@@ -26,8 +37,17 @@
  
   
 
+
 }
 
+.main-row{
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    
+
+}
 
 
 

@@ -14,20 +14,39 @@ function Banner() {
                 <div className="banner-text">
                   <h2>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Maxime mollitia, molestiae qua vel sint commodi..!
+                    Maxime mollitia..!!!,
                   </h2>
                 </div>
                 <div>
-                  <div className="searchbar">
-                    <input
-                      className="search_input"
-                      type="text"
-                      name=""
-                      placeholder="Search..."
-                    />
-                    <button className='search-butn'>Search</button>
+                 
+
+                  <Card className="left-search-card">
+                    <select className="dropdown-search">
+                        <option
+                          className="dropdown-option"
+                          value="actual value 1"
+                        >
+                          Location
+                        </option>
+                        <option value="actual value 2">Display Text 2</option>
+                        <option value="actual value 3">Display Text 3</option>
+                      </select>
+                            
+                       
+                    <div>  
+                        <input
+                          className="search_input"
+                          type="text"
+                          name=""
+                          placeholder="Search..."
+                        />
+                    </div>
+
                     
-                  </div>
+                        <button className="search-butn">Search</button>
+                        
+                  </Card>
+
                 </div>
               </div>
             </Col>

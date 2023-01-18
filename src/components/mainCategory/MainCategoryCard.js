@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { c1, c2, c3, c4, c7, pic } from "../image/image";
 import "./MainCategoryCard.css";
 
 function MainCategoryCard() {
@@ -12,11 +13,12 @@ function MainCategoryCard() {
 
                 <h4 className="my-0 p-3">Main Categories</h4>
             </div>
-          <Col md={2}  className="parrentCtegory" >
+         
+          <Col md={3}  className="parrentCtegory" >
            
                             
-                <Card className="card"  style={{ width: '10rem',height:"14rem",backgroundColor:"#578777" }}>
-                {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+                <Card className="card"  style={{ width: '15rem',height:"14rem",backgroundColor:"white" }}>
+                <Card.Img  className="card-image"  variant="top" src={c1} />
                 <Card.Body className="main-card-body">
                     <Card.Title className="card-title">Event Organisers</Card.Title>
                     <Card.Text>
@@ -31,14 +33,16 @@ function MainCategoryCard() {
            
             
           </Col>
-          <Col md={2}  className="parrentCtegory" >
-                         
-          <Card   style={{ width: '10rem',height:"14rem" ,backgroundColor:'#feb958'}}>
-                {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+         
+          <Col md={3}  className="parrentCtegory" >
+           
+                            
+                <Card className="card"  style={{ width: '15rem',height:"14rem",backgroundColor:"white" }}>
+                <Card.Img  className="card-image"  variant="top" src={c2} />
                 <Card.Body className="main-card-body">
-                    <Card.Title>Corporate Parties</Card.Title>
+                    <Card.Title className="card-title">Event Organisers</Card.Title>
                     <Card.Text>
-                   
+                    
                     </Card.Text>
                 
                 </Card.Body>
@@ -49,13 +53,16 @@ function MainCategoryCard() {
            
             
           </Col>
-          <Col md={2}  className="parrentCtegory" >
-          <Card   style={{ width: '10rem',height:"14rem",backgroundColor:"#971e1f" }}>
-                {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+         
+          <Col md={3}  className="parrentCtegory" >
+           
+                            
+                <Card className="card"  style={{ width: '15rem',height:"14rem",backgroundColor:"white" }}>
+                <Card.Img  className="card-image"  variant="top" src={c3} />
                 <Card.Body className="main-card-body">
-                    <Card.Title>Party Services</Card.Title>
+                    <Card.Title className="card-title">Event Organisers</Card.Title>
                     <Card.Text>
-                   
+                    
                     </Card.Text>
                 
                 </Card.Body>
@@ -66,13 +73,16 @@ function MainCategoryCard() {
            
             
           </Col>
-          <Col md={2}  className="parrentCtegory" >
-          <Card   style={{ width: '10rem',height:"14rem",backgroundColor:"#3db477" }}>
-                {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+         
+          <Col md={3}  className="parrentCtegory" >
+           
+                            
+                <Card className="card"  style={{ width: '15rem',height:"14rem",backgroundColor:"white" }}>
+                <Card.Img  className="card-image"  variant="top" src={c7} />
                 <Card.Body className="main-card-body">
-                    <Card.Title>Party Rentals</Card.Title>
+                    <Card.Title className="card-title">Event Organisers</Card.Title>
                     <Card.Text>
-                   
+                    
                     </Card.Text>
                 
                 </Card.Body>
@@ -83,13 +93,15 @@ function MainCategoryCard() {
            
             
           </Col>
-          <Col md={2}  className="parrentCtegory" >
-          <Card   style={{ width: '10rem',height:"14rem",backgroundColor:"#f0a6aa" }}>
-                {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+          <Col md={3}  className="parrentCtegory" >
+           
+                            
+                <Card className="card"  style={{ width: '15rem',height:"14rem",backgroundColor:"white" }}>
+                <Card.Img  className="card-image"  variant="top" src={c2} />
                 <Card.Body className="main-card-body">
-                    <Card.Title >Wedding Planners</Card.Title>
+                    <Card.Title className="card-title">Event Organisers</Card.Title>
                     <Card.Text>
-                   
+                    
                     </Card.Text>
                 
                 </Card.Body>
@@ -100,23 +112,16 @@ function MainCategoryCard() {
            
             
           </Col>
-          <Col md={2}  className="parrentCtegory"  >
-          <Card   style={{ width: '10rem',height:"14rem",backgroundColor:'#9575cd' }}>
-                {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
-                <Card.Body className="main-card-body">
-                    <Card.Title>Show Events</Card.Title>
-                    <Card.Text>
-                   
-                    </Card.Text>
-                
-                </Card.Body>
-                </Card> 
+         
+         
+          
+          
             
            
           
            
             
-          </Col>
+         
          
           
         </Row>

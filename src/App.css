@@ -1,4 +1,4 @@
-----color--variable------
+/* ----color--variable------ */
 :root {
   --blue:#578777;
   --YELLOW:#feb958;
@@ -8,6 +8,7 @@
   --VIOLET :#9575cd;
   --primary-green :#214a3f;
   --primary-brown :#d1a184;
+  --primary-coffie :#6a3921 ;
 
 }
 
@@ -49,11 +50,12 @@
 
 }
 .right-card{
-  background-color:#214a3f  !important; 
+  background-color:var(--primary-coffie)  !important; 
   min-height: 500px  !important;
   width: 330px  !important;
   border-radius: 50px  !important;
   border-color:rgb(213, 213, 213)  !important;
+ 
  
 }
 .banner-text{
@@ -73,16 +75,39 @@
   transition: width 0.4s linear; 
   background-color:#ffffff;
   border-radius: 20px;
-border-color: white;
+/* border-color: white; */
+  width: 100%;
+border: none;
  }
  .search-butn{
   line-height: 40px;
   /* transition: width 0.4s linear;  */
-  background-color:#214a3f;
+  background-color:var(--primary-coffie);
   border-radius: 20px;
   color: rgb(255, 255, 255);
   width: 85px;
   border-color: #214a3f;
+ }
+ .dropdown-search{
+  border: none;
+  background-color: var(--primary-coffie);
+  color: #ffffffde;
+  border-radius: 20px;
+  /* height: auto; */
+  min-height: 46px;
+  padding: 10px;
+  letter-spacing: 0.1px;
+  text-align: center;
+ }
+ .left-search-card{
+  border-radius: 20px !important;
+  display: grid !important;
+  grid-template-columns:125px auto 85px !important;
+  
+ }
+ .dropdown-option{
+  border-radius: 20px;
+
  }
 
 
