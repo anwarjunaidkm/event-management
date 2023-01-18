@@ -1,0 +1,47 @@
+.footer-main{
+    min-height: 40vh;
+    background-color: var(--primary-coffie);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.footer-row{
+    color: rgba(255, 255, 255, 0.829);
+    padding: 12px;
+}
+.links-list{
+    margin-left: 0px !important;
+    list-style: none;
+    padding-left: 0;
+    color: rgba(255, 255, 255, 0.442);
+    
+    
+
+}
+.footer-heading{
+    color: rgba(255, 255, 255, 0.442);
+    font-size: medium;
+
+
+}
+.follow{
+    color: #fafafa73;
+    font-size: 12px;
+    /* font: small-caption; */
+    font-weight: normal;
+}
+.social-padding{
+    padding-inline: 4px;
+
+}
+.footer-address{
+    color: #fafafa73;
+}
+.footer-titile{
+    color: #986248;
+    font-family: fantasy;
+    letter-spacing: 0px;
+
+}
+

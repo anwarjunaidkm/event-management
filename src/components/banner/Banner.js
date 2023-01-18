@@ -54,7 +54,9 @@ function Banner() {
               md={6}
               className="d-flex justify-content-md-end align-items-center"
             >
-              <Card className="right-card "></Card>
+              <Card className="right-card ">
+                <h1>d</h1>
+              </Card>
             </Col>
           </Row>
         </div>

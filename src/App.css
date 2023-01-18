@@ -9,7 +9,19 @@
   --primary-green :#214a3f;
   --primary-brown :#d1a184;
   --primary-coffie :#6a3921 ;
+  --primary-faded-brown: #986248;
 
+
+}
+input:focus-visible {
+  outline:none;
+  
+}
+
+select:focus-visible {
+  border:none;
+ 
+  outline: none;
 }
 
 
@@ -27,7 +39,13 @@
   height: 30px;
  
 }
+.logo-text{
+  font-size: 20px;
+  color: #986248;
+  font-family: fantasy;
+  margin-bottom: 0;
 
+}
 
 
 
@@ -86,7 +104,9 @@ border: none;
   border-radius: 20px;
   color: rgb(255, 255, 255);
   width: 85px;
-  border-color: #214a3f;
+  
+  border-color: white;
+
  }
  .dropdown-search{
   border: none;

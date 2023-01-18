@@ -12,7 +12,7 @@ function Header() {
     
     <Navbar bg="light" variant="light">
         <Container>
-          <Navbar.Brand href="#home"> <img  className='header-logo' src={logo} alt="" />EVENT
+          <Navbar.Brand className='d-flex' href="#home"> <img  className='header-logo ' src={""} alt="" /> <h3 className='logo-text'> Eventtyyyy!!</h3>
           </Navbar.Brand>
           <Nav className="m-auto">
             <Nav.Link href="#home">Home</Nav.Link>

@@ -1,6 +1,6 @@
 .main-category-card{
     /* background-color: rgb(255, 0, 0); */
-    min-height: 100vh;
+    min-height: 50vh;
   
 }
 
@@ -8,6 +8,9 @@
   
    /* background-color: blue; */
    padding: 15px;
+   flex-grow: 0;
+   flex-shrink: 0;
+   
   
 }
 .card-title{
@@ -41,14 +44,15 @@
 }
 
 .main-row{
+    align-items: stretch;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     overflow-x: auto;
     overflow-y: hidden;
-    white-space: nowrap;
-    scroll-behavior: smooth;
-    
+}
+div::-webkit-scrollbar {
+    display: none;
 
 }
-
-
-
   
