@@ -10,6 +10,7 @@
   --primary-brown :#d1a184;
   --primary-coffie :#6a3921 ;
   --primary-faded-brown: #986248;
+  --primary-header-gray:#f8f9fa;
 
 
 }
@@ -87,7 +88,7 @@ select:focus-visible {
  
  
 }
-.banner-text{
+.banner-text{ 
   color: #000000c2;
   font: caption;
   padding-bottom: 15px;

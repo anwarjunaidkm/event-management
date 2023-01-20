@@ -1,0 +1,58 @@
+.compnay-list-icon{
+    max-width: 90px;
+    max-height: 60px;
+   
+    /* border-radius: 50%; */
+
+
+}
+.company-list-company-name{
+    font-size: 15px;
+    margin-bottom: 0;
+}
+.company-list-card{
+    min-height: 100vh;
+
+}
+.enquiry-btn{
+    background-color: var(--primary-coffie);
+    border-radius: 15px;
+    width: 110px;
+}
+
+
+
+.btn:hover {
+    color: var(--bs-btn-hover-color);
+    background-color: var(--primary-faded-brown);
+    border-color: var(--bs-btn-hover-border-color);
+}
+.comapny-list-single-card{
+    background-color: var(--primary-header-gray);
+    padding: 12px;
+    
+    margin-top: 12px;
+}
+
+
+.company-list-icon-parent{
+    /* max-width: 60px;
+    max-height: 60px;
+   
+    border-radius: 50%;
+    background-color: gray; */
+
+}
+.btn-parrent{
+    display: flex;
+    justify-content: center;
+    
+}
+.work-time{
+    color: #b71c1c;
+    font: menu;
+    font-weight: 300;
+    margin-bottom: 0;
+
+
+}

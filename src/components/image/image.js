@@ -14,3 +14,13 @@ export {default as c3logo} from "./c3logo.png";
 export {default as c4logo} from "./c4logo.png";
 export {default as c5logo} from "./c5logo.png";
 export {default as c6logo} from "./c6logo.png";
+
+// subcategotyy
+
+
+export {default as sub1} from "./sub1.jpg";
+export {default as sub2} from "./sub2.jpg";
+export {default as sub3} from "./sub3.jpg";
+export {default as sub4} from "./sub4.jpg";
+
+
