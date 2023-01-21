@@ -1,0 +1,101 @@
+.singleview-image{
+    max-height: 100px;
+    max-width: 80px;
+    padding: 8px;
+   
+
+}
+.main-single-view{
+    padding: 10px;
+}
+.single-view-header{
+    min-height: 110px;
+    background-color: var(--primary-faded-brown);
+    display: flex;
+    justify-content: center;
+    border-bottom-right-radius : 0 !important;
+    border-bottom-left-radius : 0 !important;
+   
+}
+.single-view-banner{
+    background-color:var(--primary-header-gray);
+   
+    border-top-right-radius : 0 !important;
+    border-top-left-radius : 0 !important;
+    border-bottom-right-radius : 0 !important;
+    border-bottom-left-radius : 0 !important;
+    
+}
+.single-view-body{
+    background-color:var(--primary-header-gray);     
+    border-top-right-radius : 0 !important;
+    border-top-left-radius : 0 !important;
+    padding: 20px;
+
+}
+.single-view-banner-row{
+    display: flex;
+    align-items: center;
+}
+.single-view-profile-pic{ 
+    max-height:90px;
+    max-width: 90px;
+    padding-top: 9px;
+    /* background-color: aqua; */
+    border-radius: 50%;
+   
+}
+.single-view-profile-parent{
+
+    /* background-color: brown;
+    border-radius: 50%;
+    min-height: 90px;
+    min-width: 90px;
+    max-height: 90px;
+    max-width: 90px; */
+
+}
+.single-view-rating{
+    padding: 10px;
+}
+.single-view-title{
+    font-size: 25px;
+    font-weight: bold;
+    color: var(--primary-coffie);
+}
+.single-view-text{
+    padding: 20px;
+}
+.single-view-p-tag p{
+    margin-bottom: 0;
+}
+.single-view-time{
+    color: var(--primary-coffie);
+}
+.single-view-connect-btn{
+    background-color: var(--primary-faded-brown);
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.single-view-btn-card{
+    width: 150px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-coffie);
+    outline: none;
+    border: none;
+}
+.anwae{
+    display: flex;
+    justify-content: space-around;
+}
+.single-view-body-text{
+    padding: 10px;
+}
+
+
+

@@ -7,6 +7,7 @@ import { Button } from 'react-bootstrap';
 import Home from './pages/Home';
 import SubCategory from './pages/SubCategory';
 import ListCompany from './pages/ListCompany';
+import Singleview from './pages/Singleview';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
 <Route exact path='/' element={<Home />} />
 <Route exact path='subcategory' element={<SubCategory />} />
 <Route exact path='listcompany' element={<ListCompany />} />
+<Route exact path='singleview' element={<Singleview />} />
 </Routes>
 
 </BrowserRouter>
