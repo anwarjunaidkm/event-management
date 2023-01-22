@@ -24,3 +24,8 @@ export {default as sub3} from "./sub3.jpg";
 export {default as sub4} from "./sub4.jpg";
 
 
+//review---
+ export {default as avatar} from "./avatar.png"
+ export {default as avatar2} from "./avatar2.png"
+ export {default as avatar3} from "./avatar3.png"
+
