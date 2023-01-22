@@ -89,11 +89,35 @@ function SingleVIewCard() {
                       <img className="singleview-image" src={c1} alt="" />
                     </div>
                   </Col>
-                </Row>
+                </Row>  
               </Row>
             </Card>
             <Card className="main-review-card">
               <h5>Review</h5>
+              <div className='post-review'>
+                <Row className='post-main-row'>
+                    <Col md={4}>
+                    <input className='post-review-input'  placeholder='Write review...!' type="text" />
+                    </Col>
+                    <Col  md={4}>
+                    <ReactStars size={30}></ReactStars>               
+                    </Col>
+                    <Col  md={4}>
+                      <div className='d-flex justify-content-end'>
+
+                    <Button className='post-btn'>Post</Button> 
+                      </div>
+                    </Col>
+                        
+
+                 
+
+              
+                    
+                </Row>
+               
+
+              </div>
               <Card className="single-review-card">
                 <Row >
                   <Col md={6}>

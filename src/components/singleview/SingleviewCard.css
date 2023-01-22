@@ -127,6 +127,23 @@
     border-radius: 50%;
 }
 
+.post-review-input{
+    border: none;
+}
+.post-btn{
+    width: 96px;
+    border-radius: 20px;
+    font-size: 12px;
+    height: auto;
+    background-color:var(--primary-coffie);
+    border: none;
+    outline: none;
+}
+.post-main-row{
+    align-items: center;
+    justify-content: center;
+    padding: 9px;
+}
 
 
 

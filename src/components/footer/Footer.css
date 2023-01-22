@@ -1,5 +1,5 @@
 .footer-main{
-    min-height: 40vh;
+    min-height: 32vh;
     background-color: var(--primary-coffie);
     display: flex;
     justify-content: center;
