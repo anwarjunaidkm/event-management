@@ -35,7 +35,7 @@ function AdminSidebar() {
                     <div className='sidebar-icon'>
                         <Link to={'/alljobcard'} className='sidebar-icon-link'><HiOutlineUsers /></Link>
                     </div>
-                    <h5 className='admin-sidebar-menu' style={{ margin: "0" }}><Link to={'/alljobcard'} className='sidebar-icon-link'>All User</Link></h5>
+                    <h5 className='admin-sidebar-menu' style={{ margin: "0" }}><Link to={'/allusers'} className='sidebar-icon-link'>All User</Link></h5>
                 </div>
                 <div className='sidebar-heading'>
                     <div className='sidebar-icon'>
@@ -43,21 +43,21 @@ function AdminSidebar() {
                             <SlUser /></Link>
                     </div>
 
-                    <h5  className='admin-sidebar-menu' style={{ margin: "0" }}><Link to={'/allcustomers'} className='sidebar-icon-link'>All Event Team</Link></h5>
+                    <h5  className='admin-sidebar-menu' style={{ margin: "0" }}><Link to={'/allteam'} className='sidebar-icon-link'>All Event Team</Link></h5>
                 </div>
 
                 <div className='sidebar-heading'>
                     <div className='sidebar-icon'>
                         <Link to={'/allvehicles'} className='sidebar-icon-link'><MdOutlineLibraryAdd/></Link>
                     </div>
-                    <h5  className='admin-sidebar-menu' style={{ margin: "0" }}><Link to={'/allvehicles'} className='sidebar-icon-link'>Add Category</Link></h5>
+                    <h5  className='admin-sidebar-menu' style={{ margin: "0" }}><Link to={'/addcategory'} className='sidebar-icon-link'>Add Category</Link></h5>
                 </div>
 
                 <div className='sidebar-heading'>
                 <div className='sidebar-icon'>
                     <Link to={'/allstaffs'} className='sidebar-icon-link'> <AiOutlineNotification/></Link>
                 </div>
-                <h5   className='admin-sidebar-menu'style={{ margin: "0" }}><Link to={'/allstaffs'} className='sidebar-icon-link'>Publish Notifcation</Link></h5>
+                <h5   className='admin-sidebar-menu'style={{ margin: "0" }}><Link to={'/notification'} className='sidebar-icon-link'>Publish Notifcation</Link></h5>
             </div>
 
             </div>

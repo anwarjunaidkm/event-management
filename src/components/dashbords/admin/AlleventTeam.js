@@ -1,17 +1,15 @@
 import React from 'react'
+import AdminLayout from '../../../Layout/admin/AdminLayout'
+
 import { AiFillEye, AiOutlineDelete } from 'react-icons/ai'
 import { BsPencil } from 'react-icons/bs'
 import { Card, Container, Table } from 'reactstrap'
-import AdminLayout from '../../../Layout/admin/AdminLayout'
-import "./Allusers.css"
 
-function Allusers() {
+function AlleventTeam() {
   return (
-      <AdminLayout>
-       
-
-            <h5 style={{color:"#6a3921"}}>All Users</h5>
-        <Card className='allusers-card' style={{margin:"18px",borderRadius:"10px"}} >
+    <AdminLayout>
+    <h5 style={{color:"#6a3921"}}>All Eventteam</h5>
+    <Card className='allusers-card' style={{margin:"18px",borderRadius:"10px"}} >
         
 <Table  
   responsive
@@ -22,7 +20,7 @@ function Allusers() {
         #
       </th>
       <th>
-        FullName
+        TeamName
       </th>
       <th>
         UserName
@@ -76,9 +74,8 @@ function Allusers() {
 </Table>
 
         </Card>
-       
     </AdminLayout>
   )
 }
 
-export default Allusers
+export default AlleventTeam

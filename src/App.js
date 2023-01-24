@@ -13,6 +13,9 @@ import AdminLayout from './Layout/admin/AdminLayout';
 import AdminSidebar from './components/dashbords/admin/AdminSidebar';
 import AdminBanner from './components/dashbords/admin/AdminBanner';
 import Allusers from './components/dashbords/admin/Allusers';
+import AlleventTeam from './components/dashbords/admin/AlleventTeam';
+import Notification from './components/dashbords/admin/Notification';
+import AddCategory from './components/dashbords/admin/AddCategory';
 
 function App() {
   return (
@@ -28,9 +31,12 @@ function App() {
 <Route exact path='listcompany' element={<ListCompany />} />
 <Route exact path='singleview' element={<Singleview />} />
 <Route exact path='connectus' element={<ConnectToUs />} />
-<Route exact path='admin' element={< AdminSidebar />} />
-<Route exact path='ad' element={< AdminBanner/>} />
+{/* <Route exact path='admin' element={< AdminSidebar />} /> */}
+<Route exact path='admin' element={< AdminBanner/>} />
 <Route exact path='allusers' element={< Allusers />} />
+<Route exact path='allteam' element={< AlleventTeam />} />
+<Route exact path='notification' element={<Notification />} />
+<Route exact path='addcategory' element={<AddCategory  />} />
 </Routes>
 
 </BrowserRouter>
