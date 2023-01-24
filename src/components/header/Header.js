@@ -15,7 +15,7 @@ function Header() {
           <Navbar.Brand className='d-flex' href="#home"> <img  className='header-logo ' src={""} alt="" /> <h3 className='logo-text'> Eventtyyyy!!</h3>
           </Navbar.Brand>
           <Nav className="m-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="#features">About</Nav.Link>
             <Nav.Link href="#pricing">Contact Us</Nav.Link>
           </Nav>

@@ -9,6 +9,11 @@
 .company-list-company-name{
     font-size: 15px;
     margin-bottom: 0;
+   
+}
+.company-list-company-name a{
+    text-decoration: none;
+
 }
 .company-list-card{
     min-height: 100vh;
@@ -35,14 +40,14 @@
 }
 
 
-.company-list-icon-parent{
+/* .company-list-icon-parent{
     /* max-width: 60px;
     max-height: 60px;
    
     border-radius: 50%;
     background-color: gray; */
 
-}
+*/
 .btn-parrent{
     display: flex;
     justify-content: center;

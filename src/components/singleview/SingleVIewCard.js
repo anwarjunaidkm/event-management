@@ -2,6 +2,7 @@ import { blue } from '@mui/material/colors';
 import { minHeight } from '@mui/system';
 import React from 'react'
 import ReactStars from 'react-rating-stars-component';
+import { Link } from 'react-router-dom';
 
 import { Button, Card, Col, Container, Row } from 'reactstrap'
 import { avatar, avatar2, avatar3, c1, c1logo, c2, c2logo, c3logo, logo } from '../image/image'
@@ -56,9 +57,10 @@ function SingleVIewCard() {
                   <div className="anwae">
                     <Card className="single-view-btn-card">
                       <div>
+                        <Link to={'/connectus'}>
                         <Button className="single-view-connect-btn">
                           Connect US
-                        </Button>
+                        </Button></Link>
                       </div>
                     </Card>
                   </div>

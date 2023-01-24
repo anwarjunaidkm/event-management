@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { c1, c2, c3, c4, c5, c7, mic, rent } from "../image/image";
 import Popular from "../popular/Popular";
 import "./MainCategoryCard.css";
@@ -14,6 +15,7 @@ function MainCategoryCard() {
         <Row className="main-row">
 
           <Col md={3} className="parrentCtegory">
+          <Link to={"/listcompany"}> 
             <Card
               className="card"
               style={{
@@ -28,6 +30,7 @@ function MainCategoryCard() {
                 <Card.Text></Card.Text>
               </Card.Body>
             </Card>
+            </Link> 
           </Col>
 
           <Col md={3} className="parrentCtegory">

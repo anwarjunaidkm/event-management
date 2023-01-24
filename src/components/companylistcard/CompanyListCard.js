@@ -4,6 +4,7 @@ import ReactStars from 'react-rating-stars-component';
 
 import { c1logo, c2, c3logo, c5logo, c6logo, logo } from '../image/image';
 import "./CompanyListCard.css";
+import { Link } from 'react-router-dom';
 
 
 function CompanyListCard() {
@@ -27,7 +28,8 @@ function CompanyListCard() {
                     <img className='compnay-list-icon' src={c5logo} alt="" />
                     </div></Col>
                 <Col>
-                <h5 className='company-list-company-name'>CASATA EVENTS</h5>
+
+              <Link to={"/singleview"}>  <h5 className='company-list-company-name'>CASATA EVENTS</h5></Link>
                 
                 <p className='m-0'> Malappuram hill <br></br>Second street vilayil 673641</p>
                 <p className='work-time'>Work time: 9:00 AM-8:00 PM</p>
