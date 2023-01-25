@@ -1,16 +1,15 @@
 import React from 'react'
-import AdminLayout from '../../../Layout/admin/AdminLayout'
-
+import TeamLayout from '../../../Layout/Team/TeamLayout'
 import { AiFillEye, AiOutlineDelete } from 'react-icons/ai'
 import { BsPencil } from 'react-icons/bs'
 import { Card, Container, Table } from 'reactstrap'
-import { Link } from 'react-router-dom'
 
-function AlleventTeam() {
+function TeamAllservice() {
   return (
-    <AdminLayout>
-    <h5 style={{color:"#6a3921"}}>All Eventteam</h5>
-    <Card className='allusers-card' style={{margin:"18px",borderRadius:"10px"}} >
+   <TeamLayout>
+    
+    <h5 style={{color:"#6a3921"}}>All Services</h5>
+        <Card className='allusers-card' style={{margin:"18px",borderRadius:"10px"}} >
         
 <Table  
   responsive
@@ -21,16 +20,14 @@ function AlleventTeam() {
         #
       </th>
       <th>
-        TeamName
+        Service Name
       </th>
       <th>
-        UserName
+       Category
       </th>
+     
       <th>
-        Email
-      </th>
-      <th>
-        Phone
+        Date
       </th>
       <th>
         Action
@@ -51,9 +48,7 @@ function AlleventTeam() {
       <td>
        aj@outlook.com
       </td>
-      <td>
-        97979797979
-      </td>
+      
       <td className='d-flex p-2'>
         <div>
 
@@ -65,7 +60,7 @@ function AlleventTeam() {
       </div>
       <div style={{paddingLeft:"10px"}}>
 
-    <Link to={"/eventteamsingle"}>   <AiFillEye size={20} /></Link>
+       <AiFillEye size={20} />
       </div>
       </td>
     </tr>
@@ -75,8 +70,10 @@ function AlleventTeam() {
 </Table>
 
         </Card>
-    </AdminLayout>
+       
+
+   </TeamLayout>
   )
 }
 
-export default AlleventTeam
+export default TeamAllservice

@@ -1,16 +1,16 @@
 import React from 'react'
-import AdminLayout from '../../../Layout/admin/AdminLayout'
+import TeamLayout from '../../../Layout/Team/TeamLayout'
 
 import { AiFillEye, AiOutlineDelete } from 'react-icons/ai'
 import { BsPencil } from 'react-icons/bs'
+import { TfiReload } from 'react-icons/tfi'
 import { Card, Container, Table } from 'reactstrap'
-import { Link } from 'react-router-dom'
 
-function AlleventTeam() {
+function Enquiry() {
   return (
-    <AdminLayout>
-    <h5 style={{color:"#6a3921"}}>All Eventteam</h5>
-    <Card className='allusers-card' style={{margin:"18px",borderRadius:"10px"}} >
+    <TeamLayout>
+        <h5 style={{color:"#6a3921"}}>Enquiries</h5>
+        <Card className='allusers-card' style={{margin:"18px",borderRadius:"10px"}} >
         
 <Table  
   responsive
@@ -21,19 +21,18 @@ function AlleventTeam() {
         #
       </th>
       <th>
-        TeamName
+       Name
       </th>
       <th>
-        UserName
+      Phone
       </th>
+     
       <th>
-        Email
+        Date
       </th>
-      <th>
-        Phone
-      </th>
-      <th>
-        Action
+      <th style={{paddingRight:"10px"}}>
+        Action  <div style={{paddingInline:"10px",display:"inline-block" }}>
+            <div>< TfiReload /></div></div>
       </th>
     </tr>
   </thead>
@@ -51,9 +50,7 @@ function AlleventTeam() {
       <td>
        aj@outlook.com
       </td>
-      <td>
-        97979797979
-      </td>
+      
       <td className='d-flex p-2'>
         <div>
 
@@ -65,7 +62,7 @@ function AlleventTeam() {
       </div>
       <div style={{paddingLeft:"10px"}}>
 
-    <Link to={"/eventteamsingle"}>   <AiFillEye size={20} /></Link>
+       <AiFillEye size={20} />
       </div>
       </td>
     </tr>
@@ -75,8 +72,8 @@ function AlleventTeam() {
 </Table>
 
         </Card>
-    </AdminLayout>
+    </TeamLayout>
   )
 }
 
-export default AlleventTeam
+export default Enquiry

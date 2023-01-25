@@ -1,17 +1,12 @@
-import { padding } from '@mui/system';
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Button, Card } from 'reactstrap'
-import AdminLayout from '../../../Layout/admin/AdminLayout'
+import TeamLayout from '../../../Layout/Team/TeamLayout'
 
-function Notification() {
+function Notificationsingle() {
   return (
-    <AdminLayout>
+    <TeamLayout>
         
-
-        
-    
-        
-
         <div style={{display:'flex',justifyContent:"center", }}>
         <Card style={{width:'400px',height:"300px" ,margin :"30px",}} >
             
@@ -57,16 +52,17 @@ function Notification() {
       
     
         <div className="btnConnect-parent">
-          <Button className="btn-connect">Publish</Button>
+       <Link to={"/viewnotification"}>
+       <Button className="btn-connect">Back</Button>
+       </Link>
         </div>
         </Card>
         </div>
         
         
-     
-     
-    </AdminLayout>
-  );
+
+    </TeamLayout>
+  )
 }
 
-export default Notification
+export default Notificationsingle

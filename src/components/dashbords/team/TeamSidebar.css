@@ -1,0 +1,32 @@
+.team-sidebar {
+    width: 250px;
+    min-height: 100vh;
+    background-color:var(--primary-header-gray);
+    font-size: 20px;
+    padding-top: 10px;
+
+
+}
+.team-sidebar-heading{
+    display: flex;
+    /* margin-left: 35px; */
+    margin-bottom: 20px;
+    color: #330867;
+    cursor: pointer;
+   
+}
+.team-sidebar-icon{
+    margin-right: 25px;
+
+    
+}
+.team-sidebar-icon-link{
+    text-decoration: none;
+    color: var(--primary-coffie);
+}
+.option{
+    font-weight: bold;
+}
+.team-sidebar-menu{
+    font-size: 17px;
+}

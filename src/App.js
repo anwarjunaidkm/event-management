@@ -16,6 +16,15 @@ import Allusers from './components/dashbords/admin/Allusers';
 import AlleventTeam from './components/dashbords/admin/AlleventTeam';
 import Notification from './components/dashbords/admin/Notification';
 import AddCategory from './components/dashbords/admin/AddCategory';
+import TeamBanner from './components/dashbords/team/TeamBanner';
+import TeamAllservice from './components/dashbords/team/TeamAllservice';
+import AddService from './components/dashbords/team/AddService';
+import Enquiry from './components/dashbords/team/Enquiry';
+import Inbox from './components/dashbords/team/Inbox';
+import Inboxview from './components/dashbords/team/Inboxview';
+import ViewNotification from './components/dashbords/team/ViewNotification';
+import Notificationsingle from './components/dashbords/team/Notificationsingle';
+import EventTeamSingle from './components/dashbords/admin/EventTeamSingle';
 
 function App() {
   return (
@@ -31,12 +40,20 @@ function App() {
 <Route exact path='listcompany' element={<ListCompany />} />
 <Route exact path='singleview' element={<Singleview />} />
 <Route exact path='connectus' element={<ConnectToUs />} />
-{/* <Route exact path='admin' element={< AdminSidebar />} /> */}
-<Route exact path='admin' element={< AdminBanner/>} />
+<Route exact path='admindash' element={< AdminBanner/>} />
 <Route exact path='allusers' element={< Allusers />} />
 <Route exact path='allteam' element={< AlleventTeam />} />
 <Route exact path='notification' element={<Notification />} />
 <Route exact path='addcategory' element={<AddCategory  />} />
+<Route exact path='teamdash' element={<TeamBanner />} />
+<Route exact path='allservice' element={< TeamAllservice />} />
+<Route exact path='addservice' element={< AddService />} />
+<Route exact path='enquiries' element={<Enquiry />} />
+<Route exact path='inbox' element={<Inbox />} />
+<Route exact path='inboxview' element={<Inboxview />} />
+<Route exact path='viewnotification' element={<ViewNotification />} />
+<Route exact path='notificationsingle' element={<Notificationsingle/>} />
+<Route exact path='eventteamsingle' element={<EventTeamSingle />} />
 </Routes>
 
 </BrowserRouter>

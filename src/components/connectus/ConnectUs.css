@@ -15,11 +15,11 @@
 
     .connect-input{
         outline: none;
-        border: 0;
-        /* border-color: gray; */
         background-color:var( --primary-header-gray);
         border-radius: 15px;
-        color: rgb(93, 92, 92);
+        border: 0;
+        margin-top: 10px;
+        color: rgb(93, 92, 92);    
         padding: 6px;
        
     
@@ -41,6 +41,7 @@
     }  
     .btn-connect{
         background-color: var(--primary-coffie);
+        font-size: 12px;
     }
     .btnConnect-parent{
         display: flex;

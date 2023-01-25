@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Button, Card, Container } from 'reactstrap'
-import "./ConnectUs.css"
+import TeamLayout from '../../../Layout/Team/TeamLayout'
 
-function ConnectUs() {
+function Inboxview() {
   return (
-    <div main-connectus>
+    <TeamLayout>
+        <div main-connectus>
         <Container>
             <div className="body-conncet">
                 <Card className='conncetus-card'>
@@ -23,15 +24,15 @@ Lao Tseu
 </textarea>
 <div className='btnConnect-parent'>
 
-<Link to={"/singleview"}>   <Button className='btn-connect' style={{margin:"3px"}}>Back</Button></Link>
-   <Button  style={{margin:"3px"}} className='btn-connect'>Send</Button>
+   <Link to={"/inbox"}>  <Button className='btn-connect'>Back</Button></Link>
 </div>
                 </Card>
             </div>
         </Container>
 
     </div>
+    </TeamLayout>
   )
 }
 
-export default ConnectUs
+export default Inboxview
