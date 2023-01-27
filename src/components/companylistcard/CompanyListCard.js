@@ -42,7 +42,7 @@ function CompanyListCard() {
                     </Col>
                   </Row>
                   <Row >
-                    <Col className='btn-parrent'> <Button className='enquiry-btn'>Enquiry</Button>
+                    <Col className='btn-parrent'><Link to={"/enquiryform"}> <Button className='enquiry-btn'>Enquiry</Button></Link>
                 </Col>
                   </Row>
                   

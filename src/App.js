@@ -25,6 +25,7 @@ import Inboxview from './components/dashbords/team/Inboxview';
 import ViewNotification from './components/dashbords/team/ViewNotification';
 import Notificationsingle from './components/dashbords/team/Notificationsingle';
 import EventTeamSingle from './components/dashbords/admin/EventTeamSingle';
+import EnquiryForm from './components/enquryform/EnquiryForm';
 
 function App() {
   return (
@@ -54,6 +55,7 @@ function App() {
 <Route exact path='viewnotification' element={<ViewNotification />} />
 <Route exact path='notificationsingle' element={<Notificationsingle/>} />
 <Route exact path='eventteamsingle' element={<EventTeamSingle />} />
+<Route exact path='enquiryform' element={<EnquiryForm />} />
 </Routes>
 
 </BrowserRouter>

@@ -1,0 +1,36 @@
+.admin-team-singleview-avatar{
+    max-height: 100px;
+    max-width: 100px;
+    border-radius: 50%;
+   
+}
+.admin-team-singleview-name-card{
+   
+    margin: 21px;
+    padding: 10px;
+}
+.admin-input-boxstyle{
+    outline: none;
+    background-color:var( --primary-header-gray);
+    border-radius: 15px;
+    border: 0;
+    margin-top: 10px;
+    color: rgb(93, 92, 92);    
+    padding: 6px;
+}
+.admin-team-singleview-form-card{
+
+    margin: 21px;
+    padding: 10px;
+}
+.admin-single-form{
+
+    color: gray;
+    /* margin-top: 10px;
+    font-size: 17px; */
+    align-items: center !important;
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+

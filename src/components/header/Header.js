@@ -1,9 +1,9 @@
 import React from 'react'
-import { Button } from 'reactstrap'
 import {Container,Nav,Navbar} from 'react-bootstrap';
 import { CgProfile } from 'react-icons/cg';
 import { logo } from '../image/image';
 import { Link } from 'react-router-dom';
+import { Button } from 'reactstrap';
 
 
 
@@ -21,8 +21,9 @@ function Header() {
             <Nav.Link href="#pricing">Contact Us</Nav.Link>
           </Nav>
           <Nav>
-            
-            <CgProfile size={28} />
+          
+
+            {/* <CgProfile size={28} /> */}
 
           </Nav>
         </Container>
