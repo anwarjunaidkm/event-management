@@ -2,22 +2,30 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 590px;
+    /* height: 590px; */
+    height: 523px;
 }
-.login-banner{
+
+/* .login-banner{
     height: 400px ;
     width: 700px;
     background-color: var(--primary-header-gray);
    
+} */
+.login-banner{
+    height: 440px ;
+    width: 800px;
+    background-color: var(--primary-header-gray);
+   
 }
 .login-left{
-    min-height: 400px;
+    min-height: 440px;
     background-color:var(--primary-coffie);
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
 }
 .login-right{
-    min-height: 400px;
+    min-height: 440px;
     display: flex;
     align-items: center;
     text-align: center;

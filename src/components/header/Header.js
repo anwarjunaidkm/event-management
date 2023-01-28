@@ -24,7 +24,7 @@ function Header() {
           
 
             {/* <CgProfile size={28} /> */}
-          <Link style={{textDecoration:"none"}} to={'/login'}>  <Button style={{backgroundColor:"#6a3921",fontSize:"9px",borderRadius:"18px",boxShadow:'none' ,color:'white' ,TextDecoder:"none"}} variant="contained" size='small'>Login</Button></Link>
+          <Link style={{textDecoration:"none"}} to={'/login'}>  <Button style={{backgroundColor:"#6a3921",fontSize:"10px",borderRadius:"13px",boxShadow:'none' ,color:'white' ,TextDecoder:"none",padding:"5px"}} variant="contained" size='small'>Login</Button></Link>
 
           </Nav>
         </Container>

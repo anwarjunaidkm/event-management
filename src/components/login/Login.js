@@ -39,8 +39,8 @@ function Login() {
                       size="small"
                     />
                     <div style={{margin:"15px"}}>
-
-                    <Button style={{backgroundColor:"#6a3921",fontSize:"12px",}} variant="contained">Login</Button>
+                    
+<Button style={{backgroundColor:"#6a3921",fontSize:"12px",borderRadius:"13px"}} variant="contained">Login</Button>
 
                     </div>
 
@@ -53,14 +53,14 @@ function Login() {
                 
                 
                 
-                }}>don't have an account yet ?  <span style={{fontWeight:"bold",color:"#6a3921"}}>Sign Up</span></p>
+                }}>don't have an account yet ? <span style={{fontWeight:"bold",color:"#6a3921"}}> <Link style={{textDecoration:"none",color:"inherit"}} to={"/signuser"}>Sign Up</Link></span></p>
                   </div>
                 </div>
               </Col>
             </Row>
           </div>
         </Container>
-      <Footer />
+      {/* <Footer /> */}
       </div>
     </>
   );
