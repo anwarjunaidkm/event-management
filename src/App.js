@@ -26,6 +26,9 @@ import ViewNotification from './components/dashbords/team/ViewNotification';
 import Notificationsingle from './components/dashbords/team/Notificationsingle';
 import EventTeamSingle from './components/dashbords/admin/EventTeamSingle';
 import EnquiryForm from './components/enquryform/EnquiryForm';
+import Login from './components/login/Login';
+import SignUser from './components/siginupUser/SignUser';
+import SignTeam from './components/signteam/SignTeam';
 
 function App() {
   return (
@@ -56,6 +59,9 @@ function App() {
 <Route exact path='notificationsingle' element={<Notificationsingle/>} />
 <Route exact path='eventteamsingle' element={<EventTeamSingle />} />
 <Route exact path='enquiryform' element={<EnquiryForm />} />
+<Route exact path='login' element={<Login />} />
+<Route exact path='signuser' element={<SignUser />} />
+<Route exact path='signteam' element={<SignTeam/>} />
 </Routes>
 
 </BrowserRouter>

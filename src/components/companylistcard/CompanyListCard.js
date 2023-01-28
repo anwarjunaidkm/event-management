@@ -29,7 +29,7 @@ function CompanyListCard() {
                     </div></Col>
                 <Col>
 
-              <Link to={"/singleview"}>  <h5 className='company-list-company-name'>CASATA EVENTS</h5></Link>
+              <Link style={{textDecoration:"none" ,color:'inherit'}} to={"/singleview"}>  <h5 className='company-list-company-name'>CASATA EVENTS</h5></Link>
                 
                 <p className='m-0'> Malappuram hill <br></br>Second street vilayil 673641</p>
                 <p className='work-time'>Work time: 9:00 AM-8:00 PM</p>

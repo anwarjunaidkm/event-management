@@ -15,7 +15,7 @@ function MainCategoryCard() {
         <Row className="main-row">
 
           <Col md={3} className="parrentCtegory">
-          <Link to={"/listcompany"}> 
+          <Link style={{textDecoration:"none"}} to={"/listcompany"}> 
             <Card
               className="card"
               style={{
