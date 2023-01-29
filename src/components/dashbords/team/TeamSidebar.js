@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom'
 import "./TeamSidebar.css"
 import { AiFillFolderAdd, AiOutlineFolderAdd, AiOutlineNotification } from 'react-icons/ai'
 import { Container } from 'reactstrap'
+import { RxDashboard } from 'react-icons/rx'
 
 
 
@@ -30,6 +31,12 @@ function TeamSidebar() {
             </div>
             <h5 style={{ margin: "0" }}><Link to={'/dashboard'} style={{ textDecoration: "none", color: "#330867" }}>Dashboard</Link></h5>
         </div> */}
+        <div className='team-sidebar-heading'>
+            <div className='team-sidebar-icon'>
+                <Link to={'/alljobcard'} className='team-sidebar-icon-link'><RxDashboard /></Link>
+            </div>
+            <h5 className='admin-sidebar-menu' style={{ margin: "0" }}><Link to={'/teamdash'} className='sidebar-icon-link'>Dashboard</Link></h5>
+        </div>
         <div className='team-sidebar-heading'>
             <div className='team-sidebar-icon'>
                 <Link to={'/alljobcard'} className='team-sidebar-icon-link'><HiOutlineUsers /></Link>

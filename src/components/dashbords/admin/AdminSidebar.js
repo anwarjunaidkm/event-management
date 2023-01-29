@@ -33,6 +33,12 @@ function AdminSidebar() {
                 </div> */}
                 <div className='sidebar-heading'>
                     <div className='sidebar-icon'>
+                        <Link to={'/alljobcard'} className='sidebar-icon-link'><RxDashboard /></Link>
+                    </div>
+                    <h5 className='admin-sidebar-menu' style={{ margin: "0" }}><Link to={'/admindash'} className='sidebar-icon-link'>Dashbord</Link></h5>
+                </div>
+                <div className='sidebar-heading'>
+                    <div className='sidebar-icon'>
                         <Link to={'/alljobcard'} className='sidebar-icon-link'><HiOutlineUsers /></Link>
                     </div>
                     <h5 className='admin-sidebar-menu' style={{ margin: "0" }}><Link to={'/allusers'} className='sidebar-icon-link'>All User</Link></h5>
