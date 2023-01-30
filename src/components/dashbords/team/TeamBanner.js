@@ -3,7 +3,7 @@ import TeamLayout from '../../../Layout/Team/TeamLayout'
 import { CardBody, CardHeader, CardText, Container,Card,CardTitle, Row, Col, Button } from 'reactstrap'
 import { minWidth } from '@mui/system'
 import "./TeamBanner.css"
-import { dash111, dash222, dash333, dash444 } from '../../image/image'
+import { aj, ava, avatar, c1logo, c2logo, c3logo, dash111, dash222, dash333, dash444 } from '../../image/image'
 
 function TeamBanner() {
   return (
@@ -20,6 +20,9 @@ function TeamBanner() {
             </Row>
             <Row>
               <Col md={6}>
+                <div className='img-parent'>
+                  <img className='team-banner-avatar' src={aj}></img>
+                </div>
                 <h3 className="title-banner-team">Casata Event</h3>
               </Col>
               <Col md={6}>

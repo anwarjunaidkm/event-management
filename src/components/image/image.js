@@ -38,5 +38,7 @@ export {default as sub4} from "./sub4.jpg";
  export {default as dash444} from "./dash444.png"
  export {default as team} from "./team.png"
  export {default as user} from "./user.png"
+ export {default as aj} from "./aj.jpg"
+ export {default as ava} from "./ava.png"
 
 
