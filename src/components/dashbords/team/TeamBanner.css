@@ -4,6 +4,55 @@
     background-color: var(--primary-coffie);
     color: white;
     min-height: 100px;
+    border-radius: 20px 20px 0px 0px; /*TL TR BR BL*/
+    
+
    
 
-}      
+}  
+.btn-profile{
+    height: 30px;
+    width: 110px ;
+    font-size: 12px;
+    margin-bottom: 5px;
+    color:#ffffffd6;
+    border: 0;
+}
+.title-banner-team{
+    color: #6d4c41;
+    font-size: 25px;
+    padding: 9px;
+    padding-right: 0px;
+
+}
+.banner-welcome{
+    color: #bdbdbdab;
+    padding: 10px;
+    font-size: 20px;
+    font-variant: small-caps;
+
+}
+.dashicon-size{
+    max-width: 90px;
+    max-height: 90px;
+    padding: 10px;
+}
+.dashbord-banner-title{
+    font-size: 15px;
+    color: gray;
+    padding: 10px;
+}
+.icon-banner-parent{
+    
+   display: flex;
+justify-content: center;
+align-items: center;
+}
+.top-radius-banner{
+    border-radius: 20px 20px 0px 0px !important; /*TL TR BR BL*/
+    /* border-top-right-radius: 20px !important ;
+    border-top-left-radius: 20px; */
+}
+.botton-radius-banner{
+    border-radius: 0px 0px 20px 20px !important; /*TL TR BR BL*/
+}

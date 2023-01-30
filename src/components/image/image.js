@@ -29,3 +29,14 @@ export {default as sub4} from "./sub4.jpg";
  export {default as avatar2} from "./avatar2.png"
  export {default as avatar3} from "./avatar3.png"
 
+
+ //dashbord
+
+ export {default as dash111} from "./dash111.png"
+ export {default as dash222} from "./dash222.png"
+ export {default as dash333} from "./dash333.png"
+ export {default as dash444} from "./dash444.png"
+ export {default as team} from "./team.png"
+ export {default as user} from "./user.png"
+
+
