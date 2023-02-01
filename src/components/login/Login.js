@@ -4,7 +4,7 @@ import React from 'react'
 import { useState } from 'react'
 import { Col, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Card, Container } from 'reactstrap'
 import { anwar, LoginA, LoginApi } from '../../store/auth/AuthSlice'
 import Footer from '../footer/Footer'
@@ -13,6 +13,7 @@ import "./Login.css"
 
 function Login() {
   const [Input,setInput] =useState()
+  const navigate =useNavigate()
   const dispatch =useDispatch()
   const Handle =(e)=>{
     setInput({
@@ -26,7 +27,7 @@ function Login() {
 
   const handleLogin =(e)=>{
     e.preventDefault()
-   dispatch(LoginApi(Input))
+   dispatch(LoginApi({data: Input,navigate}))
     console.log(Input,"inputsss");
   }
 
