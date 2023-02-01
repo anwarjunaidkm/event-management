@@ -3,27 +3,31 @@ import { display, margin, padding } from '@mui/system'
 import React from 'react'
 import { useState } from 'react'
 import { Col, Row } from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Card, Container } from 'reactstrap'
+import { anwar, LoginA, LoginApi } from '../../store/auth/AuthSlice'
 import Footer from '../footer/Footer'
 import Header from '../header/Header'
 import "./Login.css"
 
 function Login() {
-  const [input,setInput] =useState()
+  const [Input,setInput] =useState()
+  const dispatch =useDispatch()
   const Handle =(e)=>{
     setInput({
-      ...input,
+      ...Input,
       [e.target.name]:e.target.value
     }) 
-    
-
-
   }
+  const { loginInfo, loading}=useSelector((state)=>state.Auth)
+  console.log(loginInfo);
+  
+
   const handleLogin =(e)=>{
     e.preventDefault()
-
-    console.log(input);
+   dispatch(LoginApi(Input))
+    console.log(Input,"inputsss");
   }
 
   return (
@@ -56,7 +60,7 @@ function Login() {
                       id="outlined-password-input"
                       label="Password"
                       type="password"
-                      name='passowrd'
+                      name='password'
                       onChange={(e)=>Handle(e)}
                       
                       
