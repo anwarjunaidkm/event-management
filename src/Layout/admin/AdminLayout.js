@@ -1,13 +1,13 @@
 import React from 'react'
 import { Container } from 'reactstrap'
 import AdminSidebar from '../../components/dashbords/admin/AdminSidebar'
-import Header from '../../components/header/Header'
+import HeaderDash from '../../components/header/HeaderDash'
 
 function AdminLayout({children}) {
   return (
     <div>
         
-        <Header />
+        <HeaderDash/>
         <div style={{display:'flex'}}>
         
 

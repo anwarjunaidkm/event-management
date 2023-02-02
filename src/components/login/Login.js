@@ -22,13 +22,13 @@ function Login() {
     }) 
   }
   const { loginInfo, loading}=useSelector((state)=>state.Auth)
-  console.log(loginInfo);
+  // console.log(loginInfo);
   
 
   const handleLogin =(e)=>{
     e.preventDefault()
    dispatch(LoginApi({data: Input,navigate}))
-    console.log(Input,"inputsss");
+    // console.log(Input,"inputsss");
   }
 
   return (

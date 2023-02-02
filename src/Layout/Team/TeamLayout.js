@@ -1,12 +1,12 @@
 import React from 'react'
 import TeamSidebar from '../../components/dashbords/team/TeamSidebar'
-import Header from '../../components/header/Header'
+import HeaderDash from '../../components/header/HeaderDash'
 
 function TeamLayout({children}) {
   return (
     <div>
         
-        <Header />
+        <HeaderDash />
         <div style={{display:'flex'}}>
         
 

@@ -1,12 +1,14 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axiosApi from "../AxiosInstance";
 
+
+//-------------------------login-----------------------------
    export const LoginApi = createAsyncThunk(
     "login/LoginApi",
         async (data)=>{
-            console.log(data);
+           
             const res = await axiosApi.post("/projectaccount/login/",data.data);
-            console.log(res.data);
+           
             if(res?.data?.token)
             sessionStorage.setItem('token',res.data.token);
             sessionStorage.setItem('role',res.data.role);
@@ -24,10 +26,28 @@ import axiosApi from "../AxiosInstance";
 
         }
    ) 
-//  ---------------slice start----------
+   //<<<<<-------------logout--------------------------------->>>>>
+
+   export const LogoutApi =createAsyncThunk(
+    "login/logout",
+    async(navigate)=>{
+        const res=axiosApi.post("/auth/token/logout/")
+        console.log(res);
+        if (res?.data) {
+            localStorage.clear();
+              sessionStorage.clear();
+             navigate("/");
+        }
+        
+    }
+
+   )
+//  <<<<<<<<---------------slice start------------------------------------------------------->>>>>
         const INITIAL_STATE ={
         
             loading:false,
+            isLoggedIn:false
+
 
         }
  const AuthSlice = createSlice({
@@ -48,11 +68,27 @@ import axiosApi from "../AxiosInstance";
         },
         [LoginApi.fulfilled]:(state,action)=>{
             state.loading=false
+            state.isLoggedIn=true
             console.log("success");
         },
         [LoginApi.rejected]:(state,action)=>{
             console.log("faild");
         },
+    //------------------------logout-----------------
+        [LogoutApi.pending]:(state,action) =>{
+            state.loading=true;
+            console.log("requsted");
+        },
+        [LogoutApi.fulfilled]:(state,action)=>{
+            state.loading=false
+            state.isLoggedIn=false
+            console.log("success");
+        },
+        [LogoutApi.rejected]:(state,action)=>{
+            console.log("faild");
+        },
+
+        
     }
    
  })
