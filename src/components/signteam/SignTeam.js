@@ -138,6 +138,34 @@ function SignTeam() {
                         <input
                           type="text"
                           class="form-control form-control-sm"
+                          placeholder="Pincode"
+                          name="pin_code"
+                          onChange={(e) => Handle(e)}
+                        />
+                      </Col>
+                    </FormGroup>
+                  </Col>
+                  <Col md={6}>
+                    <FormGroup row>
+                      <Col sm={10}>
+                        <input
+                          type="text"
+                          class="form-control form-control-sm"
+                          placeholder="District"
+                          name="district"
+                          onChange={(e) => Handle(e)}
+                        />
+                      </Col>
+                    </FormGroup>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col md={6}>
+                    <FormGroup row>
+                      <Col sm={10}>
+                        <input
+                          type="text"
+                          class="form-control form-control-sm"
                           placeholder="Work time"
                           name="work_time"
                           onChange={(e) => Handle(e)}
@@ -166,7 +194,7 @@ function SignTeam() {
                         <input
                           type="text"
                           class="form-control form-control-sm"
-                          placeholder="District-passwprd"
+                          placeholder="Re Password"
                           name="password2"
                           onChange={(e)=>Handle(e)}
                         />

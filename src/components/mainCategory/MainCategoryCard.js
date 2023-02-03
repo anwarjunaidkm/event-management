@@ -1,11 +1,28 @@
 import React from "react";
+import { useEffect } from "react";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { useDispatch, useSelector  } from "react-redux";
 import { Link } from "react-router-dom";
+import { mainCategory, MainCategoryApi, mainCategoryList } from "../../store/mainCategory/MainCategorySlice";
 import { c1, c2, c3, c4, c5, c7, mic, rent } from "../image/image";
 import Popular from "../popular/Popular";
 import "./MainCategoryCard.css";
 
 function MainCategoryCard() {
+const dispatch=useDispatch()
+//  const  {categoryList}=useSelector((state)=>state.Category)
+const {categoryList} = useSelector((state) => state.Category);
+
+ console.log("card===",categoryList.results);
+  const tableData =categoryList.results;
+  console.log("tabledta===",tableData);
+
+useEffect(() => {
+  dispatch(MainCategoryApi(mainCategoryList))
+  
+},[])
+  
+
   return (
     <div className="main-category-card">
       <Container>
@@ -13,6 +30,9 @@ function MainCategoryCard() {
             <h4 className="my-0 p-3">Main Categories</h4>
           </div>
         <Row className="main-row">
+          {tableData.map((item)=>{
+            return (
+
 
           <Col md={3} className="parrentCtegory">
           <Link style={{textDecoration:"none"}} to={"/listcompany"}> 
@@ -24,16 +44,18 @@ function MainCategoryCard() {
                 backgroundColor: "white",
               }}
             >
-              <Card.Img className="card-image" variant="top" src={c1} />
+              <Card.Img className="card-image" variant="top" src={item.image} />
               <Card.Body className="main-card-body">
-                <Card.Title className="card-title">Event Organisers</Card.Title>
+                <Card.Title className="card-title">{item.sub_catagory_name}</Card.Title>
                 <Card.Text></Card.Text>
               </Card.Body>
             </Card>
             </Link> 
           </Col>
+         ) })}
 
-          <Col md={3} className="parrentCtegory">
+
+          {/* <Col md={3} className="parrentCtegory">
             <Card
               className="card"
               style={{
@@ -114,7 +136,7 @@ function MainCategoryCard() {
                 <Card.Text></Card.Text>
               </Card.Body>
             </Card>
-          </Col>
+          </Col> */}
         </Row>
       
       </Container>
