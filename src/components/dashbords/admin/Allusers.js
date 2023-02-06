@@ -1,11 +1,26 @@
 import React from 'react'
+import { useEffect } from 'react'
 import { AiFillEye, AiOutlineDelete } from 'react-icons/ai'
 import { BsPencil } from 'react-icons/bs'
+import { useDispatch, useSelector } from 'react-redux'
 import { Card, Container, Table } from 'reactstrap'
 import AdminLayout from '../../../Layout/admin/AdminLayout'
+import { AllusersApi } from '../../../store/admin/AdminSlice'
 import "./Allusers.css"
 
 function Allusers() {
+   const dispatch = useDispatch() 
+   const {allusersList} = useSelector((state) => state.admin);
+
+   console.log("userlist====",allusersList);
+
+
+
+   useEffect(() => {
+    dispatch(AllusersApi())
+     
+   }, [])
+   
   return (
       <AdminLayout>
        
@@ -39,37 +54,44 @@ function Allusers() {
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">
-        1
-      </th>
-      <td>
-        Mark
-      </td>
-      <td>
-        Otto
-      </td>
-      <td>
-       aj@outlook.com
-      </td>
-      <td>
-        97979797979
-      </td>
-      <td className='d-flex p-2'>
-        <div>
+    {allusersList.map((item,key)=>{
 
-        <AiOutlineDelete size={20}  />
-      </div>
-      <div style={{paddingLeft:"10px"}}>
+return(
+<tr>
+<th scope="row">
+  {key+1}
+</th>
+<td>
+  {item.full_name
+}
+</td>
+<td>
+  {item.username}
+</td>
+<td>
+ {item.email}
+</td>
+<td>
+  {item.phone}
+</td>
+<td className='d-flex p-2'>
+  <div>
 
-        <BsPencil />
-      </div>
-      <div style={{paddingLeft:"10px"}}>
+  <AiOutlineDelete size={20}  />
+</div>
+<div style={{paddingLeft:"10px"}}>
 
-       <AiFillEye size={20} />
-      </div>
-      </td>
-    </tr>
+  <BsPencil />
+</div>
+<div style={{paddingLeft:"10px"}}>
+
+ <AiFillEye size={20} />
+</div>
+</td>
+</tr>
+
+)  })}
+    
    
    
   </tbody>

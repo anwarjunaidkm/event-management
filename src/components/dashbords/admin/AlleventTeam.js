@@ -5,8 +5,21 @@ import { AiFillEye, AiOutlineDelete } from 'react-icons/ai'
 import { BsPencil } from 'react-icons/bs'
 import { Card, Container, Table } from 'reactstrap'
 import { Link } from 'react-router-dom'
+import { AllevenTeamApi } from '../../../store/admin/AdminSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
 
 function AlleventTeam() {
+  const dispatch = useDispatch() 
+
+  const {alleventtTeam} = useSelector((state) => state.admin);
+  console.log("all eventteam====",alleventtTeam);
+
+  useEffect(() => {
+    dispatch(AllevenTeamApi())
+     
+   }, [])
+
   return (
     <AdminLayout>
     <h5 style={{color:"#6a3921"}}>All Eventteam</h5>
@@ -38,37 +51,49 @@ function AlleventTeam() {
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">
-        1
-      </th>
-      <td>
-        Mark
-      </td>
-      <td>
-        Otto
-      </td>
-      <td>
-       aj@outlook.com
-      </td>
-      <td>
-        97979797979
-      </td>
-      <td className='d-flex p-2'>
-        <div>
+    {alleventtTeam.map((item,key)=>{
+      return(
 
-        <AiOutlineDelete size={20}  />
-      </div>
-      <div style={{paddingLeft:"10px"}}>
+        <tr>
+        <th scope="row">
+          {key+1}
+        </th>
+        <td>
+          {item.team_name}
+        </td>
+        <td>
+        {item.username}
+        </td>
+        <td>
+         {item.email}
+        </td>
+        <td>
+          {item.phone}
+        </td>
+        <td className='d-flex p-2'>
+          <div>
+  
+          <AiOutlineDelete size={20}  />
+        </div>
+        <div style={{paddingLeft:"10px"}}>
+  
+          <BsPencil />
+        </div>
+        <div style={{paddingLeft:"10px"}}>
+  
+      <Link to={"/eventteamsingle"}>   <AiFillEye size={20} /></Link>
+        </div>
+        </td>
+      </tr>
 
-        <BsPencil />
-      </div>
-      <div style={{paddingLeft:"10px"}}>
 
-    <Link to={"/eventteamsingle"}>   <AiFillEye size={20} /></Link>
-      </div>
-      </td>
-    </tr>
+
+
+      )
+
+
+    })}
+   
    
    
   </tbody>

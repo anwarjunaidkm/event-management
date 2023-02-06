@@ -1,14 +1,39 @@
 import React from 'react'
-import { Button, Card } from 'reactstrap'
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Button, Card, Form } from 'reactstrap'
 import AdminLayout from '../../../Layout/admin/AdminLayout'
+import { AddCategoryApi } from '../../../store/admin/AdminSlice';
 
 function AddCategory() {
+  const dispatch = useDispatch()
+  const [Input,setInput] =useState()
+
+  console.log("add cstegory state=====",Input);
+  
+
+  const categoryHandle= (e) =>{
+    e.preventDefault()
+    dispatch(AddCategoryApi(Input))
+  }
+  const handle =(e)=>{
+    setInput({
+      ...Input,
+      [e.target.name] : e.target.value
+  });
+
+  }
+  
+
+
+
+
   return (
     <AdminLayout>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <Card style={{ width: "400px", height: "200px", margin: "30px" ,textAlign:"center" }}>
           <h5 style={{fontSize:"14px",textAlign:"center",marginTop:"14px",color:"#6a3921"}}>Add Category</h5>
-
+          <Form onSubmit={categoryHandle}>
           <input
             type="text"
             placeholder="Enter Category Name..!"
@@ -20,11 +45,15 @@ function AddCategory() {
               padding: "6px",
               backgroundColor: "#f8f9fa",
               margin: "10px",
+              name:"sub_catagory_name",
+              
+              
             }}
+            onChange={(e)=>handle(e)}
           />
           <input
             type="file"
-            placeholder="Enter Category Name..!"
+           
             style={{
               outline: "none",
               border: "0",
@@ -33,7 +62,10 @@ function AddCategory() {
               padding: "6px",
               backgroundColor: "#f8f9fa",
               margin: "8px",
+              name:"image"
             }}
+            onChange={(e)=>handle(e)}
+
           />
           {/* <select style={{
 
@@ -56,8 +88,9 @@ function AddCategory() {
 
           }}>
 
-          <Button className='btn-connect'>ADD</Button>
+          <Button type='submit'  className='btn-connect'>ADD</Button>
           </div>
+          </Form>
         </Card>
       </div>
     </AdminLayout>

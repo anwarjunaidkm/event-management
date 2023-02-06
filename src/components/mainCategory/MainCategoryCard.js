@@ -18,7 +18,7 @@ const {categoryList} = useSelector((state) => state.Category);
   console.log("tabledta===",tableData);
 
 useEffect(() => {
-  dispatch(MainCategoryApi(mainCategoryList))
+  dispatch(MainCategoryApi())
   
 },[])
   
@@ -30,7 +30,7 @@ useEffect(() => {
             <h4 className="my-0 p-3">Main Categories</h4>
           </div>
         <Row className="main-row">
-          {tableData.map((item)=>{
+          {tableData?.map((item)=>{
             return (
 
 
