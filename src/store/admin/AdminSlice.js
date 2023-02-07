@@ -64,6 +64,43 @@ export const AddCategoryApi = createAsyncThunk(
     }
 )
 
+export const NotificationApi = createAsyncThunk(
+    "admin/NotificationApi",
+    async(data)=>{
+        console.log("nofiiiiiii===",data);
+        try{
+
+            const res= await axiosApi.post("/store/notification/",{"notification":data})
+            console.log("nofication====",res.data);
+            toast.success(" Notification Published..!", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme:"colored"
+              });
+            
+
+        }catch(error){
+            toast.error("Failed. Please try again.", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme:"colored"
+              });
+
+        }
+
+
+    }
+
+)
+
 
 
 const INITIAL_STATE ={
@@ -122,6 +159,20 @@ const AdminSlice =createSlice({
             
         },
         [AddCategoryApi.rejected]:(state,action)=>{
+            console.log("faild");
+        },
+        //-------notification---------------
+        
+        [NotificationApi.pending]:(state,action) =>{
+            state.loading=true;
+            console.log("requsted");
+        },
+        [NotificationApi.fulfilled]:(state,action)=>{
+            state.loading=false
+            console.log("success");
+            
+        },
+        [NotificationApi.rejected]:(state,action)=>{
             console.log("faild");
         },
         

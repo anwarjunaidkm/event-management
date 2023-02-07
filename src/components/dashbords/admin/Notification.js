@@ -1,9 +1,32 @@
 import { padding } from '@mui/system';
 import React from 'react'
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
 import { Button, Card } from 'reactstrap'
 import AdminLayout from '../../../Layout/admin/AdminLayout'
+import { NotificationApi } from '../../../store/admin/AdminSlice';
 
 function Notification() {
+  const dispatch=useDispatch()
+  const [notification,setNotification]=useState()
+console.log(notification);
+
+  const handle =(e)=>{
+    setNotification(
+      e.target.value
+    )
+  }
+
+  const PublishNotification =(e)=>{
+    e.preventDefault()
+   
+    dispatch(NotificationApi(notification))
+
+  }
+
+
+
   return (
     <AdminLayout>
         
@@ -15,7 +38,7 @@ function Notification() {
         <div style={{display:'flex',justifyContent:"center", }}>
         <Card style={{width:'400px',height:"300px" ,margin :"30px",}} >
             
-
+        <ToastContainer />
         <input style={{
               outline:"none",
               border:'0',
@@ -27,8 +50,10 @@ function Notification() {
               color: "rgb(93, 92, 92)",
               marginBottom:"0"
               
+              
 
-        }} className='' type="text"  placeholder='Subject'/>
+        }} 
+         className='' type="text"  placeholder='Subject'/>
             
 
             
@@ -45,6 +70,7 @@ function Notification() {
             color: "rgb(93, 92, 92)"
             
         }}
+        onChange={handle}
           className=""
           id="txtid"
           name="txtname"
@@ -57,7 +83,7 @@ function Notification() {
       
     
         <div className="btnConnect-parent">
-          <Button className="btn-connect">Publish</Button>
+          <Button onClick={(e)=>PublishNotification(e)} className="btn-connect">Publish</Button>
         </div>
         </Card>
         </div>
