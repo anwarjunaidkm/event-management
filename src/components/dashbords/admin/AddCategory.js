@@ -7,22 +7,39 @@ import { AddCategoryApi } from '../../../store/admin/AdminSlice';
 
 function AddCategory() {
   const dispatch = useDispatch()
-  const [Input,setInput] =useState()
+  const [inputValue, setInputValue] = useState("");
+const [imageFile, setImageFile] = useState(null);
 
-  console.log("add cstegory state=====",Input);
   
 
   const categoryHandle= (e) =>{
     e.preventDefault()
-    dispatch(AddCategoryApi(Input))
+    const data = {
+      inputValue,
+      imageFile,
+    };
+    dispatch(AddCategoryApi(data))
   }
-  const handle =(e)=>{
-    setInput({
-      ...Input,
-      [e.target.name] : e.target.value
-  });
 
-  }
+  const handleInputChange = (e) => {
+    setInputValue(
+
+    e.target.value);
+  };
+
+  const handleImageChange = (e) => {
+    setImageFile(
+      
+        e.target.files[0]);
+  };
+
+  // const handle =(e)=>{
+  //   setInput({
+  //     ...Input,
+  //     [e.target.name] : e.target.value
+  // });
+
+  // }
   
 
 
@@ -49,7 +66,8 @@ function AddCategory() {
               
               
             }}
-            onChange={(e)=>handle(e)}
+            // onChange={(e)=>handle(e)}
+            onChange={handleInputChange}
           />
           <input
             type="file"
@@ -64,7 +82,8 @@ function AddCategory() {
               margin: "8px",
               name:"image"
             }}
-            onChange={(e)=>handle(e)}
+            // onChange={(e)=>handle(e)}
+            onChange={handleImageChange}
 
           />
           {/* <select style={{

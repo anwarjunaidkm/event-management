@@ -23,10 +23,18 @@ export const AllevenTeamApi =createAsyncThunk(
 //-<<-----------add category------------------------->>
 export const AddCategoryApi = createAsyncThunk(
     "admin/AddCategoryApi",
-    async(data)=>{
-        console.log("DATA==",data);
-        const res = await axiosApi.post("/store/subcatagory/",data)
-        console.log("add category==",res);
+    async({inputValue,imageFile})=>{
+
+
+        const formData = new FormData();
+        formData.append("sub_catagory_name", inputValue);
+        formData.append("image", imageFile);
+        const res = await axiosApi.post("/store/subcatagory/", formData, {
+            headers: {
+              "Content-Type": "multipart/form-data"
+            }
+          });
+
         return res
     
     }
@@ -39,6 +47,7 @@ const INITIAL_STATE ={
     loading:false,
     allusersList:[],
     alleventtTeam:[],
+   
 
   
 
@@ -86,6 +95,7 @@ const AdminSlice =createSlice({
         [AddCategoryApi.fulfilled]:(state,action)=>{
             state.loading=false
             console.log("success");
+            
         },
         [AddCategoryApi.rejected]:(state,action)=>{
             console.log("faild");

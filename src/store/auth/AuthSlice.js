@@ -34,8 +34,8 @@ import axiosApi from "../AxiosInstance";
         const res=axiosApi.post("/auth/token/logout/")
         console.log(res);
         if (res?.data) {
-            localStorage.clear();
-              sessionStorage.clear();
+            // localStorage.clear();
+            //   sessionStorage.clear();
              navigate("/");
         }
         
