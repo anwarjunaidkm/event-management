@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 import axiosApi from "../AxiosInstance";
 
 
@@ -6,13 +7,30 @@ import axiosApi from "../AxiosInstance";
    export const LoginApi = createAsyncThunk(
     "login/LoginApi",
         async (data)=>{
+            try{
            
             const res = await axiosApi.post("/projectaccount/login/",data.data);
+            toast.success("Login successful!", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme:"colored"
+              });
+            
+                
+
+           
            
             if(res?.data?.token)
+           
             sessionStorage.setItem('token',res.data.token);
             sessionStorage.setItem('role',res.data.role);
+           
              switch(res?.data?.role){
+                
                 case "admin":
                     return data.navigate("/admindash")
                 case "customer":
@@ -21,8 +39,22 @@ import axiosApi from "../AxiosInstance";
                     return data.navigate("/teamdash")
                     default: return data.navigate("/")
              }
+             
+
             
-            return res
+            }
+            catch(error){
+                toast.error("Login failed. Please try again.", {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    theme:"colored"
+                  });
+
+            }
 
         }
    ) 

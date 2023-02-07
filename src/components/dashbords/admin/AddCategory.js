@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
 import { Button, Card, Form } from 'reactstrap'
 import AdminLayout from '../../../Layout/admin/AdminLayout'
 import { AddCategoryApi } from '../../../store/admin/AdminSlice';
@@ -51,6 +52,8 @@ const [imageFile, setImageFile] = useState(null);
         <Card style={{ width: "400px", height: "200px", margin: "30px" ,textAlign:"center" }}>
           <h5 style={{fontSize:"14px",textAlign:"center",marginTop:"14px",color:"#6a3921"}}>Add Category</h5>
           <Form onSubmit={categoryHandle}>
+          <ToastContainer />
+
           <input
             type="text"
             placeholder="Enter Category Name..!"

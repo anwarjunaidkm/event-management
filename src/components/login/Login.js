@@ -10,6 +10,8 @@ import { anwar, LoginA, LoginApi } from '../../store/auth/AuthSlice'
 import Footer from '../footer/Footer'
 import Header from '../header/Header'
 import "./Login.css"
+import { ToastContainer, toast } from "react-toastify";
+
 
 function Login() {
   const [Input,setInput] =useState()
@@ -45,8 +47,8 @@ function Login() {
                 <div className="login-right">
                   <div>
                     <form onSubmit={handleLogin}>
-                      
 
+                      <ToastContainer />
                     <h4 style={{color:"#6a3921"}}>Login</h4>
                     <p style={{color:"gray",fontSize:"10px"}}>Lorem, ipsum dolor ipsum dolor ipsum !!</p>
                     <TextField

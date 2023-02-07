@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 import axiosApi from "../AxiosInstance";
 
 
@@ -24,6 +25,7 @@ export const AllevenTeamApi =createAsyncThunk(
 export const AddCategoryApi = createAsyncThunk(
     "admin/AddCategoryApi",
     async({inputValue,imageFile})=>{
+        try{
 
 
         const formData = new FormData();
@@ -34,8 +36,30 @@ export const AddCategoryApi = createAsyncThunk(
               "Content-Type": "multipart/form-data"
             }
           });
+          toast.success(" added successful!", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            theme:"colored"
+          });
+        
 
         return res
+        }catch(error){
+            toast.error("Failed. Please try again.", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme:"colored"
+              });
+
+        }
     
     }
 )
