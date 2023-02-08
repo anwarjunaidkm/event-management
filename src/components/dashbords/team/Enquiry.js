@@ -5,8 +5,19 @@ import { AiFillEye, AiOutlineDelete } from 'react-icons/ai'
 import { BsPencil } from 'react-icons/bs'
 import { TfiReload } from 'react-icons/tfi'
 import { Card, Container, Table } from 'reactstrap'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { EnquiryApi } from '../../../store/team/TeamSlice'
 
 function Enquiry() {
+  const dispatch = useDispatch() 
+  const {allenquiry} = useSelector((state) => state.team);
+  console.log("allenquiry====",allenquiry);
+
+  useEffect(() => {
+    dispatch(EnquiryApi())
+     
+   }, [])
   return (
     <TeamLayout>
         <h5 style={{color:"#6a3921"}}>Enquiries</h5>
@@ -27,6 +38,7 @@ function Enquiry() {
       Phone
       </th>
      
+     
       <th>
         Date
       </th>
@@ -37,18 +49,22 @@ function Enquiry() {
     </tr>
   </thead>
   <tbody>
-    <tr>
+    {allenquiry.map((item,key)=>{
+      return(
+
+        <tr>
       <th scope="row">
-        1
+        {key+1}
       </th>
       <td>
-        Mark
+        {item.name}
       </td>
       <td>
-        Otto
+        {item.phone}
       </td>
+      
       <td>
-       aj@outlook.com
+       {item.created_at}
       </td>
       
       <td className='d-flex p-2'>
@@ -67,6 +83,13 @@ function Enquiry() {
       </td>
     </tr>
    
+
+
+
+
+      )
+    })}
+    
    
   </tbody>
 </Table>

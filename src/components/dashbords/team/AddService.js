@@ -1,17 +1,60 @@
 import React from 'react'
 import TeamLayout from '../../../Layout/Team/TeamLayout'
 import { Button, Card } from 'reactstrap'
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { MainCategoryApi } from '../../../store/mainCategory/MainCategorySlice';
+import { ToastContainer } from 'react-toastify';
+import { AddserviceApi } from '../../../store/team/TeamSlice';
+import { useState } from 'react';
 
 function AddService() {
+  const dispatch=useDispatch()
+
+  const {categoryList} = useSelector((state) => state.Category);
+  const tableData =categoryList.results;
+  console.log("tabledta===",tableData);
+
+  const [inputValue, setInputValue] = useState("");
+  const [subValue, setSubValue] = useState("");
+  console.log("drop====",subValue);
+
+
+  const ServiceHandle= (e) =>{
+    e.preventDefault()
+    const data = {
+      inputValue,
+      subValue,
+    };
+    dispatch(AddserviceApi(data))
+  }
+
+  const handleInputChange = (e) => {
+    setInputValue(
+     
+
+    e.target.value);
+  };
+  const handleSubValue = (e) => {
+    setSubValue(
+    e.target.value);
+  };
+
+useEffect(() => {
+  dispatch(MainCategoryApi())
+  
+},[]) 
   return (
     <TeamLayout>
         <div style={{ display: "flex", justifyContent: "center" }}>
+      <form onSubmit={ServiceHandle}>
         <Card style={{ width: "400px", height: "200px", margin: "30px" ,textAlign:"center" }}>
           <h5 style={{fontSize:"14px",textAlign:"center",marginTop:"14px",color:"#6a3921"}}>Add Service</h5>
-
+          <ToastContainer />
           <input
             type="text"
-            placeholder="Enter Category Name..!"
+            placeholder="Enter Service Name..!"
+            onChange={handleInputChange}
             style={{
               outline: "none",
               border: "0",
@@ -22,7 +65,9 @@ function AddService() {
               margin: "10px",
             }}
           />
-          <select style={{
+
+         
+          <select onChange={handleSubValue}  style={{
 
             outline: "none",
             border: "0",
@@ -32,9 +77,13 @@ function AddService() {
             backgroundColor: "#f8f9fa",
             margin: "10px",
         }}>
-              <option value="actual value 2">Choose Category</option>
-              <option value="actual value 2">Display Text 2</option>
-            <option value="actual value 3">Display Text 3</option>
+             {tableData?.map((item,key)=>{
+    return(
+
+      <option value={item.id}>{item.sub_catagory_name}</option>
+    )
+            
+})}
           </select>
           <div style={{
             display:'flex',
@@ -44,9 +93,10 @@ function AddService() {
 
           }}>
 
-          <Button className='btn-connect'>ADD</Button>
+          <Button type='submit' className='btn-connect'>ADD</Button>
           </div>
         </Card>
+          </form>
       </div>
 
     </TeamLayout>
