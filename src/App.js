@@ -56,7 +56,7 @@ function App() {
 <Route exact path='addservice' element={< AddService />} />
 <Route exact path='enquiries' element={<Enquiry />} />
 <Route exact path='inbox' element={<Inbox />} />
-<Route exact path='inboxview' element={<Inboxview />} />
+<Route exact path='inboxview/:id' element={<Inboxview />} />
 <Route exact path='viewnotification' element={<ViewNotification />} />
 <Route exact path='notificationsingle/:id' element={<Notificationsingle/>} />
 <Route exact path='eventteamsingle' element={<EventTeamSingle />} />

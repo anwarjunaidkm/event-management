@@ -1,3 +1,4 @@
+import { create } from "@mui/material/styles/createTransitions"
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import { toast } from "react-toastify"
 import axiosApi from "../AxiosInstance"
@@ -105,11 +106,33 @@ export const AllserviceApi = createAsyncThunk(
         console.log(id);
             const res = await axiosApi.get(`/store/notification/${id}`)
             console.log("response===",res);
+            return res
            
         }
      )
 
+  //----------inbox-------------------
+  export const inboxApi = createAsyncThunk(
+    "team/inboxApi",
+    async(data)=>{
+        const res = await axiosApi.get("/store/inbox/")
+        console.log("inbox response==",res.data); 
+        return res.data
 
+    }
+
+  )
+   ///----------------inbox single VIEW ------------->>
+   export const inboxSingleView = createAsyncThunk(
+    "team/inboxSingleView",
+    async(id)=>{
+    console.log(id);
+        const res = await axiosApi.get(`/store/inbox/${id}`)
+        console.log("response===",res);
+        return res
+       
+    }
+ )
 
 const INITIAL_STATE ={
         
@@ -117,7 +140,9 @@ const INITIAL_STATE ={
     allservice:[],
     allenquiry:[],
     viewNotification:[],
-    singleNotification:[]
+    singleNotification:[],
+    inbox:[],
+    inboxsingle:[],
    
 }
 const TeamSlice = createSlice({
@@ -197,6 +222,38 @@ const TeamSlice = createSlice({
         console.log("success");
     },
     [SingleNotificationApi.rejected]:(state,action)=>{
+        console.log("faild");
+    },
+    //<<<---------inbox---------------------->>>
+    
+    [inboxApi.pending]:(state,action) =>{
+        state.loading=true;
+        console.log("requsted");
+    },
+    [inboxApi.fulfilled]:(state,action)=>{
+        state.loading=false
+        state.inbox =  action.payload;
+        console.log("sample==",state.inbox);
+       
+        console.log("success");
+    },
+    [inboxApi.rejected]:(state,action)=>{
+        console.log("faild");
+    },
+
+     //<<<--------inboxx-single ---------------------->>>
+    
+     [inboxSingleView.pending]:(state,action) =>{
+        state.loading=true;
+        console.log("requsted");
+    },
+    [inboxSingleView.fulfilled]:(state,action)=>{
+        state.loading=false
+        state.inboxsingle =  action.payload;
+       
+        console.log("success");
+    },
+    [inboxSingleView.rejected]:(state,action)=>{
         console.log("faild");
     },
 

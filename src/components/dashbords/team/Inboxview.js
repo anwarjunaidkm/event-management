@@ -1,9 +1,24 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useParams } from 'react-router-dom'
 import { Button, Card, Container } from 'reactstrap'
 import TeamLayout from '../../../Layout/Team/TeamLayout'
+import { inboxSingleView } from '../../../store/team/TeamSlice';
 
 function Inboxview() {
+  const {inboxsingle} = useSelector((state) => state.team);
+  console.log("single inboxxxxx===",inboxsingle);
+
+
+  const dispatch=useDispatch()
+  const params= useParams()
+  useEffect(() => {
+      dispatch(inboxSingleView(params.id))
+  
+    
+  }, [])
+
   return (
     <TeamLayout>
         <div main-connectus>
