@@ -10,6 +10,7 @@ import { NotificationApi } from '../../../store/admin/AdminSlice';
 function Notification() {
   const dispatch=useDispatch()
   const [notification,setNotification]=useState()
+  const [sub,setSub]=useState()
 console.log(notification);
 
   const handle =(e)=>{
@@ -17,11 +18,16 @@ console.log(notification);
       e.target.value
     )
   }
+  const Subhandle =(e)=>{
+    setSub(
+      e.target.value
+    )
+  }
 
   const PublishNotification =(e)=>{
     e.preventDefault()
    
-    dispatch(NotificationApi(notification))
+    dispatch(NotificationApi({notification,sub}))
 
   }
 
@@ -53,6 +59,7 @@ console.log(notification);
               
 
         }} 
+        onChange={Subhandle}
          className='' type="text"  placeholder='Subject'/>
             
 

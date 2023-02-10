@@ -70,7 +70,7 @@ export const NotificationApi = createAsyncThunk(
         console.log("nofiiiiiii===",data);
         try{
 
-            const res= await axiosApi.post("/store/notification/",{"notification":data})
+            const res= await axiosApi.post("/store/notification/",{"notification":data.notification,"subject":data.sub})
             console.log("nofication====",res.data);
             toast.success(" Notification Published..!", {
                 position: "top-right",

@@ -1,9 +1,26 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useParams } from 'react-router-dom'
 import { Button, Card } from 'reactstrap'
 import TeamLayout from '../../../Layout/Team/TeamLayout'
+import { SingleNotificationApi } from '../../../store/team/TeamSlice'
 
 function Notificationsingle() {
+
+  const {singleNotification} = useSelector((state) => state.team);
+  console.log("single data===",singleNotification);
+
+
+  const dispatch=useDispatch()
+  const params= useParams()
+  useEffect(() => {
+      dispatch(SingleNotificationApi(params.id))
+  
+    
+  }, [])
+  
+
   return (
     <TeamLayout>
         

@@ -26,7 +26,7 @@ export const AllserviceApi = createAsyncThunk(
             const res = await axiosApi.post("/store/service/",{"service_name":inputValue,"sub_catagory":subValue})
             toast.success(" added successful!", {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
@@ -39,7 +39,7 @@ export const AllserviceApi = createAsyncThunk(
         }catch(error){
             toast.error("Failed. Please try again.", {
                 position: "top-right",
-                autoClose: 5000,
+                autoClose: 3000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
@@ -62,7 +62,7 @@ export const AllserviceApi = createAsyncThunk(
             } catch (error) {
                 toast.error("Failed. Please try again.", {
                     position: "top-right",
-                    autoClose: 5000,
+                    autoClose: 3000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
@@ -73,13 +73,51 @@ export const AllserviceApi = createAsyncThunk(
             }
     }
     )
+    // /--------------------view noficiation----------->>>
+
+    export const ViewnotifictionApi = createAsyncThunk(
+        "team/ViewnotifictionApi",
+        async(data)=>{
+            try{
+
+                const res = await axiosApi.get("/store/notification/")
+                console.log(res.data);
+                return res.data
+            }catch(error){
+                toast.error("Failed. Please try again.", {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    theme:"colored"
+                  });
+
+            }
+        }
+    )
+
+    ///----------------SINGLE VIEW NOTIFICATION------------->>
+     export const SingleNotificationApi = createAsyncThunk(
+        "team/SingleNotificationApi",
+        async(id)=>{
+        console.log(id);
+            const res = await axiosApi.get(`/store/notification/${id}`)
+            console.log("response===",res);
+           
+        }
+     )
+
 
 
 const INITIAL_STATE ={
         
     loading:false,
     allservice:[],
-    allenquiry:[]
+    allenquiry:[],
+    viewNotification:[],
+    singleNotification:[]
    
 }
 const TeamSlice = createSlice({
@@ -129,6 +167,36 @@ const TeamSlice = createSlice({
         console.log("success");
     },
     [EnquiryApi.rejected]:(state,action)=>{
+        console.log("faild");
+    },
+    //<<<---------view notificction---------------------->>>
+    
+    [ViewnotifictionApi.pending]:(state,action) =>{
+        state.loading=true;
+        console.log("requsted");
+    },
+    [ViewnotifictionApi.fulfilled]:(state,action)=>{
+        state.loading=false
+        state.viewNotification =  action.payload;
+       
+        console.log("success");
+    },
+    [ViewnotifictionApi.rejected]:(state,action)=>{
+        console.log("faild");
+    },
+    //<<<---------single notificction---------------------->>>
+    
+    [SingleNotificationApi.pending]:(state,action) =>{
+        state.loading=true;
+        console.log("requsted");
+    },
+    [SingleNotificationApi.fulfilled]:(state,action)=>{
+        state.loading=false
+        state.singleNotification =  action.payload;
+       
+        console.log("success");
+    },
+    [SingleNotificationApi.rejected]:(state,action)=>{
         console.log("faild");
     },
 
