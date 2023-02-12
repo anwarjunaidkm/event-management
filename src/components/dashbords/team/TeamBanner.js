@@ -4,8 +4,37 @@ import { CardBody, CardHeader, CardText, Container,Card,CardTitle, Row, Col, But
 import { minWidth } from '@mui/system'
 import "./TeamBanner.css"
 import { aj, ava, avatar, c1logo, c2logo, c3logo, dash111, dash222, dash333, dash444 } from '../../image/image'
+import { AllserviceApi, EnquiryApi, inboxApi, ViewnotifictionApi } from '../../../store/team/TeamSlice'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 function TeamBanner() {
+
+  const dispatch= useDispatch()
+  const {allservice} = useSelector((state) => state.team);
+  const {viewNotification} = useSelector((state) => state.team);
+  const {allenquiry} = useSelector((state) => state.team);
+  const {inbox} = useSelector((state) => state.team);
+
+
+  useEffect(() => {
+    dispatch(ViewnotifictionApi())
+     
+  }, [])
+  useEffect(() => {
+    dispatch(AllserviceApi())
+     
+   }, [])
+   useEffect(() => {
+    dispatch(EnquiryApi())
+     
+   }, [])
+   useEffect(() => {
+    dispatch(inboxApi())
+  
+   
+  }, [])
+
   return (
     <TeamLayout>
       <Row style={{padding:"10px" }}>
@@ -47,7 +76,7 @@ function TeamBanner() {
                   <Row>
                     <Col md={6}>
                       <h3 className='dashbord-banner-title'>Number of Services</h3>
-                        <h5 className='dashbord-banner-title'>15</h5>
+                        <h5 className='dashbord-banner-title'>{allservice.length}</h5>
                     </Col>
                     <Col md={6}>
                       <div className='icon-banner-parent'>
@@ -65,7 +94,7 @@ function TeamBanner() {
                   <Row>
                     <Col md={6}>
                       <h3 className='dashbord-banner-title'>Number of Enquiry </h3>
-                        <h5 className='dashbord-banner-title'>15</h5>
+                        <h5 className='dashbord-banner-title'>{allenquiry.length}</h5>
                     </Col>
                     <Col md={6}>
                       <div className='icon-banner-parent'>
@@ -85,7 +114,7 @@ function TeamBanner() {
                   <Row>
                     <Col md={6}>
                       <h3 className='dashbord-banner-title'>Notification </h3>
-                        <h5 className='dashbord-banner-title'>15</h5>
+                        <h5 className='dashbord-banner-title'>{viewNotification.length}</h5>
                     </Col>
                     <Col md={6}>
                       <div className='icon-banner-parent'>
@@ -103,7 +132,7 @@ function TeamBanner() {
                   <Row>
                     <Col md={6}>
                       <h3 className='dashbord-banner-title'>Inbox </h3>
-                        <h5 className='dashbord-banner-title'>15</h5>
+                        <h5 className='dashbord-banner-title'>{inbox.length}</h5>
                     </Col>
                     <Col md={6}>
                       <div className='icon-banner-parent'>

@@ -1,10 +1,23 @@
 import React from 'react'
 import { HiX } from 'react-icons/hi'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Button, Card, Container } from 'reactstrap'
+import { PostEnquiryApi } from '../../store/user/UserSlice'
 import Header from '../header/Header'
 
 function EnquiryForm() {
+  const dispatch =useDispatch()
+
+  const EnquiryHandle= (e) =>{
+    e.preventDefault()
+    // const data = {
+    //   inputValue,
+    //   imageFile,
+    // };
+    dispatch(PostEnquiryApi())
+  }
+
   return (
     <>
     

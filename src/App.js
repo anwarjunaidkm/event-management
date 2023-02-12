@@ -43,7 +43,7 @@ function App() {
 <Routes>
 <Route exact path='/' element={<Home />} />
 <Route exact path='subcategory' element={<SubCategory />} />
-<Route exact path='listcompany' element={<ListCompany />} />
+<Route exact path='listcompany/:id' element={<ListCompany />} />
 <Route exact path='singleview' element={<Singleview />} />
 <Route exact path='connectus' element={<ConnectToUs />} />
 <Route exact path='admindash' element={< AdminBanner/>} />

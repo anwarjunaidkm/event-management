@@ -6,7 +6,7 @@ import axiosApi from "../AxiosInstance";
 
 //<<-------------user regisrtion----------------->>>
  export const CreateUserApi =createAsyncThunk(
-    "registration/CreateUserApi",
+    "user/CreateUserApi",
     async(data)=>{
       
       
@@ -29,7 +29,7 @@ import axiosApi from "../AxiosInstance";
   //<---------team regisetoin--------->>>
 
  export const CreateTeamApi =createAsyncThunk(
-    "registration/CreateTeamApi",
+    "user/CreateTeamApi",
     async(data)=>{
         const res = await axiosApi.post("/projectaccount/event_team_register/",data.team)
         console.log(res.data.response)
@@ -48,6 +48,21 @@ import axiosApi from "../AxiosInstance";
     }
   )
 
+//-------post enqueyyyy--------------------
+ export const  PostEnquiryApi = createAsyncThunk(
+    "user/PostEnquiryApi",
+    async(data)=>{
+        try{
+
+            const res =await axiosApi.post("/store/enquiry/")
+            // console.log(res.data);
+        }catch(error){
+
+
+        }
+    }
+ )
+
 
 
 
@@ -57,7 +72,7 @@ const INITIAL_STATE ={
 
 }
 const UserSlice =createSlice({
-    name:"registration",
+    name:"user",
     initialState:INITIAL_STATE,
     reducers:{},
     extraReducers:{
@@ -85,6 +100,20 @@ const UserSlice =createSlice({
             console.log("success");
         },
         [CreateTeamApi.rejected]:(state,action)=>{
+            state.loading=false;
+            console.log("failed");
+        },
+        //---------enquriryy form post---------
+
+        [PostEnquiryApi.pending]:(state,action)=>{
+            state.loading=true;
+            console.log("requseted");
+        },
+        [PostEnquiryApi.fulfilled]:(state,action)=>{
+            state.loading=false;
+            console.log("success");
+        },
+        [PostEnquiryApi.rejected]:(state,action)=>{
             state.loading=false;
             console.log("failed");
         }

@@ -35,7 +35,7 @@ useEffect(() => {
 
 
           <Col md={3} className="parrentCtegory">
-          <Link style={{textDecoration:"none"}} to={"/listcompany"}> 
+          <Link style={{textDecoration:"none"}} to={`/listcompany/${item.id}`}> 
             <Card
               className="card"
               style={{
