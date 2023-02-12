@@ -133,6 +133,16 @@ export const AllserviceApi = createAsyncThunk(
        
     }
  )
+   ///----------------ME VIEW ------------->>
+   export const meApi = createAsyncThunk(
+    "team/meApi",
+    async(data)=>{
+        const res = await axiosApi.get(`/auth/users/me/`)
+        console.log("responsse meee===",res.data);
+        return res
+       
+    }
+ )
 
 const INITIAL_STATE ={
         
@@ -143,6 +153,7 @@ const INITIAL_STATE ={
     singleNotification:[],
     inbox:[],
     inboxsingle:[],
+    me:[]
    
 }
 const TeamSlice = createSlice({
@@ -254,6 +265,21 @@ const TeamSlice = createSlice({
         console.log("success");
     },
     [inboxSingleView.rejected]:(state,action)=>{
+        console.log("faild");
+    },
+     //<<<--------MEEEEEE ---------------------->>>
+    
+     [meApi.pending]:(state,action) =>{
+        state.loading=true;
+        console.log("requsted");
+    },
+    [meApi.fulfilled]:(state,action)=>{
+        state.loading=false
+        state.me =  action.payload;
+       
+        console.log("success");
+    },
+    [meApi.rejected]:(state,action)=>{
         console.log("faild");
     },
 

@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { CreateUserApi } from "../../store/user/UserSlice";
+import { toast, ToastContainer } from "react-toastify";
 
 function SignUser() {
   const [user, setUser] = useState();
@@ -26,7 +27,17 @@ function SignUser() {
     e.preventDefault()
     if(user.password != user.password2)
     {
-      alert("password not match")
+      // alert("password not match")
+      toast.error("Password Mismatch. Please try again.", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme:"colored"
+      });
+      
     }
     else{
 
@@ -38,6 +49,8 @@ function SignUser() {
     <>
       <Header />
       <Container>
+      <ToastContainer />
+
         <div className="wrapper">
           <Row>
             <Col>
@@ -55,6 +68,7 @@ function SignUser() {
                 >
                   User Registration
                 </h5>
+
                 <FormGroup row>
                   <Col sm={10}>
                     <input

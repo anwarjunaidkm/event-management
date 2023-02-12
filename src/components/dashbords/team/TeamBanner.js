@@ -4,7 +4,7 @@ import { CardBody, CardHeader, CardText, Container,Card,CardTitle, Row, Col, But
 import { minWidth } from '@mui/system'
 import "./TeamBanner.css"
 import { aj, ava, avatar, c1logo, c2logo, c3logo, dash111, dash222, dash333, dash444 } from '../../image/image'
-import { AllserviceApi, EnquiryApi, inboxApi, ViewnotifictionApi } from '../../../store/team/TeamSlice'
+import { AllserviceApi, EnquiryApi, inboxApi, meApi, ViewnotifictionApi } from '../../../store/team/TeamSlice'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -15,6 +15,8 @@ function TeamBanner() {
   const {viewNotification} = useSelector((state) => state.team);
   const {allenquiry} = useSelector((state) => state.team);
   const {inbox} = useSelector((state) => state.team);
+  const {me} = useSelector((state) => state.team);
+  //  console.log("meeee===",me.data);
 
 
   useEffect(() => {
@@ -31,6 +33,12 @@ function TeamBanner() {
    }, [])
    useEffect(() => {
     dispatch(inboxApi())
+  
+   
+  }, [])
+
+  useEffect(() => {
+    dispatch(meApi())
   
    
   }, [])
@@ -52,7 +60,8 @@ function TeamBanner() {
                 <div className='img-parent'>
                   <img className='team-banner-avatar' src={aj}></img>
                 </div>
-                <h3 className="title-banner-team">Casata Event</h3>
+                <h3 className="title-banner-team">{me?.data?.username}</h3>
+                {/* <p>{me?.data?.email}</p> */}
               </Col>
               <Col md={6}>
                 <div className="m-3">

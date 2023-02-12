@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { Navigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import axiosApi from "../AxiosInstance";
 
 
@@ -8,6 +9,7 @@ import axiosApi from "../AxiosInstance";
  export const CreateUserApi =createAsyncThunk(
     "user/CreateUserApi",
     async(data)=>{
+        try{
       
       
         const res =await axiosApi.post("/projectaccount/register/",data.new)
@@ -15,11 +17,29 @@ import axiosApi from "../AxiosInstance";
         if(res?.data)
         {
 
+            toast.success("Successful!", {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme:"colored"
+            });
             data.navigate("/login")
             
         }
-        else{
-            alert(res.status)
+    }
+        catch(error){
+            toast.error(" failed. Please try again.", {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme:"colored"
+              });
             
         }
         
@@ -31,16 +51,37 @@ import axiosApi from "../AxiosInstance";
  export const CreateTeamApi =createAsyncThunk(
     "user/CreateTeamApi",
     async(data)=>{
+        try{
         const res = await axiosApi.post("/projectaccount/event_team_register/",data.team)
         console.log(res.data.response)
         if(res?.data)
         {
-
+                
             data.navigate("/login")
+            toast.success("Successful!", {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme:"colored"
+            });
             
         }
-        else{
-            alert(res.data.response)
+       }
+       catch(error){
+            // alert(res.data.response)
+            toast.error(" failed. Please try again.", {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme:"colored"
+              });
+            
             
         }
         

@@ -8,6 +8,7 @@ import "./SignTeam.css";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { CreateTeamApi } from "../../store/user/UserSlice";
+import { ToastContainer } from "react-toastify";
 
 function SignTeam() {
   const dispatch =useDispatch()
@@ -30,6 +31,8 @@ function SignTeam() {
     <>
       <Header />
       <Container>
+      <ToastContainer />
+
         <div className="wrapper">
           <Row>
             <Col>
@@ -47,6 +50,7 @@ function SignTeam() {
                 >
                   Team Registration
                 </h5>
+
                 <Row>
                   <Col md={6}>
                     <FormGroup row>

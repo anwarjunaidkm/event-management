@@ -49,6 +49,8 @@ function Login() {
                     <form onSubmit={handleLogin}>
 
                       <ToastContainer />
+                      <ToastContainer />
+
                     <h4 style={{color:"#6a3921"}}>Login</h4>
                     <p style={{color:"gray",fontSize:"10px"}}>Lorem, ipsum dolor ipsum dolor ipsum !!</p>
                     <TextField
