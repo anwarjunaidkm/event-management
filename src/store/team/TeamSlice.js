@@ -106,7 +106,7 @@ export const AllserviceApi = createAsyncThunk(
         console.log(id);
             const res = await axiosApi.get(`/store/notification/${id}`)
             console.log("response===",res);
-            return res
+            return res.data
            
         }
      )
@@ -129,17 +129,17 @@ export const AllserviceApi = createAsyncThunk(
     console.log(id);
         const res = await axiosApi.get(`/store/inbox/${id}`)
         console.log("response===",res);
-        return res
+        return res.data
        
     }
  )
-   ///----------------ME VIEW ------------->>
+//    /----------------ME VIEW ------------->>
    export const meApi = createAsyncThunk(
     "team/meApi",
     async(data)=>{
         const res = await axiosApi.get(`/auth/users/me/`)
         console.log("responsse meee===",res.data);
-        return res
+        return res.data
        
     }
  )
@@ -267,7 +267,7 @@ const TeamSlice = createSlice({
     [inboxSingleView.rejected]:(state,action)=>{
         console.log("faild");
     },
-     //<<<--------MEEEEEE ---------------------->>>
+    //  <<<--------MEEEEEE ---------------------->>>
     
      [meApi.pending]:(state,action) =>{
         state.loading=true;

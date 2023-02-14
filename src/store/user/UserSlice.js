@@ -89,7 +89,7 @@ import axiosApi from "../AxiosInstance";
     }
   )
 
-//-------post enqueyyyy--------------------
+//-------post enqueyyyy not compleet--------------------
  export const  PostEnquiryApi = createAsyncThunk(
     "user/PostEnquiryApi",
     async(data)=>{
@@ -103,6 +103,19 @@ import axiosApi from "../AxiosInstance";
         }
     }
  )
+ //--------------------list comapny---------------
+ export const ListCompanyApi = createAsyncThunk(
+    "user/ListCompanyApi",
+    async(sub_catagory)=>{
+        const res = await axiosApi.get("/store/service/",{
+            params:{
+                sub_catagory:sub_catagory,
+            }
+        })
+        console.log("list===",res);
+        return res.data
+    }
+ )
 
 
 
@@ -110,6 +123,7 @@ import axiosApi from "../AxiosInstance";
 //<<-------------slice siart------------------->>>
 const INITIAL_STATE ={
     loading:false,
+    listCompany:[],
 
 }
 const UserSlice =createSlice({
@@ -155,6 +169,22 @@ const UserSlice =createSlice({
             console.log("success");
         },
         [PostEnquiryApi.rejected]:(state,action)=>{
+            state.loading=false;
+            console.log("failed");
+        },
+        //---------all companyyy list---------
+
+        [ListCompanyApi.pending]:(state,action)=>{
+            state.loading=true;
+            console.log("requseted");
+        },
+        [ListCompanyApi.fulfilled]:(state,action)=>{
+            state.loading=false;
+            state.listCompany =  action.payload;
+            console.log("success");
+
+        },
+        [ListCompanyApi.rejected]:(state,action)=>{
             state.loading=false;
             console.log("failed");
         }

@@ -8,7 +8,7 @@ import teamReducer from "./team/TeamSlice";
 export default configureStore({
   reducer: {
     Auth:AuthReducer,
-    Registration:UserReducer,
+    user:UserReducer,
     Category:MainCategoryReducer,
     admin:adminReducer,
     team:teamReducer,

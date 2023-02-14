@@ -27,7 +27,7 @@ const LogoutHandle = (e) =>{
           <Navbar.Brand className="d-flex" href="#home">
             {" "}
             <img className="header-logo " src={""} alt="" />{" "}
-            <Link style={{ textDecoration: "none" }} to={"/"}>
+            <Link style={{ textDecoration: "none" }} to={""}>
               {" "}
               <h3 className="logo-text"> Eventtyyyy!!</h3>
             </Link>

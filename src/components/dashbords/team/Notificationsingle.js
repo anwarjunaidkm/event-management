@@ -40,7 +40,7 @@ function Notificationsingle() {
               marginBottom:"0"
               
 
-        }} className='' type="text"  placeholder='Subject'/>
+        }} className='' type="text"  readOnly value={singleNotification?.subject} placeholder='Subject'/>
             
 
             
@@ -54,7 +54,8 @@ function Notificationsingle() {
             margin: "8px",
             padding:"6px",
             backgroundColor:"#f8f9fa",
-            color: "rgb(93, 92, 92)"
+            color: "rgb(93, 92, 92)",
+           
             
         }}
           className=""
@@ -62,7 +63,10 @@ function Notificationsingle() {
           name="txtname"
           rows="8"
           cols="50"
-          maxlength="200"
+          maxLength="200"
+          value={singleNotification?.notification}
+          readOnly
+          
         >
           A nice day is a nice day. Lao Tseu
         </textarea>

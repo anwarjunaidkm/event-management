@@ -28,12 +28,12 @@ function Inboxview() {
                     <h5 style={{fontSize:"14px",color:'gray',textAlign:'center',paddingBottom:"10px"}}>ConnectUS</h5>
                   
 
-                <input className='connect-input' type="text"  placeholder='Email'/>
-                <input className='connect-input' type="text"  placeholder='Subject'/>
+                <input className='connect-input' type="text"  readOnly value={inboxsingle.email} placeholder='Email'/>
+                <input className='connect-input' type="text" readOnly value={inboxsingle.subject} placeholder='Subject'/>
                   
                
                 
-                <textarea className='connect-textarea' id="txtid" name="txtname" rows="4" cols="50" maxlength="200">
+                <textarea className='connect-textarea' id="txtid" readOnly name="txtname" value={inboxsingle.message} rows="4" cols="50" maxLength="200">
 A nice day is a nice day.
 Lao Tseu
 </textarea>

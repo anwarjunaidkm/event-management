@@ -4,10 +4,32 @@ import ReactStars from 'react-rating-stars-component';
 
 import { c1logo, c2, c3logo, c5logo, c6logo, logo } from '../image/image';
 import "./CompanyListCard.css";
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { ListCompanyApi } from '../../store/user/UserSlice';
+import { useEffect } from 'react';
 
 
 function CompanyListCard() {
+
+   const dispatch= useDispatch()
+   const params= useParams()
+   console.log("id :",params.id);
+   const sub_catagory =params.id
+
+   const {listCompany} = useSelector((state) => state.user);
+   console.log("list of companyyyyy===",listCompany);
+ 
+ 
+   
+   useEffect(() => {
+       dispatch(ListCompanyApi(sub_catagory))
+   
+     
+   }, [])
+
+
+   
   return (
     <div className="company-list-card">
       <Container>

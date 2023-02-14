@@ -16,7 +16,7 @@ function TeamBanner() {
   const {allenquiry} = useSelector((state) => state.team);
   const {inbox} = useSelector((state) => state.team);
   const {me} = useSelector((state) => state.team);
-  //  console.log("meeee===",me.data);
+   console.log("meeee===",me);
 
 
   useEffect(() => {
@@ -60,7 +60,7 @@ function TeamBanner() {
                 <div className='img-parent'>
                   <img className='team-banner-avatar' src={aj}></img>
                 </div>
-                <h3 className="title-banner-team">{me?.data?.username}</h3>
+                <h3 className="title-banner-team">{me?.username}</h3>
                 {/* <p>{me?.data?.email}</p> */}
               </Col>
               <Col md={6}>
