@@ -35,7 +35,7 @@ useEffect(() => {
 
 
           <Col md={3} className="parrentCtegory">
-          <Link style={{textDecoration:"none"}} to={`/listcompany/${item.id}`}> 
+          <Link  style={{textDecoration:"none"}} to={{ pathname: `/listcompany/${item.id}`, state: { subCategoryName: item.sub_catagory_name }}}> 
             <Card
               className="card"
               style={{
