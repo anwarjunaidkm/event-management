@@ -153,4 +153,25 @@ border: none;
 
 /* -----main category-------- */
 
+/* -----modal-------- close--------updte------- */
+.close {
+  background: transparent;
+  border: 0;
+  font-size: 20px;
+  padding: 1.35rem 1.25rem;
+  /* background: transparent escape-svg($btn-close-bg) center / $btn-close-width */
+    /* auto no-repeat; */
+  position: absolute;
+  
+  top: 0;
+  right: 0;
+  opacity: 0.5;
+  /* width: 1em; */
+  height: 1em;
+  z-index: 2;
+  /* span {
+    display: none; */
+  }
+
+
 

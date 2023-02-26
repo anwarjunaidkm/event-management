@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import TeamLayout from '../../../Layout/Team/TeamLayout'
 import { AiFillEye, AiOutlineDelete } from 'react-icons/ai'
 import { BsPencil } from 'react-icons/bs'
@@ -6,11 +6,24 @@ import { Card, Container, Table } from 'reactstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { AllserviceApi } from '../../../store/team/TeamSlice'
+import UpdateModalService from './UpdateModalService'
 
 function TeamAllservice() {
   const dispatch = useDispatch() 
   const {allservice} = useSelector((state) => state.team);
   console.log("allservicee====",allservice);
+
+
+  const [modalService,setModalService] = useState(false)
+  const [onUpdateModalService,setOnUpdateModalService] = useState({})
+  console.log(onUpdateModalService);
+
+const UpdateService =(item)=>{
+  setModalService(true)
+  setOnUpdateModalService(item)
+
+
+}
 
   
   useEffect(() => {
@@ -21,7 +34,11 @@ function TeamAllservice() {
 
   return (
    <TeamLayout>
-    
+     <UpdateModalService
+      show={modalService}
+      data ={onUpdateModalService}
+      onCloserClick={()=>setModalService(false)}
+      />
     <h5 style={{color:"#6a3921"}}>All Services</h5>
         <Card className='allusers-card' style={{margin:"18px",borderRadius:"10px"}} >
         
@@ -74,11 +91,11 @@ function TeamAllservice() {
         </div>
         <div style={{paddingLeft:"10px"}}>
   
-          <BsPencil />
+          <BsPencil style={{cursor:"pointer"}}  onClick={()=>UpdateService(item)} />
         </div>
         <div style={{paddingLeft:"10px"}}>
   
-         <AiFillEye size={20} />
+       
         </div>
         </td>
       </tr>

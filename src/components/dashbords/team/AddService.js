@@ -7,6 +7,7 @@ import { MainCategoryApi } from '../../../store/mainCategory/MainCategorySlice';
 import { ToastContainer } from 'react-toastify';
 import { AddserviceApi } from '../../../store/team/TeamSlice';
 import { useState } from 'react';
+import UpdateModalService from './UpdateModalService';
 
 function AddService() {
   const dispatch=useDispatch()
@@ -18,6 +19,7 @@ function AddService() {
   const [inputValue, setInputValue] = useState("");
   const [subValue, setSubValue] = useState("");
   console.log("drop====",subValue);
+
 
 
   const ServiceHandle= (e) =>{
@@ -46,6 +48,7 @@ useEffect(() => {
 },[]) 
   return (
     <TeamLayout>
+     
         <div style={{ display: "flex", justifyContent: "center" }}>
       <form onSubmit={ServiceHandle}>
         <Card style={{ width: "400px", height: "200px", margin: "30px" ,textAlign:"center" }}>

@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 
 
-function CompanyListCard({subCategoryName}) {
+function CompanyListCard() {
 
    const dispatch= useDispatch()
    const params= useParams()
@@ -58,7 +58,7 @@ function CompanyListCard({subCategoryName}) {
                 </div>
                 <div><Button>Filter</Button></div>  
         </div>
-        {listCompany?.map((item,key)=>{
+        {listCompany?.map((item)=>{
           return(
             <Card className='comapny-list-single-card'>
             <Row className='align-items-center'>
@@ -78,7 +78,7 @@ function CompanyListCard({subCategoryName}) {
               <Col>
                 <Row>
                   <Col className='btn-parrent'> 
-                  <ReactStars  size={30}></ReactStars>
+                  <ReactStars  value={2} size={30}></ReactStars>
                   </Col>
                 </Row>
                 <Row >

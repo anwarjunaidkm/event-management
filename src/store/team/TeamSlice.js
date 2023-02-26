@@ -25,6 +25,7 @@ export const AllserviceApi = createAsyncThunk(
 
             
             const res = await axiosApi.post("/store/service/",{"service_name":inputValue,"sub_catagory":subValue})
+            console.log("reserror",res?.error);
             toast.success(" added successful!", {
                 position: "top-right",
                 autoClose: 3000,
@@ -38,7 +39,8 @@ export const AllserviceApi = createAsyncThunk(
             return res.data
 
         }catch(error){
-            toast.error("Failed. Please try again.", {
+            console.log("error",error?.response?.data?.error);
+            toast.error(error?.response?.data?.error, {
                 position: "top-right",
                 autoClose: 3000,
                 hideProgressBar: false,
@@ -143,6 +145,43 @@ export const AllserviceApi = createAsyncThunk(
        
     }
  )
+
+ //------------service update------------------
+  
+   export const updateServiceApi =createAsyncThunk(
+    "team/updateServiceApi",
+    async(data)=>{
+        console.log("updatedata",data);
+
+    try{
+        
+        const res = await axiosApi.patch(`/store/service/${data.inputs.id}/?sub_catagory=${data.inputs.sub_catagory}`,{"service_name":data.store})
+        console.log("updateee==",res);
+        toast.success(" added successful!", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            theme:"colored"
+        });
+        return res
+    } catch{
+        toast.error("try again update falid..!", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            theme:"colored"
+          });
+    }     
+
+
+    }
+   )
 
 const INITIAL_STATE ={
         
@@ -280,6 +319,23 @@ const TeamSlice = createSlice({
         console.log("success");
     },
     [meApi.rejected]:(state,action)=>{
+        console.log("faild");
+    },
+
+
+    //----------- service update----------------->>>>>
+
+    [updateServiceApi.pending]:(state,action) =>{
+        state.loading=true;
+        console.log("requsted");
+    },
+    [updateServiceApi.fulfilled]:(state,action)=>{
+        state.loading=false
+       
+       
+        console.log("success");
+    },
+    [updateServiceApi.rejected]:(state,action)=>{
         console.log("faild");
     },
 
