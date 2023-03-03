@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { CardBody, CardHeader, CardText, Container,Card,CardTitle, Col, Button, Row } from 'reactstrap'
 import AdminLayout from '../../../Layout/admin/AdminLayout'
 import { AllevenTeamApi, AllusersApi } from '../../../store/admin/AdminSlice'
+import { addPicApi } from '../../../store/team/TeamSlice'
 import { avatar2, dash111, dash222, team, user } from '../../image/image'
 import "./AdminBanner.css"
 
@@ -22,6 +23,9 @@ function AdminBanner() {
     dispatch(AllevenTeamApi())
      
    }, [])
+
+   
+
 
   return (
    <AdminLayout>

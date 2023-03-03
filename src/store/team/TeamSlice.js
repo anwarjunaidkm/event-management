@@ -183,6 +183,63 @@ export const AllserviceApi = createAsyncThunk(
     }
    )
 
+
+
+   // team add prfile pic more pic
+
+
+    export const addProPicApi = createAsyncThunk(
+        "team/addProPicApi",
+        async (formData) => {
+        const res = await axiosApi.post("/store/team_profile/", formData, {
+            headers: {
+            "Content-Type": "multipart/form-data",
+            },
+        });
+        console.log("profile pic res", res);
+        return res;
+        }
+    );
+
+    // get PROFILE pic----------------
+    export const getProPicApi = createAsyncThunk(
+        "team/getProPicApi",
+        async (data) => {
+        const res = await axiosApi.get("/store/team_profile");
+        console.log("profile pic res", res);
+        return res.data;
+        }
+    );
+
+    // -----------add more pic-----------------
+
+    export const addMorePicApi = createAsyncThunk(
+        "team/addMorePicApi",
+        async (formData) => {
+        const res = await axiosApi.post("/store/profile_pic/", formData, {
+            headers: {
+            "Content-Type": "multipart/form-data",
+            },
+        });
+        console.log("add more res", res);
+        return res.data;
+        }
+    );
+     ///-----------get more pic---------------
+
+    export const getMorePicApi = createAsyncThunk(
+        "team/getMorePicApi",
+        async (data) => {
+        const res = await axiosApi.get("/store/profile_pic/");
+        console.log("RES more pic", res);
+        return res.data;
+        }
+    );
+
+
+
+
+
 const INITIAL_STATE ={
         
     loading:false,
@@ -192,7 +249,9 @@ const INITIAL_STATE ={
     singleNotification:[],
     inbox:[],
     inboxsingle:[],
-    me:[]
+    me:[],
+    getpic:[],
+    getMore:[]
    
 }
 const TeamSlice = createSlice({
@@ -336,6 +395,101 @@ const TeamSlice = createSlice({
         console.log("success");
     },
     [updateServiceApi.rejected]:(state,action)=>{
+        console.log("faild");
+    },
+
+     //--------add  pro pic---------------------------
+
+     [addProPicApi.pending]:(state,action) =>{
+        state.loading=true;
+        console.log("requsted");
+    },
+    [addProPicApi.fulfilled]:(state,action)=>{
+        state.loading=false
+        toast.success(" added successful!", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            theme:"colored"
+        });
+        console.log("success");
+    },
+    [addProPicApi.rejected]:(state,action)=>{
+        toast.error("try again update falid..!", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            theme:"colored"
+          });
+        console.log("faild");
+    },
+
+     //<<<---------getPicApi---------------------->>>
+    
+     [getProPicApi.pending]:(state,action) =>{
+        state.loading=true;
+        console.log("requsted");
+    },
+    [getProPicApi.fulfilled]:(state,action)=>{
+        state.loading=false
+        state.getpic =  action.payload;
+       
+        console.log("success");
+    },
+    [getProPicApi.rejected]:(state,action)=>{
+        console.log("faild");
+    },
+         //--------add more pic---------------------------
+
+         [addMorePicApi.pending]:(state,action) =>{
+            state.loading=true;
+            console.log("requsted");
+        },
+        [addMorePicApi.fulfilled]:(state,action)=>{
+            state.loading=false
+            toast.success(" added successful!", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme:"colored"
+            });
+            console.log("success");
+        },
+        [addMorePicApi.rejected]:(state,action)=>{
+            toast.error("try again update falid..!", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme:"colored"
+              });
+            console.log("faild");
+        },
+
+         //<<<---------getPicApi---------------------->>>
+    
+     [getMorePicApi.pending]:(state,action) =>{
+        state.loading=true;
+        console.log("requsted");
+    },
+    [getMorePicApi.fulfilled]:(state,action)=>{
+        state.loading=false
+        state.getMore =  action.payload;
+       
+        console.log("success");
+    },
+    [getMorePicApi.rejected]:(state,action)=>{
         console.log("faild");
     },
 

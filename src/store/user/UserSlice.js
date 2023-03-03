@@ -116,6 +116,19 @@ import axiosApi from "../AxiosInstance";
         return res.data
     }
  )
+ //--------------------single view comapny---------------
+ export const SingleViewApi = createAsyncThunk(
+    "user/SingleViewApi",
+    async(data)=>{
+        console.log("single data",data.data);
+        console.log("single data subbbb",data.subId);
+        const res = await axiosApi.get(`/store/service/${data.data}/?sub_catagory=${data.subId}/`)
+        console.log("single===",res);
+        return res.data
+    }
+ )
+
+
 
 
 
@@ -124,6 +137,7 @@ import axiosApi from "../AxiosInstance";
 const INITIAL_STATE ={
     loading:false,
     listCompany:[],
+    singleData:[]
 
 }
 const UserSlice =createSlice({
@@ -185,6 +199,22 @@ const UserSlice =createSlice({
 
         },
         [ListCompanyApi.rejected]:(state,action)=>{
+            state.loading=false;
+            console.log("failed");
+        },
+        //--------single view companyyy---------
+
+        [SingleViewApi.pending]:(state,action)=>{
+            state.loading=true;
+            console.log("requseted");
+        },
+        [SingleViewApi.fulfilled]:(state,action)=>{
+            state.loading=false;
+            state.singleData =  action.payload;
+            console.log("success");
+
+        },
+        [SingleViewApi.rejected]:(state,action)=>{
             state.loading=false;
             console.log("failed");
         }

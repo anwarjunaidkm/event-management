@@ -31,6 +31,7 @@ import EnquiryForm from './components/enquryform/EnquiryForm';
 import Login from './components/login/Login';
 import SignUser from './components/siginupUser/SignUser';
 import SignTeam from './components/signteam/SignTeam';
+import AddMorePic from './components/dashbords/team/AddMorePic';
 
 function App() {
   return (
@@ -44,7 +45,7 @@ function App() {
 <Route exact path='/' element={<Home />} />
 <Route exact path='subcategory' element={<SubCategory />} />
 <Route exact path='listcompany/:id' element={<ListCompany />} />
-<Route exact path='singleview' element={<Singleview />} />
+<Route exact path='singleview/:id/:subId' element={<Singleview />} />
 <Route exact path='connectus' element={<ConnectToUs />} />
 <Route exact path='admindash' element={< AdminBanner/>} />
 <Route exact path='allusers' element={< Allusers />} />
@@ -64,6 +65,7 @@ function App() {
 <Route exact path='login' element={<Login />} />
 <Route exact path='signuser' element={<SignUser />} />
 <Route exact path='signteam' element={<SignTeam/>} />
+<Route exact path='addmorepic' element={<AddMorePic/>} />
 </Routes>
 
 </BrowserRouter>

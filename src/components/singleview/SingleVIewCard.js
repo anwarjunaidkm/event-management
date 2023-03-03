@@ -1,16 +1,39 @@
 import { blue } from '@mui/material/colors';
 import { minHeight } from '@mui/system';
-import React from 'react'
+import React, { useEffect } from 'react'
 import ReactStars from 'react-rating-stars-component';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useParams } from 'react-router-dom';
 
 import { Button, Card, Col, Container, Row } from 'reactstrap'
+import { SingleViewApi } from '../../store/user/UserSlice';
 import { avatar, avatar2, avatar3, c1, c1logo, c2, c2logo, c3logo, logo } from '../image/image'
 import "./SingleviewCard.css"
 
 
 
 function SingleVIewCard() {
+
+  const dispatch= useDispatch()
+  const {id, subId}= useParams()
+
+
+  const {singleData} = useSelector((state) => state.user);
+  console.log("SINGLE=",singleData.account_view);
+  console.log("whts=","ID=",id,"sub==",subId);
+    const account =singleData?.account_view
+
+
+
+  useEffect(() => {
+    dispatch(SingleViewApi({data:id,subId}))
+
+  
+}, [])
+
+
+
+
   return (
     <div className="main-single-view">
       <Container>
@@ -39,16 +62,16 @@ function SingleVIewCard() {
               <Row className="single-view-banner-row">
                 <Col md={6}>
                   <div className="single-view-text">
-                    <h5 className="single-view-title"> Casata events</h5>
+                    <h5 className="single-view-title"> {account?.team_name}</h5>
                     <div className="single-view-p-tag">
                       <p className="single-view-time">
-                        Work time: <span>9:00 AM -9:00 PM</span>
+                        Work time: <span>{account?.work_time}</span>
                       </p>
                       <p>
-                        Place: <span>Malappuram</span>
+                        Place: <span>{account?.place}</span>
                       </p>
                       <p>
-                        Email:<span>sample@outlook.com</span>
+                        Email:<span>{account?.email}</span>
                       </p>
                     </div>
                   </div>
@@ -71,24 +94,32 @@ function SingleVIewCard() {
               <Row>
                 <h5 style={{ fontSize: "15px" }}>Overview</h5>
                 <p>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Dolore adipisci explicabo dolores esse, perspiciatis
-                  accusamus!
+                 {account?.over_view}
                 </p>
                 <h5 style={{ fontSize: "15px" }}>Address</h5>
                 <p>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Dolore adipisci explicabo dolores esse, perspiciatis
-                  accusamus!
+                  {account?.address}
                 </p>
                 <h5 style={{ fontSize: "15px" }}>Service offerd</h5>
+                <p>
+                {singleData?.service_name}
+                </p>
                 <h5 style={{ fontSize: "15px" }}>photos</h5>
 
                 <Row>
                   <Col md={2}>
                     <div className="d-flex  ">
-                      <img className="singleview-image" src={c1} alt="" />
-                      <img className="singleview-image" src={c1} alt="" />
+                      {/* {
+
+                    singleData.profile.map((item)=>{
+                      return(
+                        <img className="singleview-image" src={item.more_photos} alt="" />
+                       
+
+                      )
+                    })
+                      } */}
+                     
                     </div>
                   </Col>
                 </Row>  

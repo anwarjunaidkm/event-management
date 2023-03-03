@@ -1,0 +1,19 @@
+.heading-add-more-pic{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.add-more-pic-card{
+    padding: 15px;
+    margin: 10px;
+}
+.add-more-pic-btn{
+    width: 100px;
+   text-align: center;
+   font-size: 12px;
+}
+.list-pic{
+    width: 50px;
+    height: 50px;
+}
