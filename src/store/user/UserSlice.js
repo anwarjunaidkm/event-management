@@ -137,7 +137,7 @@ import axiosApi from "../AxiosInstance";
 const INITIAL_STATE ={
     loading:false,
     listCompany:[],
-    singleData:[]
+    singleData:{},
 
 }
 const UserSlice =createSlice({

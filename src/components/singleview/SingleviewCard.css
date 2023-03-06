@@ -1,9 +1,13 @@
 .singleview-image{
-    max-height: 100px;
+    max-height: 100px; 
     max-width: 80px;
     padding: 8px;
    
 
+}
+.more-pic{
+    overflow-y: scroll;
+    
 }
 .main-single-view{
     padding: 10px;
@@ -40,7 +44,9 @@
 .single-view-profile-pic{ 
     max-height:90px;
     max-width: 90px;
-    padding-top: 9px;
+    min-width: 60px;
+    min-height: 60px;
+    /* padding-top: 9px; */
     /* background-color: aqua; */
     border-radius: 50%;
    

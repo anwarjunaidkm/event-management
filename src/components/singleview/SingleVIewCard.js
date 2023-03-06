@@ -19,7 +19,11 @@ function SingleVIewCard() {
 
 
   const {singleData} = useSelector((state) => state.user);
-  console.log("SINGLE=",singleData.account_view);
+  console.log("SINGLE=",singleData);
+  // console.log("profile pic=",singleData?.team_profilepic[0]?.team_profile);
+  // console.log("anwar",singleData?.profile);
+
+
   console.log("whts=","ID=",id,"sub==",subId);
     const account =singleData?.account_view
 
@@ -43,9 +47,10 @@ function SingleVIewCard() {
               <Row>
                 <Col md={6}>
                   <div className="single-view-profile-parent d-flex justify-content-around">
+                   
                     <img
                       className="single-view-profile-pic"
-                      src={c3logo}
+                      src={singleData?.team_profilepic}
                       alt=""
                     />
                   </div>
@@ -107,18 +112,26 @@ function SingleVIewCard() {
                 <h5 style={{ fontSize: "15px" }}>photos</h5>
 
                 <Row>
-                  <Col md={2}>
-                    <div className="d-flex  ">
-                      {/* {
+                  <Col md={""}>
+                    <div className="d-flex  more-pic "
+                     
+                     >
+                      {
 
-                    singleData.profile.map((item)=>{
+                    singleData?.profile.map((item)=>{
                       return(
-                        <img className="singleview-image" src={item.more_photos} alt="" />
+                        
+                        
+
+                          <img className="singleview-image" src={item.url} alt="" />
+                        
+
+                        
                        
 
                       )
                     })
-                      } */}
+                      }
                      
                     </div>
                   </Col>
