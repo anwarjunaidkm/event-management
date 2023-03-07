@@ -78,7 +78,7 @@ function CompanyListCard() {
               <Col>
                 <Row>
                   <Col className='btn-parrent'> 
-                  <ReactStars  value={2} size={30}></ReactStars>
+                  <ReactStars  value={item?.rating} size={30}></ReactStars>
                   </Col>
                 </Row>
                 <Row >

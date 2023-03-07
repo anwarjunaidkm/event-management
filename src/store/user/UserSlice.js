@@ -129,6 +129,40 @@ import axiosApi from "../AxiosInstance";
  )
 
 
+ //-------post review--------------------
+
+ export const  PostReviewApi = createAsyncThunk(
+    "user/PostReviewApi",
+    async(data)=>{
+        console.log("review prop==",data);
+    
+
+            const res = await axiosApi.post(`store/rating/?service=${data.data}`,{"rating":data.rating, "review":data.review.review})
+
+
+            console.log("review response",res);
+        
+
+
+        
+    }
+ )
+
+  //--------------------single view comapny---------------
+  export const getReviewApi = createAsyncThunk(
+    "user/getReviewApi",
+    async(data)=>{
+      
+        const res = await axiosApi.get(`store/rating/?service=${data.data}`) 
+        console.log(res.data);
+
+        return res.data
+    }
+ )
+
+
+
+
 
 
 
@@ -138,6 +172,7 @@ const INITIAL_STATE ={
     loading:false,
     listCompany:[],
     singleData:{},
+    reviewData:[]
 
 }
 const UserSlice =createSlice({
@@ -217,7 +252,56 @@ const UserSlice =createSlice({
         [SingleViewApi.rejected]:(state,action)=>{
             state.loading=false;
             console.log("failed");
-        }
+        },
+
+          //--------- post review---------
+
+          [PostReviewApi.pending]:(state,action)=>{
+            state.loading=true;
+            console.log("requseted");
+        },
+        [PostReviewApi.fulfilled]:(state,action)=>{
+            state.loading=false;
+            toast.success("Successful!", {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme:"colored"
+            });
+            console.log("success");
+        },
+        [PostReviewApi.rejected]:(state,action)=>{
+            state.loading=false;
+            toast.error(" failed. Please try again.", {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme:"colored"
+              });
+            console.log("failed");
+        },
+
+        //---------get review-----------------
+
+        [getReviewApi.pending]:(state,action)=>{
+            state.loading=true;
+            console.log("requseted");
+        },
+        [getReviewApi.fulfilled]:(state,action)=>{
+            state.loading=false;
+            state.reviewData =  action.payload;
+            console.log("success");
+        },
+        [getReviewApi.rejected]:(state,action)=>{
+            state.loading=false;
+            console.log("failed");
+        },
     }
     
 })

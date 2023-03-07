@@ -1,12 +1,13 @@
 import { blue } from '@mui/material/colors';
 import { minHeight } from '@mui/system';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactStars from 'react-rating-stars-component';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 import { Button, Card, Col, Container, Row } from 'reactstrap'
-import { SingleViewApi } from '../../store/user/UserSlice';
+import { getReviewApi, PostReviewApi, SingleViewApi } from '../../store/user/UserSlice';
 import { avatar, avatar2, avatar3, c1, c1logo, c2, c2logo, c3logo, logo } from '../image/image'
 import "./SingleviewCard.css"
 
@@ -14,19 +15,48 @@ import "./SingleviewCard.css"
 
 function SingleVIewCard() {
 
+  const {singleData} = useSelector((state) => state.user);
+  const {reviewData} = useSelector((state) => state.user);
+  console.log("review====",reviewData);
   const dispatch= useDispatch()
   const {id, subId}= useParams()
+  
+  const [review,setReview] = useState();
+  const [rating,setRating] = useState(0);
 
 
-  const {singleData} = useSelector((state) => state.user);
-  console.log("SINGLE=",singleData);
-  // console.log("profile pic=",singleData?.team_profilepic[0]?.team_profile);
-  // console.log("anwar",singleData?.profile);
+
+  console.log("review",review);
+  console.log('rating',rating);
 
 
+  const handle = (e)=>{
+    setReview({
+      [e.target.name] : e.target.value
+    })
+  }
+
+  function handleRatingChange(value) {
+    setRating(value);
+  }
+
+
+  const handleSubmit =()=>{
+    dispatch(PostReviewApi({data:id,rating,review}))
+
+  }
+
+  
+
+ 
+
+
+  
+  console.log("SINGLE rating====",singleData.rating);
+  const totalRating = singleData.rating;
+  
   console.log("whts=","ID=",id,"sub==",subId);
     const account =singleData?.account_view
-
 
 
   useEffect(() => {
@@ -35,19 +65,28 @@ function SingleVIewCard() {
   
 }, [])
 
+  useEffect(() => {
+    dispatch(getReviewApi({data:id}))
+
+  
+}, [])
+
+ 
+
 
 
 
   return (
     <div className="main-single-view">
       <Container>
+      <ToastContainer />
+
         <Row>
           <Col md={9}>
             <Card className="single-view-header">
               <Row>
                 <Col md={6}>
                   <div className="single-view-profile-parent d-flex justify-content-around">
-                   
                     <img
                       className="single-view-profile-pic"
                       src={singleData?.team_profilepic}
@@ -58,7 +97,12 @@ function SingleVIewCard() {
                 <Col md={6}>
                   {" "}
                   <div className="single-view-rating d-flex justify-content-around ">
-                    <ReactStars size={35}></ReactStars>
+                    <ReactStars
+                      edit={false}
+                      half={true}
+                      value={singleData?.rating}                    
+                      size={35}
+                    ></ReactStars>
                   </div>{" "}
                 </Col>
               </Row>
@@ -85,10 +129,11 @@ function SingleVIewCard() {
                   <div className="anwae">
                     <Card className="single-view-btn-card">
                       <div>
-                        <Link to={'/connectus'}>
-                        <Button className="single-view-connect-btn">
-                          Connect US
-                        </Button></Link>
+                        <Link to={"/connectus"}>
+                          <Button className="single-view-connect-btn">
+                            Connect US
+                          </Button>
+                        </Link>
                       </div>
                     </Card>
                   </div>
@@ -98,27 +143,19 @@ function SingleVIewCard() {
             <Card className="single-view-body">
               <Row>
                 <h5 style={{ fontSize: "15px" }}>Overview</h5>
-                <p>
-                 {account?.over_view}
-                </p>
+                <p>{account?.over_view}</p>
                 <h5 style={{ fontSize: "15px" }}>Address</h5>
-                <p>
-                  {account?.address}
-                </p>
+                <p>{account?.address}</p>
                 <h5 style={{ fontSize: "15px" }}>Service offerd</h5>
-                <p>
-                {singleData?.service_name}
-                </p>
+                <p>{singleData?.service_name}</p>
                 <h5 style={{ fontSize: "15px" }}>photos</h5>
 
                 <Row>
                   <Col md={""}>
-                    <div className="d-flex  more-pic "
-                     
-                     >
+                    <div className="d-flex  more-pic ">
                       {
 
-                    singleData?.profile.map((item)=>{
+                    singleData?.profile?.map((item)=>{
                       return(
                         
                         
@@ -132,66 +169,103 @@ function SingleVIewCard() {
                       )
                     })
                       }
-                     
                     </div>
                   </Col>
-                </Row>  
+                </Row>
               </Row>
             </Card>
             <Card className="main-review-card">
               <h5>Review</h5>
-              <div className='post-review'>
-                <Row className='post-main-row'>
-                    <Col md={4}>
-                    <input className='post-review-input'  placeholder='Write review...!' type="text" />
-                    </Col>
-                    <Col  md={4}>
-                    <ReactStars size={30}></ReactStars>               
-                    </Col>
-                    <Col  md={4}>
-                      <div className='d-flex justify-content-end'>
+              <div className="post-review">
+                <Row className="post-main-row">
+                  <Col md={4}>
+                    <input
+                      className="post-review-input"
+                      name="review"
+                      onChange={handle}
+                      placeholder="Write review...!"
+                      type="text"
+                    />
+                  </Col>
+                  <Col md={4}>
+                    <ReactStars  value ={rating}
+                      onChange={handleRatingChange} size={30}></ReactStars>
+                  </Col>
+                  <Col md={4}>
+                    <div className="d-flex justify-content-end">
+                      <Button onClick={handleSubmit} className="post-btn">Post</Button>
+                    </div>
+                  </Col>
+                </Row>
+              </div>
+              {reviewData?.map((item)=>{
+                return(
 
-                    <Button className='post-btn'>Post</Button> 
+                  <Card className="single-review-card">
+                  <Row>
+                    <Col md={6}>
+                      <div className="d-flex align-items-center">
+                        <img className="review-profile" src={avatar2} alt="" />
+                        <div>
+                          <h5 className="m-0 review-name">{item?.customer_view}</h5>
+                          <span className="review-date">{item?.created_at}</span>
+                        </div>
                       </div>
                     </Col>
-                        
+                    <Col md={6}>
+                      {" "}
+                      <div className="d-flex justify-content-end">
+                        {" "}
+                        <ReactStars value={+item.rating}  edit={false} isHalf={true} size={30}></ReactStars>
+                      </div>
+                    </Col>
+                    <hr
+                      style={{
+                        color: "#80808047",
+                        margin: "0px",
+                        height: "0",
+                      }}
+                    />
+                  </Row>
+                  <Row>
+                    <Col md={12}>
+                      <p className="review-style">
+                       {item.review}
+                      </p>
+                    </Col>
+                  </Row>
+                </Card>
 
-                 
 
-              
-                    
-                </Row>
-               
 
-              </div>
-              <Card className="single-review-card">
-                <Row >
+                )
+              })}
+             
+              {/* <Card className="single-review-card">
+                <Row>
                   <Col md={6}>
-                    <div className='d-flex align-items-center'>
-
-                    <img className='review-profile' src={avatar2} alt="" />
-                    <div>
-                    <h5 className="m-0 review-name">Anwarjuaid km</h5>
-                    <span className="review-date">20 Aug 2023</span>
-
-                    </div>
+                    <div className="d-flex align-items-center">
+                      <img className="review-profile" src={avatar2} alt="" />
+                      <div>
+                        <h5 className="m-0 review-name">Anwarjuaid km</h5>
+                        <span className="review-date">20 Aug 2023</span>
+                      </div>
                     </div>
                   </Col>
                   <Col md={6}>
                     {" "}
                     <div className="d-flex justify-content-end">
                       {" "}
-                      <ReactStars size={30}></ReactStars>
+                      <ReactStars value={3} size={30}></ReactStars>
                     </div>
                   </Col>
                   <hr
-                      style={{
-                        color: "#80808047",
-                        margin: "0px",
-                        height: "0",
-                    
-                      }}
-                    />
+                    style={{
+                      color: "#80808047",
+                      margin: "0px",
+                      height: "0",
+                    }}
+                  />
                 </Row>
                 <Row>
                   <Col md={12}>
@@ -202,48 +276,7 @@ function SingleVIewCard() {
                     </p>
                   </Col>
                 </Row>
-              </Card>
-              <Card className="single-review-card">
-                <Row >
-                  <Col md={6}>
-                    <div className='d-flex align-items-center'>
-
-                    <img className='review-profile' src={avatar2} alt="" />
-                    <div>
-                    <h5 className="m-0 review-name">Anwarjuaid km</h5>
-                    <span className="review-date">20 Aug 2023</span>
-
-                    </div>
-                    </div>
-                  </Col>
-                  <Col md={6}>
-                    {" "}
-                    <div className="d-flex justify-content-end">
-                      {" "}
-                      <ReactStars size={30}></ReactStars>
-                    </div>
-                  </Col>
-                  <hr
-                      style={{
-                        color: "#80808047",
-                        margin: "0px",
-                        height: "0",
-                    
-                      }}
-                    />
-                </Row>
-                <Row>
-                  <Col md={12}>
-                    <p className="review-style">
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Error eos nulla quae culpa voluptate dolorum debitis
-                      placeat in iure quam.
-                    </p>
-                  </Col>
-                </Row>
-              </Card>
-             
-             
+              </Card> */}
             </Card>
           </Col>
 
