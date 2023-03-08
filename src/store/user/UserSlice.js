@@ -148,13 +148,13 @@ import axiosApi from "../AxiosInstance";
     }
  )
 
-  //--------------------single view comapny---------------
+  //--------------------single get reviewwwwwwwwww view comapny---------------
   export const getReviewApi = createAsyncThunk(
     "user/getReviewApi",
     async(data)=>{
-      
-        const res = await axiosApi.get(`store/rating/?service=${data.data}`) 
-        console.log(res.data);
+       console.log("DATA",data);
+        const res = await axiosApi.get(`store/rating/?account=${data.data}`) 
+        console.log("GET REVIEW",res.data);
 
         return res.data
     }

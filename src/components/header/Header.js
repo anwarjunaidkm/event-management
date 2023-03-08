@@ -24,17 +24,21 @@ function Header() {
               <h3 className="logo-text"> Eventtyyyy!!</h3>
             </Link>
           </Navbar.Brand>
-          <Nav className="m-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="#features">About</Nav.Link>
-            <Nav.Link href="#pricing">Contact Us</Nav.Link>
+          <Nav className="m-auto header-text">
+            <Nav.Link className='header-single-text' href="/">Home</Nav.Link>
+            <Nav.Link className='header-single-text' href="#features">About</Nav.Link>
+            <Nav.Link className='header-single-text' href="#pricing">ContactUs</Nav.Link>
+           
+            
+
+            
           </Nav>
           <Nav>
             {/* <CgProfile size={28} /> */}
             {isLoggedIn ? (
               <Link style={{ textDecoration: "none" }} to={"/login"}>
                 {" "}
-                <Button
+                <Button className='header-btn'
                   style={{
                     backgroundColor: "#6a3921",
                     fontSize: "10px",
@@ -53,7 +57,7 @@ function Header() {
             ) : (
               <Link style={{ textDecoration: "none" }} to={"/login"}>
                 {" "}
-                <Button
+                <Button className='header-btn'
                   style={{
                     backgroundColor: "#6a3921",
                     fontSize: "10px",

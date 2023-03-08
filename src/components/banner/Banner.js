@@ -10,7 +10,7 @@ function Banner() {
       <Container>
         <div className="banner-body p-3  ">
           <Row className="pt-3">
-            <Col md={6} className="d-flex align-items-center ">
+            <Col md={6} className="d-flex align-items-center left-text-bar ">
               <div className="left-banner">
                 <div className="banner-text">
                   <h2>
@@ -39,7 +39,7 @@ function Banner() {
                           className="search_input"
                           type="text"
                           name=""
-                          placeholder="Search..."
+                          placeholder="Search...."
                         />
                     </div>
 
@@ -53,10 +53,10 @@ function Banner() {
             </Col>
             <Col
               md={6}
-              className="d-flex justify-content-md-end align-items-center"
+              className="d-flex justify-content-md-end align-items-center banner-right-side"
             >
                
-              <Card className="right-card ">
+              <Card className="right-card">
 {/* ---------------gridview-------------- */}
                 {/* <Row>
                     <Col>

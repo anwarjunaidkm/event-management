@@ -56,3 +56,27 @@ div::-webkit-scrollbar {
 
 }
   
+
+
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .main-category-title h4{
+        font-size: 15px !important;
+        text-align: center;
+       
+    
+    }
+    .parrentCtegory{
+        padding: 10px;
+    }
+    .single-card{
+        display: flex;
+        justify-content: center;
+    }
+    .card-title{
+        font-size: 14px;
+
+    }
+    
+
+}

@@ -110,6 +110,7 @@ select:focus-visible {
   transition: width 0.4s linear; 
   background-color:#ffffff;
   border-radius: 20px;
+  padding: 4px;
 /* border-color: white; */
   width: 100%;
 border: none;
@@ -173,5 +174,94 @@ border: none;
     display: none; */
   }
 
+
+
+
+  /* //-------responsive-------- */
+
+  /* Smartphones (portrait ) ----------- */
+
+
+
+  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  
+    /* ---------- header------- */
+
+    .header-text{
+      font-size: 10px !important;
+      padding: 5px !important;
+      display: flex;
+      align-items: center;
+
+    }
+    .header-btn{
+      height: 25px;
+      min-width:45px !important;
+      width: 10px !important;
+      font-size: 8px !important;
+      padding: 0 !important;
+    }
+    .header-single-text{
+      padding: 5px !important;
+    }
+
+    /* ----------banner---------- */
+
+    .banner-cover{
+      display: none;
+    }
+    .right-card{
+      display: none;
+    }
+    
+   
+    .banner-right-side .col-md-6{
+      display: none !important;
+    }
+    .dropdown-search{
+      min-height: 38px;
+      padding: 6px;
+      font-size: 12px;
+    }
+    .left-search-card {
+      grid-template-columns: 110px auto 80px !important;
+      height: 38px;
+     
+
+
+    }
+    .search-butn{
+      height:38px ;
+     margin: 0;
+      font-size: 12px;
+      line-height: 0;
+      
+
+    }
+    .search_input{
+      height: 38px;
+      font-size: 12px;
+      padding: 4px;
+
+    }
+    .banner-body{
+      min-height: 60vh;
+    }
+  
+    
+   
+
+
+
+  
+
+    
+
+
+   
+
+
+
+    }
 
 

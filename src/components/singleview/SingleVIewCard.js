@@ -19,7 +19,7 @@ function SingleVIewCard() {
   const {reviewData} = useSelector((state) => state.user);
   console.log("review====",reviewData);
   const dispatch= useDispatch()
-  const {id, subId}= useParams()
+  const {id, subId,accountId}= useParams()
   
   const [review,setReview] = useState();
   const [rating,setRating] = useState(0);
@@ -52,10 +52,11 @@ function SingleVIewCard() {
 
 
   
-  console.log("SINGLE rating====",singleData.rating);
+  console.log("SINGLE rating====",singleData.account);
+  
   const totalRating = singleData.rating;
   
-  console.log("whts=","ID=",id,"sub==",subId);
+  console.log("whts===","ID=",id,"sub==",subId ,"accountId",accountId);
     const account =singleData?.account_view
 
 
@@ -66,7 +67,7 @@ function SingleVIewCard() {
 }, [])
 
   useEffect(() => {
-    dispatch(getReviewApi({data:id}))
+    dispatch(getReviewApi({data:accountId}))
 
   
 }, [])

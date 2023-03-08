@@ -69,7 +69,7 @@ function CompanyListCard() {
                   </div></Col>
               <Col>
 
-            <Link style={{textDecoration:"none" ,color:'inherit'}} to={`/singleview/${item.id}/${item.sub_catagory}`}>  <h5 className='company-list-company-name'>{item.account_view.team_name}</h5></Link>
+            <Link style={{textDecoration:"none" ,color:'inherit'}} to={`/singleview/${item.id}/${item.sub_catagory}/${item.account}`}>  <h5 className='company-list-company-name'>{item.account_view.team_name}</h5></Link>
               
               <p className='m-0'> {item.account_view.place}<br></br>{item.account_view.address}</p>
               <p className='work-time'>Work time:{item.account_view.work_time}</p>

@@ -54,6 +54,23 @@
 
 }
 
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    /* .popular-card{
+        width: 9rem !important;
+        height: 11rem !important;
+        margin: 10px !important;
+        
+
+    }
+    .popular-card-parent-col{
+        display: flex;
+        align-items: center;
+        flex-direction: row !important;
+       
+    } */
+
+}
+
 
 
 

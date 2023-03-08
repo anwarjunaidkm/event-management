@@ -12,7 +12,7 @@ function Popular() {
             <h4 className="my-0 p-3">Most Popular</h4>
           </div>
         <Row className='popular-row'>
-            <Col className='popular-card-parent-col' md={2}>
+            <Col className='popular-card-parent-col' md={2} sm={2}>
               <Card className='popular-card' style={{
                 width: "10rem",
                 height: "12rem",
@@ -30,7 +30,9 @@ function Popular() {
 
 
               </Card>
-            </Col>
+
+                   </Col>
+
             <Col className='popular-card-parent-col' md={2}>
               <Card style={{
                 width: "10rem",
