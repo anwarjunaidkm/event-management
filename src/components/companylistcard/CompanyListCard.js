@@ -6,7 +6,7 @@ import { c1logo, c2, c3logo, c5logo, c6logo, logo } from '../image/image';
 import "./CompanyListCard.css";
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { ListCompanyApi } from '../../store/user/UserSlice';
+import { getReviewApi, ListCompanyApi } from '../../store/user/UserSlice';
 import { useEffect } from 'react';
 import { useState } from 'react';
 
@@ -22,12 +22,13 @@ function CompanyListCard() {
 
    const {listCompany} = useSelector((state) => state.user);
    console.log("list of companyyyyy===",listCompany);
-  //  const account = listCompany.find((item)=>item.sub_catagory_name)
-  //  const subCatagoryName = listCompany[0]?.sub_catagory_name;
-
-  //  console.log("account ===:",subCategoryName);
-
  
+
+  useEffect(() => {
+    // dispatch(getReviewApi({data:accountId}))
+
+  
+}, [])
  
    
    useEffect(() => {
@@ -59,39 +60,63 @@ function CompanyListCard() {
                 <div><Button>Filter</Button></div>  
         </div>
         {listCompany?.map((item)=>{
-          return(
-            <Card className='comapny-list-single-card'>
-            <Row className='align-items-center'>
-              <Col>
-                  <div className='company-list-icon-parent'>
-                      
-                  <img className='compnay-list-icon' src={c5logo} alt="" />
-                  </div></Col>
-              <Col>
+          return (
+            <Card className="comapny-list-single-card">
+              <Row className="align-items-center">
+                <Col>
+                  <div className="company-list-icon-parent">
+                    <img className="compnay-list-icon" src={item?.team_profilepic} alt="" />
+                  </div>
+                </Col>
+                <Col>
+                  <Link
+                    style={{ textDecoration: "none", color: "inherit" }}
+                    to={`/singleview/${item?.id}/${item?.sub_catagory}/${item?.account}`}
+                  >
+                    {" "}
+                    <h5 className="company-list-company-name">
+                      {item.account_view.team_name}
+                    </h5>
+                  </Link>
 
-            <Link style={{textDecoration:"none" ,color:'inherit'}} to={`/singleview/${item.id}/${item.sub_catagory}/${item.account}`}>  <h5 className='company-list-company-name'>{item.account_view.team_name}</h5></Link>
-              
-              <p className='m-0'> {item.account_view.place}<br></br>{item.account_view.address}</p>
-              <p className='work-time'>Work time:{item.account_view.work_time}</p>
-              
-              </Col>
-              <Col>
-                <Row>
-                  <Col className='btn-parrent'> 
-                  <ReactStars  value={item?.rating} size={30}></ReactStars>
-                  </Col>
-                </Row>
-                <Row >
-                  <Col className='btn-parrent'><Link to={"/enquiryform"}> <Button className='enquiry-btn'>Enquiry</Button></Link>
-              </Col>
-                </Row>
-                
-                 
-              </Col>
-            </Row>
-          </Card>
-
-          )
+                  <p className="m-0">
+                    {" "}
+                    {item?.account_view.place}
+                    <br></br>
+                    {item?.account_view?.address}
+                  </p>
+                  <p className="work-time">
+                    Work time:{item?.account_view?.work_time}
+                  </p>
+                </Col>
+                <Col>
+                  <Row>
+                    <Col className="btn-parrent">
+                      <ReactStars
+                        isHalf={true}
+                        edit={false}
+                        value={item?.avg_ratings}
+                        size={30}
+                      ></ReactStars>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col className="btn-parrent">
+                      <Link
+                        to={
+                           `/enquiryform/${item?.id}`
+                        
+                        }
+                      >
+                        {" "}
+                        <Button className="enquiry-btn">Enquiry</Button>
+                      </Link>
+                    </Col>
+                  </Row>
+                </Col>
+              </Row>
+            </Card>
+          );
         })}
            
             {/* //demmmyy--- */}

@@ -93,14 +93,27 @@ import axiosApi from "../AxiosInstance";
  export const  PostEnquiryApi = createAsyncThunk(
     "user/PostEnquiryApi",
     async(data)=>{
-        try{
+        console.log("data==",data.id);
+        
 
-            const res =await axiosApi.post("/store/enquiry/")
+            const res =await axiosApi.post(`/store/enquiry/?service=${data.id}`,data.data)
             // console.log(res.data);
-        }catch(error){
+           
+
+               
+                    
+                setTimeout(function() {
+                    data.navigate("/")
+                   }, 900);
 
 
-        }
+                
+            
+        
+           
+
+
+        
     }
  )
  //--------------------list comapny---------------
@@ -172,7 +185,8 @@ const INITIAL_STATE ={
     loading:false,
     listCompany:[],
     singleData:{},
-    reviewData:[]
+    reviewData:[],
+    error: null
 
 }
 const UserSlice =createSlice({
@@ -215,10 +229,30 @@ const UserSlice =createSlice({
         },
         [PostEnquiryApi.fulfilled]:(state,action)=>{
             state.loading=false;
+
+            toast.success("Successful!", {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme:"colored"
+            });
+           
             console.log("success");
         },
         [PostEnquiryApi.rejected]:(state,action)=>{
             state.loading=false;
+            toast.error("failed. Please try again..", {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme:"colored"
+              });
             console.log("failed");
         },
         //---------all companyyy list---------
@@ -300,6 +334,7 @@ const UserSlice =createSlice({
         },
         [getReviewApi.rejected]:(state,action)=>{
             state.loading=false;
+
             console.log("failed");
         },
     }

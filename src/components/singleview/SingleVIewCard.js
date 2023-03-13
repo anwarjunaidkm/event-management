@@ -100,8 +100,8 @@ function SingleVIewCard() {
                   <div className="single-view-rating d-flex justify-content-around ">
                     <ReactStars
                       edit={false}
-                      half={true}
-                      value={singleData?.rating}                    
+                      isHalf={true} 
+                      value={reviewData?.avg_rating}                    
                       size={35}
                     ></ReactStars>
                   </div>{" "}
@@ -189,7 +189,7 @@ function SingleVIewCard() {
                     />
                   </Col>
                   <Col md={4}>
-                    <ReactStars  value ={rating}
+                    <ReactStars isHalf={true} half value ={rating}
                       onChange={handleRatingChange} size={30}></ReactStars>
                   </Col>
                   <Col md={4}>
@@ -199,7 +199,7 @@ function SingleVIewCard() {
                   </Col>
                 </Row>
               </div>
-              {reviewData?.map((item)=>{
+              {reviewData?.ratings?.map((item)=>{
                 return(
 
                   <Card className="single-review-card">

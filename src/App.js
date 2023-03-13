@@ -61,7 +61,7 @@ function App() {
 <Route exact path='viewnotification' element={<ViewNotification />} />
 <Route exact path='notificationsingle/:id' element={<Notificationsingle/>} />
 <Route exact path='eventteamsingle' element={<EventTeamSingle />} />
-<Route exact path='enquiryform' element={<EnquiryForm />} />
+<Route exact path='enquiryform/:id' element={<EnquiryForm />} />
 <Route exact path='login' element={<Login />} />
 <Route exact path='signuser' element={<SignUser />} />
 <Route exact path='signteam' element={<SignTeam/>} />
