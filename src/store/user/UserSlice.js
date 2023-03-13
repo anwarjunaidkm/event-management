@@ -89,33 +89,23 @@ import axiosApi from "../AxiosInstance";
     }
   )
 
-//-------post enqueyyyy not compleet--------------------
- export const  PostEnquiryApi = createAsyncThunk(
-    "user/PostEnquiryApi",
-    async(data)=>{
-        console.log("data==",data.id);
-        
+//-------post enqueyyyy t--------------------
+ export const PostEnquiryApi = createAsyncThunk(
+   "user/PostEnquiryApi",
+   async (data) => {
+     console.log("data==", data.id);
 
-            const res =await axiosApi.post(`/store/enquiry/?service=${data.id}`,data.data)
-            // console.log(res.data);
-           
+     const res = await axiosApi.post(
+       `/store/enquiry/?service=${data.id}`,
+       data.data
+     );
+     // console.log(res.data);
 
-               
-                    
-                setTimeout(function() {
-                    data.navigate("/")
-                   }, 900);
-
-
-                
-            
-        
-           
-
-
-        
-    }
- )
+     setTimeout(function () {
+       data.navigate("/");
+     }, 900);
+   }
+ );
  //--------------------list comapny---------------
  export const ListCompanyApi = createAsyncThunk(
     "user/ListCompanyApi",
@@ -173,6 +163,21 @@ import axiosApi from "../AxiosInstance";
     }
  )
 
+ //------------------contactUs-----------------------
+ export const postInboxApi = createAsyncThunk(
+    "user/postInboxApi",
+    async(data)=>{
+        console.log(data);
+        const res = await axiosApi.post( `/store/inbox/?service=${data?.id}`,data?.data)
+
+        console.log("contactsUS==",res.data);
+        setTimeout(function () {
+            data.navigate("/");
+          }, 500);
+        }
+
+    
+ )
 
 
 
@@ -335,6 +340,42 @@ const UserSlice =createSlice({
         [getReviewApi.rejected]:(state,action)=>{
             state.loading=false;
 
+            console.log("failed");
+        },
+
+
+//---------------contect us-------------
+
+        [postInboxApi.pending]:(state,action)=>{
+            state.loading=true;
+            console.log("requseted");
+        },
+        [postInboxApi.fulfilled]:(state,action)=>{
+            state.loading=false;
+
+            toast.success("Successful!", {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme:"colored"
+            });
+           
+            console.log("success");
+        },
+        [postInboxApi.rejected]:(state,action)=>{
+            state.loading=false;
+            toast.error("failed. Please try again..", {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme:"colored"
+              });
             console.log("failed");
         },
     }

@@ -105,7 +105,7 @@ console.log("input",enquryData);
 
           }}>
 
-        <Link to={"/listcompany"}>  <Button style={{marginBottom:"6px",margin:"5px"}} className='btn-connect'>Back</Button></Link>
+        {/* <Link to={"/listcompany"}>  <Button style={{marginBottom:"6px",margin:"5px"}} className='btn-connect'>Back</Button></Link> */}
           <Button  type='submit' style={{marginBottom:"6px",margin:"5px"}} className='btn-connect'>Send</Button>
           </div>
         </Card>

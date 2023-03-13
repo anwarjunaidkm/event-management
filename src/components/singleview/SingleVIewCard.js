@@ -130,7 +130,7 @@ function SingleVIewCard() {
                   <div className="anwae">
                     <Card className="single-view-btn-card">
                       <div>
-                        <Link to={"/connectus"}>
+                        <Link to={`/connectus/${singleData?.id}`}>
                           <Button className="single-view-connect-btn">
                             Connect US
                           </Button>

@@ -46,7 +46,7 @@ function App() {
 <Route exact path='subcategory' element={<SubCategory />} />
 <Route exact path='listcompany/:id' element={<ListCompany />} />
 <Route exact path='singleview/:id/:subId/:accountId/' element={<Singleview />} />
-<Route exact path='connectus' element={<ConnectToUs />} />
+<Route exact path='connectus/:id' element={<ConnectToUs />} />
 <Route exact path='admindash' element={< AdminBanner/>} />
 <Route exact path='allusers' element={< Allusers />} />
 <Route exact path='allteam' element={< AlleventTeam />} />
