@@ -38,12 +38,38 @@
    color: brown !important;
 
 } */
-@media screen and (max-width:479px) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    
     .login-left{
-       display: none;
+        display: none;
+    }
+    .login-left-colum{
+        display: none;
+    }
+    .login-container{
+        height: auto;
+        padding-left: 0px;    
+        padding-right: 0px; 
+        /* padding: 50px; */
        
         
-    }
-    
-   
-  }
+
+      }
+      .login-right{
+        min-height: 500px;
+       
+       
+       
+      }
+      .login-banner{
+        height: 100vh;
+       
+
+
+      }
+      .login-right-colum{
+        padding-right: 0px;
+      }
+      
+
+}

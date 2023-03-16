@@ -33,13 +33,13 @@ function SignTeam() {
       <Container>
       <ToastContainer />
 
-        <div className="wrapper">
+        <div className="wrapper-team">
           <Row>
-            <Col>
-              <div className="left-signup"></div>
+            <Col className="left-signup-team-colum">
+              <div className="left-signup-team"></div>
             </Col>
             <Col>
-              <Form onSubmit={HandleSignup} className="form-main">
+              <Form onSubmit={HandleSignup} className="form-main-team">
                 <h5
                   style={{
                     color: "#6a3921",

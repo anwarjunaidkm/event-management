@@ -42,6 +42,39 @@
     padding-left: 0;
     padding-bottom: 0;
   }
+
+
+  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    
+    .left-signup{
+      display: none;
+    }
+    .left-signup-colum{
+      display: none;
+    }
+    .form-main{
+      padding: 15px;
+    
+    
+    }
+    .wrapper{ 
+      max-width: 800px;
+      width: 100%;
+      height: auto;
+      padding: 25px;
+      /* position: absolute;
+      top: 50%;
+      left:50%;
+      transform: translate(-50%,-50%); */
+      background:none
+      /* box-shadow: -3px -3px 7px rgba(68, 75, 87, 0.356),
+                  2px 2px 5px rgba(68, 75, 87, 0.356); */
+    }
+   
+   
+
+
+}
  
 
   

@@ -1,18 +1,77 @@
-/* anwar{
-    outline: none;
-    background-color:var( --primary-header-gray);
-    border-radius: 15px;
-    border: 0;
-    margin-top: 10px;
-    color: rgb(93, 92, 92);    
-    padding: 6px;
-   
-} */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  list-style: none;
+  text-decoration: none;
+  
+}
+.wrapper-team{
+  max-width: 800px;
+  width: 100%;
+  height: 440px;
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  background: var(--primary-header-gray);
+  /* box-shadow: -3px -3px 7px rgba(68, 75, 87, 0.356),
+              2px 2px 5px rgba(68, 75, 87, 0.356); */
+}
+.left-signup-team {
+  min-height: 440px;
+  background-color:var(--primary-coffie);
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  padding-left: 0 ;
 
 
-  .testing{
-    /* width: 141px !important; */
-    display: inline-block;
-   
+
+}
+
+.form-main-team .mb-3{
+  display: flex;
+  justify-content: center;
+}
+.form-main-team .col{
+  padding-left: 0 ;
+}
+.form-main-team{
+  padding: 15px;
+  padding-left: 0;
+  padding-bottom: 0;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
     
-  } 
+  .left-signup-team{
+    display: none;
+  }
+  .left-signup-team-colum{
+    display: none;
+  }
+  .form-main-team{
+    padding: 15px;
+  
+  
+  }
+  .wrapper-team{
+    max-width: 800px;
+    width: 100%;
+    /* height: auto; */
+    padding: 25px;
+    /* position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%,-50%); */
+    background:none
+    /* box-shadow: -3px -3px 7px rgba(68, 75, 87, 0.356),
+                2px 2px 5px rgba(68, 75, 87, 0.356); */
+  }
+ 
+ 
+
+
+}
+

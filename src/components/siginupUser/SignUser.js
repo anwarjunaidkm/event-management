@@ -50,17 +50,20 @@ function SignUser() {
       <Header />
       <Container>
       <ToastContainer />
+      
+
+      <div className="parent-wapper">
 
         <div className="wrapper">
           <Row>
-            <Col>
+            <Col className="left-signup-colum">
               <div className="left-signup"></div>
             </Col>
             <Col>
               <Form  onSubmit={HandleSignup} className="form-main">
                 <h5
                   style={{
-                    color: "#6a3921",
+                    color: "#6a3921", 
                     fontSize: "17px",
                     textAlign: "center",
                     paddingBottom: "10px",
@@ -175,6 +178,7 @@ function SignUser() {
               </p>
             </Col>
           </Row>
+        </div>
         </div>
       </Container>
     </>

@@ -40,10 +40,10 @@ function Login() {
         <Container className="login-container">
           <div className="login-banner">
             <Row >
-              <Col  md={""}>
+              <Col className='login-left-colum' md={""}>
                 <div className="login-left"></div>
               </Col>
-              <Col sm={""}>
+              <Col className='login-right-colum' >
                 <div className="login-right">
                   <div>
                     <form onSubmit={handleLogin}>
