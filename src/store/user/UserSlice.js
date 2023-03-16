@@ -179,6 +179,16 @@ import axiosApi from "../AxiosInstance";
     
  )
 
+ export const popularApi = createAsyncThunk(
+    "user/popularApi",
+    async(data)=>{
+        const res = await axiosApi.get('/store/popular/')
+        console.log("popular==",res.data);
+        return res.data
+
+    }
+ )
+
 
 
 
@@ -191,7 +201,8 @@ const INITIAL_STATE ={
     listCompany:[],
     singleData:{},
     reviewData:[],
-    error: null
+    error: null,
+    popularData:[],
 
 }
 const UserSlice =createSlice({
@@ -378,6 +389,24 @@ const UserSlice =createSlice({
               });
             console.log("failed");
         },
+
+          //---------get popiularrrrr-----------------
+
+          [popularApi.pending]:(state,action)=>{
+            state.loading=true;
+            console.log("requseted");
+        },
+        [popularApi.fulfilled]:(state,action)=>{
+            state.loading=false;
+            state.popularData =  action.payload;
+            console.log("success");
+        },
+        [popularApi.rejected]:(state,action)=>{
+            state.loading=false;
+
+            console.log("failed");
+        },
+
     }
     
 })
