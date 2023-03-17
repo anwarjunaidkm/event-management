@@ -39,7 +39,7 @@ function Popular() {
               {
                 popularTable?.map((item)=>{
                   return(
-                    <Col className='popular-card-parent-col' md={2} sm={2}>
+                    <Col className='popular-card-parent-col' md={''} sm={''}>
 
                     <Card className='popular-card' style={{
                       width: "10rem",

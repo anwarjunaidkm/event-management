@@ -47,15 +47,15 @@ function CompanyListCard() {
           <Col md={9}>
           <div className='d-flex justify-content-between align-items-center'>
             <div className="main-category-title">
-              {listCompany?.map((item)=>{
-                return(
+              {listCompany && listCompany.length > 0 &&
+                (
 
-                  <h4 className="my-0 p-3">{item.sub_catagory_name}</h4>
+                  <h4 className="my-0 p-3">{listCompany[0].sub_catagory_name}</h4>
                   
 
 
-                )
-              })}
+                
+              )}
                 </div>
                 <div><Button>Filter</Button></div>  
         </div>

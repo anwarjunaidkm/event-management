@@ -35,6 +35,8 @@
 .comapny-list-single-card{
     background-color: var(--primary-header-gray);
     padding: 12px;
+   margin-bottom: 14px;
+   height: auto;
     
     margin-top: 12px;
 }
