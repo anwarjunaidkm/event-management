@@ -17,7 +17,7 @@ function Header() {
 //   console.log(isLoggedIn);
 const LogoutHandle = (e) =>{
     e.preventDefault(e)
-      dispatch(LogoutApi(navigate))
+      dispatch(LogoutApi({navigate:navigate}))
 
 }
   return (

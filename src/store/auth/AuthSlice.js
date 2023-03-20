@@ -62,14 +62,17 @@ import axiosApi from "../AxiosInstance";
 
    export const LogoutApi =createAsyncThunk(
     "login/logout",
-    async(navigate)=>{
+    async(data)=>{
+        console.log("datalout==",data);
         const res=axiosApi.post("/auth/token/logout/")
         console.log(res);
-        if (res?.data) {
-            // localStorage.clear();
-            //   sessionStorage.clear();
-             navigate("/");
-        }
+        if (res) {
+            sessionStorage.clear();
+            localStorage.clear();
+             data.navigate("/");
+             
+            }
+        
         
     }
 

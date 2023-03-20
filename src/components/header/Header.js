@@ -2,16 +2,24 @@ import React, { useState } from 'react'
 import {Container,Nav,Navbar} from 'react-bootstrap';
 import { CgProfile } from 'react-icons/cg';
 import { logo } from '../image/image';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button,  } from '@mui/material'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { LogoutApi } from '../../store/auth/AuthSlice';
 
 
 
 function Header() {
+  const navigate = useNavigate()
+  const dispatch =useDispatch()
   // const [isLoggedIn, setIsLoggedIn] = useState(true);
   const {isLoggedIn}=useSelector((state)=>state.Auth)
   // console.log(isLoggedIn);
+  const LogoutHandle = (e) =>{
+    e.preventDefault(e)
+      dispatch(LogoutApi({navigate:navigate}))
+
+}
   return (
     <>
       <Navbar bg="light" variant="light">
@@ -50,6 +58,7 @@ function Header() {
                   }}
                   variant="contained"
                   size="small"
+                  onClick={(e)=>LogoutHandle(e)}
                 >
                   Logout
                 </Button>
