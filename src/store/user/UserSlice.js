@@ -178,6 +178,7 @@ import axiosApi from "../AxiosInstance";
 
     
  )
+ //------------popularity---------
 
  export const popularApi = createAsyncThunk(
     "user/popularApi",
@@ -188,6 +189,21 @@ import axiosApi from "../AxiosInstance";
 
     }
  )
+
+
+
+ //----------searching-----------
+
+ export const searchingApi = createAsyncThunk(
+    "user/searching",
+    async(data)=>{
+        console.log({data});
+        const res = await axiosApi.get(`/store/service/?search=${data.search}&account__district=${data.district}`)
+        console.log(res.data);
+        return res.data
+    }
+ )
+
 
 
 
@@ -203,6 +219,7 @@ const INITIAL_STATE ={
     reviewData:[],
     error: null,
     popularData:[],
+    searchdata:[]
 
 }
 const UserSlice =createSlice({
@@ -402,6 +419,23 @@ const UserSlice =createSlice({
             console.log("success");
         },
         [popularApi.rejected]:(state,action)=>{
+            state.loading=false;
+
+            console.log("failed");
+        },
+
+         //---------serching-----------------
+
+         [searchingApi.pending]:(state,action)=>{
+            state.loading=true;
+            console.log("requseted");
+        },
+        [searchingApi.fulfilled]:(state,action)=>{
+            state.loading=false;
+            state.searchdata =  action.payload;
+            console.log("success");
+        },
+        [searchingApi.rejected]:(state,action)=>{
             state.loading=false;
 
             console.log("failed");

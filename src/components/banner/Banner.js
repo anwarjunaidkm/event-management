@@ -1,10 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Card, TabContainer } from 'react-bootstrap'
 import { Container } from 'react-bootstrap'
+import { useDispatch } from 'react-redux';
 import { Col, Row } from 'reactstrap';
+import { searchingApi } from '../../store/user/UserSlice';
 import { c1, c2, c3 } from '../image/image';
 
 function Banner() {
+
+   const [search,setSerach] = useState()
+   const dispatch = useDispatch()
+   console.table(search)
+
+    const searchHandle = (e) => {
+      setSerach({
+        ...search,
+        [e.target.name]: e.target.value
+      })
+
+    }
+    const handleSubmit = (e) => {
+      e.preventDefault(e);
+      dispatch(searchingApi(search))
+
+    }
+
   return (
     <div className="banner">
       <Container>
@@ -22,15 +42,27 @@ function Banner() {
                  
 
                   <Card className="left-search-card">
-                    <select className="dropdown-search">
+                    <select name='district' onChange={searchHandle} className="dropdown-search">
                         <option
                           className="dropdown-option"
-                          value="actual value 1"
+                          value=""
                         >
                           Location
                         </option>
-                        <option value="actual value 2">Display Text 2</option>
-                        <option value="actual value 3">Display Text 3</option>
+                        <option value="Alappuzha">Alappuzha</option>
+                        <option value="Ernakulam">Ernakulam</option>
+                        <option value="Idukki">Idukki</option>
+                        <option value="Kannur">Kannur</option>
+                        <option value="Kasaragod">Kasaragod</option>
+                        <option value="Kollam">Kollam</option>
+                        <option value="Kottayam">Kottayam</option>
+                        <option value="Kozhikode">Kozhikode</option>
+                        <option value="Malappuram">Malappuram</option>
+                        <option value="Palakkad">Palakkad</option>
+                        <option value="Pathanamthitta">Pathanamthitta</option>
+                        <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+                        <option value="Thrissur">Thrissur</option>
+                        <option value="Wayanad">Wayanad</option>
                       </select>
                             
                        
@@ -38,13 +70,14 @@ function Banner() {
                         <input
                           className="search_input"
                           type="text"
-                          name=""
+                          name="search"
                           placeholder="Search...."
+                          onChange={searchHandle}
                         />
                     </div>
 
                     
-                        <button className="search-butn">Search</button>
+                        <button onClick={handleSubmit} className="search-butn">Search</button>
                         
                   </Card>
 
