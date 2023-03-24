@@ -34,8 +34,7 @@ function Banner() {
               <div className="left-banner">
                 <div className="banner-text">
                   <h2>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Maxime mollitia..!!!,
+                  Bringing Your Ideas to Life with Expert Event Planning...!
                   </h2>
                 </div>
                 <div>

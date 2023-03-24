@@ -58,7 +58,7 @@ function AdminBanner() {
                   <Row>
                     <Col md={6}>
                       <h3 className='dashbord-banner-title-admin'>Number of User</h3>
-                        <h5 className='dashbord-banner-title-admin'>{allusersList.length}</h5>
+                        <h5 className='dashbord-banner-title-admin'>{allusersList?.results?.length}</h5>
                     </Col>
                     <Col md={6}>
                       <div className='icon-banner-parent-admin'>

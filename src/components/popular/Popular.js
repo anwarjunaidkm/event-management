@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import ReactStars from 'react-rating-stars-component';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { Card, Col, Container, Row } from 'reactstrap';
 import { popularApi } from '../../store/user/UserSlice';
 import { c1, c1logo, c2logo, c3logo, c4logo, c5logo, c6logo } from '../image/image';
@@ -46,9 +47,9 @@ function Popular() {
                       height: "12rem",
                       backgroundColor: "white",
                     }}>
-                   <img className="popular-image" variant="top" src={item?.team_profilepic} />
+                 <img className="popular-image" variant="top" src={item?.team_profilepic} />
                       <div className='popular-card-body'>
-                      <span className="tag tag-teal">Popular</span>
+                      <Link style={{ textDecoration: "none", color: "inherit" }}   to={`/singleview/${item?.id}/${item?.sub_catagory}/${item?.account}`}>       <span className="tag tag-teal">Popular</span></Link>
                       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
              
                       </p>

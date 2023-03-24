@@ -198,11 +198,12 @@ import axiosApi from "../AxiosInstance";
     "user/searching",
     async(data)=>{
         console.log({data});
-        const res = await axiosApi.get(`/store/service/?search=${data.search}&account__district=${data.district}`)
+        const res = await axiosApi.get(`/store/service/?account__district=${data.district}&search=${data.search}`)
         console.log(res.data);
         return res.data
     }
  )
+
 
 
 
@@ -219,13 +220,16 @@ const INITIAL_STATE ={
     reviewData:[],
     error: null,
     popularData:[],
-    searchdata:[]
+    searchdata:[],
+    popularSingle:[]
 
 }
 const UserSlice =createSlice({
     name:"user",
     initialState:INITIAL_STATE,
-    reducers:{},
+    reducers:{
+       
+    },
     extraReducers:{
 
         [CreateUserApi.pending]:(state,action)=>{
@@ -329,6 +333,7 @@ const UserSlice =createSlice({
         },
         [PostReviewApi.fulfilled]:(state,action)=>{
             state.loading=false;
+           
             toast.success("Successful!", {
                 position: "top-right",
                 autoClose: 2000,
@@ -440,6 +445,8 @@ const UserSlice =createSlice({
 
             console.log("failed");
         },
+
+      
 
     }
     

@@ -7,7 +7,7 @@ import { Link, useParams } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
 import { Button, Card, Col, Container, Row } from 'reactstrap'
-import { getReviewApi, PostReviewApi, SingleViewApi } from '../../store/user/UserSlice';
+import { addReview, getReviewApi, PostReviewApi, SingleViewApi } from '../../store/user/UserSlice';
 import { avatar, avatar2, avatar3, c1, c1logo, c2, c2logo, c3logo, logo } from '../image/image'
 import "./SingleviewCard.css"
 
@@ -41,9 +41,15 @@ function SingleVIewCard() {
   }
 
 
-  const handleSubmit =()=>{
-    dispatch(PostReviewApi({data:id,rating,review}))
+  const handleSubmit = ()=>{
+    dispatch(PostReviewApi({data:id,rating,review})).then(()=>{
 
+      dispatch(getReviewApi({data:accountId}))
+    })
+
+    // window.location.reload(false);
+    
+   
   }
 
   
@@ -70,7 +76,7 @@ function SingleVIewCard() {
     dispatch(getReviewApi({data:accountId}))
 
   
-}, [])
+}, [dispatch])
 
  
 

@@ -237,6 +237,18 @@ export const AllserviceApi = createAsyncThunk(
     );
 
 
+    //------- delete service------------
+    
+    export const deleteServicApi = createAsyncThunk(
+        "team/deleteServicApi",
+        async (data) => {
+            const res = await axiosApi.delete(`/store/service/${data}/`);
+           
+            return res.data;
+            }
+    )
+
+
 
 
 
@@ -491,6 +503,40 @@ const TeamSlice = createSlice({
     },
     [getMorePicApi.rejected]:(state,action)=>{
         console.log("faild");
+    },
+     //---------delete sservicee single team----------
+
+     [deleteServicApi.pending]:(state,action) =>{
+        state.loading=true;
+        console.log("requsted");
+    },
+    [deleteServicApi.fulfilled]:(state,action)=>{
+        state.loading=false
+        toast.success("Successful!", {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            theme:"colored"
+        });
+       
+       
+       
+        console.log("success");
+    },
+    [deleteServicApi.rejected]:(state,action)=>{
+        console.log("faild");
+        toast.error(" failed. Please try again.", {
+            position: "top-right",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            theme:"colored"
+          });
     },
 
 

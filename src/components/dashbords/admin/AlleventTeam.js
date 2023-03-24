@@ -5,15 +5,24 @@ import { AiFillEye, AiOutlineDelete } from 'react-icons/ai'
 import { BsPencil } from 'react-icons/bs'
 import { Card, Container, Table } from 'reactstrap'
 import { Link } from 'react-router-dom'
-import { AllevenTeamApi } from '../../../store/admin/AdminSlice'
+import { AllevenTeamApi, TeamDeleteApi } from '../../../store/admin/AdminSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
+import { ToastContainer } from 'react-toastify'
 
 function AlleventTeam() {
   const dispatch = useDispatch() 
 
+
   const {alleventtTeam} = useSelector((state) => state.admin);
   console.log("all eventteam====",alleventtTeam);
+
+
+  const deleteUserHandler = (id) => {
+    dispatch(TeamDeleteApi(id)).then(() => {
+      dispatch(AllevenTeamApi());
+    });
+  };
 
   useEffect(() => {
     dispatch(AllevenTeamApi())
@@ -22,6 +31,8 @@ function AlleventTeam() {
 
   return (
     <AdminLayout>
+            <ToastContainer />
+
     <h5 style={{color:"#6a3921"}}>All Eventteam</h5>
     <Card className='allusers-card' style={{margin:"18px",borderRadius:"10px"}} >
         
@@ -73,12 +84,12 @@ function AlleventTeam() {
         <td className='d-flex p-2'>
           <div>
   
-          <AiOutlineDelete size={20}  />
+          <AiOutlineDelete  style={{cursor:"pointer"}} color='brown' size={20}   onClick={()=>{deleteUserHandler(item?.id)}} />
         </div>
-        <div style={{paddingLeft:"10px"}}>
+        {/* <div style={{paddingLeft:"10px"}}>
   
           <BsPencil />
-        </div>
+        </div> */}
         <div style={{paddingLeft:"10px"}}>
   
       <Link to={"/eventteamsingle"}>   <AiFillEye size={20} /></Link>

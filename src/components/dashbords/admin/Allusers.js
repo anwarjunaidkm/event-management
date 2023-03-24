@@ -3,18 +3,23 @@ import { useEffect } from 'react'
 import { AiFillEye, AiOutlineDelete } from 'react-icons/ai'
 import { BsPencil } from 'react-icons/bs'
 import { useDispatch, useSelector } from 'react-redux'
+import { ToastContainer } from 'react-toastify'
 import { Card, Container, Table } from 'reactstrap'
 import AdminLayout from '../../../Layout/admin/AdminLayout'
-import { AllusersApi } from '../../../store/admin/AdminSlice'
+import { AllusersApi, userDeleteApi } from '../../../store/admin/AdminSlice'
 import "./Allusers.css"
 
 function Allusers() {
    const dispatch = useDispatch() 
    const {allusersList} = useSelector((state) => state.admin);
 
-   console.log("userlist====",allusersList);
+   console.log("userlist====",allusersList.results);
 
-
+    const deleteUserHandler = (id) => {
+      dispatch(userDeleteApi(id)).then(() => {
+        dispatch(AllusersApi());
+      });
+    };
 
    useEffect(() => {
     dispatch(AllusersApi())
@@ -23,6 +28,8 @@ function Allusers() {
    
   return (
       <AdminLayout>
+              <ToastContainer />
+
        
 
             <h5 style={{color:"#6a3921"}}>All Users</h5>
@@ -54,7 +61,7 @@ function Allusers() {
     </tr>
   </thead>
   <tbody>
-    {allusersList.map((item,key)=>{
+    {allusersList?.results?.map((item,key)=>{
 
 return(
 <tr>
@@ -62,31 +69,31 @@ return(
   {key+1}
 </th>
 <td>
-  {item.full_name
+  {item?.full_name
 }
 </td>
 <td>
-  {item.username}
+  {item?.username}
 </td>
 <td>
- {item.email}
+ {item?.email}
 </td>
 <td>
-  {item.phone}
+  {item?.phone}
 </td>
 <td className='d-flex p-2'>
   <div>
 
-  <AiOutlineDelete size={20}  />
+  <AiOutlineDelete style={{cursor:'pointer'}} color="brown"  onClick={()=>{deleteUserHandler(item?.id)}} size={20}  /> 
 </div>
-<div style={{paddingLeft:"10px"}}>
+{/* <div style={{paddingLeft:"10px"}}>
 
   <BsPencil />
 </div>
 <div style={{paddingLeft:"10px"}}>
 
  <AiFillEye size={20} />
-</div>
+</div> */}
 </td>
 </tr>
 

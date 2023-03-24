@@ -96,10 +96,35 @@ export const NotificationApi = createAsyncThunk(
 
         }
 
-
+        
     }
+    
+    )
 
-)
+    //------------ delete single user-----------
+
+    export const userDeleteApi =createAsyncThunk(
+        "admin/userDeleteApi",
+        async(data)=>{
+            console.log({data});
+        
+            const res = await axiosApi.delete(`/projectaccount/userslist/${data}/`)
+
+            return res.data
+        }
+    )
+    //------------ delete team user-----------
+
+    export const TeamDeleteApi =createAsyncThunk(
+        "admin/TeamDeleteApi",
+        async(data)=>{
+            console.log({data});
+        
+            const res = await axiosApi.delete(`projectaccount/event_management_users/${data}`)
+
+            return res.data
+        }
+    )
 
 
 
@@ -174,6 +199,76 @@ const AdminSlice =createSlice({
         },
         [NotificationApi.rejected]:(state,action)=>{
             console.log("faild");
+        },
+
+
+        //---------delete single user----------
+
+        [userDeleteApi.pending]:(state,action) =>{
+            state.loading=true;
+            console.log("requsted");
+        },
+        [userDeleteApi.fulfilled]:(state,action)=>{
+            state.loading=false
+            toast.success("Successful!", {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme:"colored"
+            });
+           
+           
+           
+            console.log("success");
+        },
+        [userDeleteApi.rejected]:(state,action)=>{
+            console.log("faild");
+            toast.error(" failed. Please try again.", {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme:"colored"
+              });
+        },
+        //---------delete single team----------
+
+        [TeamDeleteApi.pending]:(state,action) =>{
+            state.loading=true;
+            console.log("requsted");
+        },
+        [TeamDeleteApi.fulfilled]:(state,action)=>{
+            state.loading=false
+            toast.success("Successful!", {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme:"colored"
+            });
+           
+           
+           
+            console.log("success");
+        },
+        [TeamDeleteApi.rejected]:(state,action)=>{
+            console.log("faild");
+            toast.error(" failed. Please try again.", {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme:"colored"
+              });
         },
         
     }

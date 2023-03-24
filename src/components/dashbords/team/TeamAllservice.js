@@ -5,8 +5,9 @@ import { BsPencil } from 'react-icons/bs'
 import { Card, Container, Table } from 'reactstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
-import { AllserviceApi } from '../../../store/team/TeamSlice'
+import { AllserviceApi, deleteServicApi } from '../../../store/team/TeamSlice'
 import UpdateModalService from './UpdateModalService'
+import { ToastContainer } from 'react-toastify'
 
 function TeamAllservice() {
   const dispatch = useDispatch() 
@@ -23,7 +24,14 @@ const UpdateService =(item)=>{
   setOnUpdateModalService(item)
 
 
+
 }
+
+const deleteUserHandler = (id) => {
+  dispatch(deleteServicApi(id)).then(() => {
+    dispatch(AllserviceApi());
+  });
+};
 
   
   useEffect(() => {
@@ -34,6 +42,7 @@ const UpdateService =(item)=>{
 
   return (
    <TeamLayout>
+       <ToastContainer />
      <UpdateModalService
       show={modalService}
       data ={onUpdateModalService}
@@ -87,11 +96,11 @@ const UpdateService =(item)=>{
         <td className='d-flex p-2'>
           <div>
   
-          <AiOutlineDelete size={20}  />
+          <AiOutlineDelete style={{cursor:"pointer"}}   color='brown' onClick={()=>{deleteUserHandler(item?.id)}} size={20}  />
         </div>
         <div style={{paddingLeft:"10px"}}>
   
-          <BsPencil style={{cursor:"pointer"}}  onClick={()=>UpdateService(item)} />
+          <BsPencil style={{cursor:"pointer"}}  color='brown' onClick={()=>UpdateService(item)} />
         </div>
         <div style={{paddingLeft:"10px"}}>
   
