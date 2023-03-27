@@ -287,7 +287,7 @@ function SingleVIewCard() {
             </Card>
           </Col>
 
-          <Col md={3}>
+          <Col className='singleview-right' md={3}>
             <h1 style={{ backgroundColor: "gray", minHeight: "100vh" }}>2</h1>
           </Col>
         </Row>

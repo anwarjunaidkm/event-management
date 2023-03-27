@@ -1,15 +1,36 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
 import { Card, Col, Row } from 'reactstrap'
 import AdminLayout from '../../../Layout/admin/AdminLayout'
+import { TeamSingleviewApi } from '../../../store/admin/AdminSlice'
 import { c3logo } from '../../image/image'
 import "./EventteamSingle.css"
 
 function EventTeamSingle() {
+    const dispatch= useDispatch()
+    const params =useParams()
+    console.log(params.id);
+
+    const {singlteamData} = useSelector((state) => state.admin);
+    console.log({singlteamData});
+
+    useEffect(() => {
+        dispatch(TeamSingleviewApi(params.id))
+      
+    
+     
+    },[])
+    
+
+    
   return (
     <AdminLayout>
         <div>
      <Row>
         <Col md={6}>
+
+          
             
             <Card className='admin-team-singleview-name-card'>
                 <Row>
@@ -24,12 +45,12 @@ function EventTeamSingle() {
                            fontWeight:"bolder",
                         
                     
-                    }}>Casata event</h4>
+                    }}>{singlteamData?.team_name}</h4>
                     <span style={{
                          color:"#986248",
 
 
-                    }}>9:00AM -9:00PM</span>
+                    }}>{singlteamData?.work_time}</span>
                 </Row>
                 <Row>
                    <h5 style={{
@@ -37,7 +58,7 @@ function EventTeamSingle() {
                     fontSize:"15px"
 
                    }}>Overview</h5>
-                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque obcaecati fuga fugit quae id quasi, maxime delectusamet consectetur adipisicing elit. Atque obcaecati fuga fugit quae id quasi, maxime delectus  sint?</p>
+                   <p> {singlteamData?.over_view}</p>
                 </Row>
                 <Row>
                    <h5 style={{
@@ -45,7 +66,7 @@ function EventTeamSingle() {
                     fontSize:"15px"
 
                    }}>Service</h5>
-                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque obcaecati fuga fugit quae id quasi, maxime delectusamet consectetur adipisicing elit. Atque obcaecati fuga fugit quae id quasi, maxime delectus  sint?</p>
+                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
                 </Row>
 
             </Card>
@@ -62,7 +83,7 @@ function EventTeamSingle() {
         
                 </Col>
                 <Col  className='admin-single-form'  >
-                <input readOnly className='admin-input-boxstyle' value={""} type="text" />
+                <input readOnly className='admin-input-boxstyle' value={singlteamData?.username} type="text" />
                 </Col>
             </Row>
             <Row>
@@ -71,7 +92,7 @@ function EventTeamSingle() {
                 Email
                 </Col>
                 <Col className='admin-single-form'>
-                <input   readOnly className='admin-input-boxstyle' type="text" />
+                <input   readOnly className='admin-input-boxstyle' value={singlteamData?.email} type="text" />
                 </Col>
             </Row>
             <Row>
@@ -79,7 +100,7 @@ function EventTeamSingle() {
                 Phone
                 </Col>
                 <Col className='admin-single-form'>
-                <input  readOnly className='admin-input-boxstyle' type="text" />
+                <input  readOnly className='admin-input-boxstyle' value={singlteamData?.phone} type="text" />
                 </Col>
             </Row>
             <Row>
@@ -87,15 +108,15 @@ function EventTeamSingle() {
                 Address
                 </Col>
                 <Col className='admin-single-form'>
-                <textarea  readOnly  style={{width:"193px",height:"70px"}} className='admin-input-boxstyle' name="" id="" cols="30" rows="10"></textarea>
+                <textarea  readOnly  style={{width:"193px",height:"70px"}} value={singlteamData?.address} className='admin-input-boxstyle' name="" id="" cols="30" rows="10"></textarea>
                 </Col>
             </Row>
             <Row>
                 <Col className='admin-single-form'>
-                District
+                Place
                 </Col>
                 <Col className='admin-single-form'>
-                <input   readOnly className='admin-input-boxstyle' type="text" />
+                <input   readOnly className='admin-input-boxstyle' value={singlteamData?.place} type="text" />
                 
                 </Col>
             </Row>
@@ -103,12 +124,12 @@ function EventTeamSingle() {
         </Card>
         </Col>
      </Row>
-     <Row>
+     {/* <Row>
         <Col md={12}>
         <h1 style={{backgroundColor:"yellow"}}>3</h1>
         </Col>
         
-     </Row>
+     </Row> */}
      </div>
     </AdminLayout>
   )

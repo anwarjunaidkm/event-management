@@ -62,7 +62,7 @@ function AlleventTeam() {
     </tr>
   </thead>
   <tbody>
-    {alleventtTeam.map((item,key)=>{
+    {alleventtTeam?.map((item,key)=>{
       return(
 
         <tr>
@@ -70,16 +70,16 @@ function AlleventTeam() {
           {key+1}
         </th>
         <td>
-          {item.team_name}
+          {item?.team_name}
         </td>
         <td>
-        {item.username}
+        {item?.username}
         </td>
         <td>
-         {item.email}
+         {item?.email}
         </td>
         <td>
-          {item.phone}
+          {item?.phone}
         </td>
         <td className='d-flex p-2'>
           <div>
@@ -92,7 +92,7 @@ function AlleventTeam() {
         </div> */}
         <div style={{paddingLeft:"10px"}}>
   
-      <Link to={"/eventteamsingle"}>   <AiFillEye size={20} /></Link>
+      <Link to={`/eventteamsingle/${item?.id}`}>   <AiFillEye size={20} /></Link>
         </div>
         </td>
       </tr>

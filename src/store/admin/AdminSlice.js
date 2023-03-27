@@ -126,6 +126,17 @@ export const NotificationApi = createAsyncThunk(
         }
     )
 
+    export const TeamSingleviewApi = createAsyncThunk(
+        "admin/TeamSingleviewApi",
+        async(data)=>{
+            const res = await axiosApi.get(`/projectaccount/event_management_users/${data}`)
+            return res.data
+
+
+        }
+
+    ) 
+
 
 
 const INITIAL_STATE ={
@@ -133,6 +144,7 @@ const INITIAL_STATE ={
     loading:false,
     allusersList:[],
     alleventtTeam:[],
+    singlteamData:[]
    
 
   
@@ -270,7 +282,22 @@ const AdminSlice =createSlice({
                 theme:"colored"
               });
         },
+
+         //------all suer---------------------
+         [TeamSingleviewApi.pending]:(state,action) =>{
+            state.loading=true;
+            console.log("requsted");
+        },
+        [TeamSingleviewApi.fulfilled]:(state,action)=>{
+            state.loading=false
+            state.singlteamData =  action.payload;
+           
+            console.log("success");
+        },
+        [TeamSingleviewApi.rejected]:(state,action)=>{
+            console.log("faild");
         
+        }
     }
 })
 export const{} =AdminSlice.actions;

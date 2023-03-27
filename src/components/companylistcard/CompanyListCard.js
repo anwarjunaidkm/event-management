@@ -119,97 +119,10 @@ function CompanyListCard() {
           );
         })}
            
-            {/* //demmmyy--- */}
-            {/* <Card className='comapny-list-single-card'>
-              <Row className='align-items-center'>
-                <Col>
-                    <div className='company-list-icon-parent'>
-                        
-                    <img className='compnay-list-icon' src={c1logo} alt="" />
-                    </div></Col>
-                <Col>
-                <h5 className='company-list-company-name'>CASATA EVENTS</h5>
-                
-                <p className='m-0'> Malappuram hill <br></br>Second street vilayil 673641</p>
-                <p className='work-time'>Work time: 9:00 AM-8:00 PM</p>
-                
-                </Col>
-                <Col>
-                  <Row>
-                    <Col className='btn-parrent'> 
-                    <ReactStars  size={30}></ReactStars>
-                    </Col>
-                  </Row>
-                  <Row >
-                    <Col className='btn-parrent'> <Button className='enquiry-btn'>Enquiry</Button>
-                </Col>
-                  </Row>
-                  
-                   
-                </Col>
-              </Row>
-            </Card>
-            <Card className='comapny-list-single-card'>
-              <Row className='align-items-center'>
-                <Col>
-                    <div className='company-list-icon-parent'>
-                        
-                    <img className='compnay-list-icon' src={c3logo} alt="" />
-                    </div></Col>
-                <Col>
-                <h5 className='company-list-company-name'>CASATA EVENTS</h5>
-                
-                <p className='m-0'> Malappuram hill <br></br>Second street vilayil 673641</p>
-                <p className='work-time'>Work time: 9:00 AM-8:00 PM</p>
-                
-                </Col>
-                <Col>
-                  <Row>
-                    <Col className='btn-parrent'> 
-                    <ReactStars  size={30}></ReactStars>
-                    </Col>
-                  </Row>
-                  <Row >
-                    <Col className='btn-parrent'> <Button className='enquiry-btn'>Enquiry</Button>
-                </Col>
-                  </Row>
-                  
-                   
-                </Col>
-              </Row>
-            </Card>
-            <Card className='comapny-list-single-card'>
-              <Row className='align-items-center'>
-                <Col>
-                    <div className='company-list-icon-parent'>
-                        
-                    <img className='compnay-list-icon' src={c6logo} alt="" />
-                    </div></Col>
-                <Col>
-                <h5 className='company-list-company-name'>CASATA EVENTS</h5>
-                
-                <p className='m-0'> Malappuram hill <br></br>Second street vilayil 673641</p>
-                <p className='work-time'>Work time: 9:00 AM-8:00 PM</p>
-                
-                </Col>
-                <Col>
-                  <Row>
-                    <Col className='btn-parrent'> 
-                    <ReactStars  size={30}></ReactStars>
-                    </Col>
-                  </Row>
-                  <Row >
-                    <Col className='btn-parrent'> <Button className='enquiry-btn'>Enquiry</Button>
-                </Col>
-                  </Row>
-                  
-                   
-                </Col>
-              </Row>
-            </Card> */}
+           
            
           </Col>
-          <Col md={3}>
+          <Col className='right-company-list' md={3}>
             <h1 style={{ backgroundColor: "blue" }}>2</h1>
           </Col>
         </Row>
