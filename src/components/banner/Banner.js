@@ -1,16 +1,22 @@
 import React, { useState } from 'react'
 import { Card, TabContainer } from 'react-bootstrap'
 import { Container } from 'react-bootstrap'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Col, Row } from 'reactstrap';
 import { searchingApi } from '../../store/user/UserSlice';
 import { c1, c2, c3 } from '../image/image';
+import { location } from './location';
 
 function Banner() {
 
-   const [search,setSerach] = useState()
+    const {searchdata} =useSelector((state)=>state.user)
+
+    
+    
+    const [searchresult,setSerachresult] = useState([searchdata])
+    const [search,setSerach] = useState()
    const dispatch = useDispatch()
-   console.table(search)
+   console.log(typeof(searchdata))
 
     const searchHandle = (e) => {
       setSerach({
@@ -25,6 +31,7 @@ function Banner() {
 
     }
 
+
   return (
     <div className="banner">
       <Container>
@@ -34,52 +41,53 @@ function Banner() {
               <div className="left-banner">
                 <div className="banner-text">
                   <h2>
-                  Bringing Your Ideas to Life with Expert Event Planning...!
+                    Bringing Your Ideas to Life with Expert Event Planning...!
                   </h2>
                 </div>
                 <div>
-                 
-
                   <Card className="left-search-card">
-                    <select name='district' onChange={searchHandle} className="dropdown-search">
-                        <option
-                          className="dropdown-option"
-                          value=""
-                        >
-                          Location
-                        </option>
-                        <option value="Alappuzha">Alappuzha</option>
-                        <option value="Ernakulam">Ernakulam</option>
-                        <option value="Idukki">Idukki</option>
-                        <option value="Kannur">Kannur</option>
-                        <option value="Kasaragod">Kasaragod</option>
-                        <option value="Kollam">Kollam</option>
-                        <option value="Kottayam">Kottayam</option>
-                        <option value="Kozhikode">Kozhikode</option>
-                        <option value="Malappuram">Malappuram</option>
-                        <option value="Palakkad">Palakkad</option>
-                        <option value="Pathanamthitta">Pathanamthitta</option>
-                        <option value="Thiruvananthapuram">Thiruvananthapuram</option>
-                        <option value="Thrissur">Thrissur</option>
-                        <option value="Wayanad">Wayanad</option>
-                      </select>
-                            
-                       
-                    <div>  
-                        <input
-                          className="search_input"
-                          type="text"
-                          name="search"
-                          placeholder="Search...."
-                          onChange={searchHandle}
-                        />
+                    <select
+                      name="district"
+                      onChange={searchHandle}
+                      className="dropdown-search"
+                    >
+                      <option className="dropdown-option" value={""}>
+                        Location
+                      </option>
+                      {location.map((item) => {
+                        return (
+                          <option className="dropdown-option" value={item}>
+                            {item}
+                          </option>
+                        );
+                      })}
+
+                    </select>
+
+                    <div>
+                      <input
+                        className="search_input"
+                        type="text"
+                        name="search"
+                        placeholder="Search...."
+                        onChange={searchHandle}
+                      />
+
+                      {/* //SMAPLE */}
+                      <div>
+                       <ul>
+                        <li>
+                          {searchresult.username}
+                          
+                        </li>
+                       </ul>
+                    </div>
                     </div>
 
-                    
-                        <button onClick={handleSubmit} className="search-butn">Search</button>
-                        
+                    <button onClick={handleSubmit} className="search-butn">
+                      Search
+                    </button>
                   </Card>
-
                 </div>
               </div>
             </Col>
@@ -87,9 +95,8 @@ function Banner() {
               md={6}
               className="d-flex justify-content-md-end align-items-center banner-right-side"
             >
-               
               <Card className="right-card">
-{/* ---------------gridview-------------- */}
+                {/* ---------------gridview-------------- */}
                 {/* <Row>
                     <Col>
                     <img className='banner-cover' src={c2} alt="" />
@@ -108,11 +115,10 @@ function Banner() {
                     </Col>
 
                 </Row> */}
-{/* ---------------end gridview-------------- */}
-
+                {/* ---------------end gridview-------------- */}
 
                 <div>
-                    <img className='banner-cover' src={c2} alt="" />
+                  <img className="banner-cover" src={c2} alt="" />
                 </div>
               </Card>
             </Col>

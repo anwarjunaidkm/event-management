@@ -1,0 +1,16 @@
+export const location = [
+  "Alappuzha",
+  "Ernakulam",
+  "Kozhikode",
+  "Palakkad",
+  "Kollam",
+  "Kannur",
+  "Kasaragod",
+  "Idukki",
+  "Kottayam",
+  "Thrissur",
+"  Pathanamthitta",
+"  Malappuram",
+  "Wayanad",
+  "Thiruvananthapuram",
+]

@@ -24,12 +24,7 @@ function CompanyListCard() {
    console.log("list of companyyyyy===",listCompany);
  
 
-  useEffect(() => {
-    // dispatch(getReviewApi({data:accountId}))
-
   
-}, [])
- 
    
    useEffect(() => {
        dispatch(ListCompanyApi(sub_catagory))
