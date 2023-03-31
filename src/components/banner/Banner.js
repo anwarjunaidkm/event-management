@@ -1,3 +1,4 @@
+import { display } from '@mui/system';
 import React, { useState } from 'react'
 import { Card, TabContainer } from 'react-bootstrap'
 import { Container } from 'react-bootstrap'
@@ -16,7 +17,8 @@ function Banner() {
     const [searchresult,setSerachresult] = useState([searchdata])
     const [search,setSerach] = useState()
    const dispatch = useDispatch()
-   console.log(typeof(searchdata))
+   const filterSearch =searchdata.results
+   console.log("foundeed==",filterSearch)
 
     const searchHandle = (e) => {
       setSerach({
@@ -73,23 +75,42 @@ function Banner() {
                         onChange={searchHandle}
                       />
 
-                      {/* //SMAPLE */}
-                      <div>
-                       <ul>
-                        <li>
-                          {searchresult.username}
-                          
-                        </li>
-                       </ul>
+                    
+                      
+                     
+                      
                     </div>
-                    </div>
+                    
+                    
 
                     <button onClick={handleSubmit} className="search-butn">
                       Search
                     </button>
                   </Card>
+
+                    {/* //SMAPLE */}
+                  <div className='serach-result'>
+
+                    <div className='child-search-result'>
+
+                    
+                      <ul  style={{padding:"0px"}}>
+                        {
+                          filterSearch?.map((item)=>{
+                            return(
+
+                              <li className='serch-li'> {item?.account_view?.team_name}</li>
+                            )
+                          })
+                        }
+                      </ul>
+                      </div>
+                      </div>
+                 
                 </div>
+               
               </div>
+              
             </Col>
             <Col
               md={6}

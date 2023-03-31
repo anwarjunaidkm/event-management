@@ -148,6 +148,32 @@ border: none;
 
  }
 
+ /* /-----------/serach--------- */
+ .serach-result{
+  background-color: white;
+  border-radius:20px;
+  display: flex;
+  justify-content: center;
+ }
+ .child-search-result{
+    background-color: white;
+  width: 50%;
+  overflow-y: auto;
+ max-height: 150px;
+
+
+
+ }
+ .serch-li{
+  padding: 2px;
+ }
+ .serch-li:hover{
+  cursor: pointer;
+  font-weight: bold;
+  
+  }
+
+
 
 
 
