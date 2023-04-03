@@ -105,7 +105,7 @@ select:focus-visible {
   /* outline: 0; */
   /* background: none; */
   /* width: 10px; */
-  caret-color:transparent;
+  /* caret-color:transparent; */
   line-height: 40px;
   transition: width 0.4s linear; 
   background-color:#ffffff;
@@ -166,6 +166,7 @@ border: none;
  }
  .serch-li{
   padding: 2px;
+  padding-left: 8px;
  }
  .serch-li:hover{
   cursor: pointer;

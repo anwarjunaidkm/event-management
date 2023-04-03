@@ -1,8 +1,9 @@
 import { display } from '@mui/system';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Card, TabContainer } from 'react-bootstrap'
 import { Container } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { Col, Row } from 'reactstrap';
 import { searchingApi } from '../../store/user/UserSlice';
 import { c1, c2, c3 } from '../image/image';
@@ -14,24 +15,40 @@ function Banner() {
 
     
     
-    const [searchresult,setSerachresult] = useState([searchdata])
+    
     const [search,setSerach] = useState()
+    const [searchresult,setSerachresult] = useState()
    const dispatch = useDispatch()
    const filterSearch =searchdata.results
    console.log("foundeed==",filterSearch)
+   console.log("foundeed222==",searchresult)
+   
 
     const searchHandle = (e) => {
       setSerach({
         ...search,
         [e.target.name]: e.target.value
       })
+      dispatch(searchingApi(search))
+
+
 
     }
     const handleSubmit = (e) => {
       e.preventDefault(e);
       dispatch(searchingApi(search))
 
+      
+
     }
+
+    useEffect(() => {
+
+      dispatch(searchingApi(search))
+    
+
+    }, [search])
+    
 
 
   return (
@@ -73,6 +90,7 @@ function Banner() {
                         name="search"
                         placeholder="Search...."
                         onChange={searchHandle}
+                      
                       />
 
                     
@@ -89,23 +107,38 @@ function Banner() {
                   </Card>
 
                     {/* //SMAPLE */}
-                  <div className='serach-result'>
+
+                    {filterSearch?.length >= 1 ?
+                    
+                    <div className='serach-result'>
 
                     <div className='child-search-result'>
 
                     
-                      <ul  style={{padding:"0px"}}>
+                      {/* <ul  style={{padding:"0px"}}> */}
                         {
                           filterSearch?.map((item)=>{
                             return(
 
-                              <li className='serch-li'> {item?.account_view?.team_name}</li>
+
+                              <ul  style={{padding:"0px",margin:"10px" ,display:"flex"}}>
+                                <img style={{width:"30px", }} src={item.team_profilepic} alt=""  />
+                                <Link style={{ textDecoration: "none", color: "inherit" }}   to={`/singleview/${item?.id}/${item?.sub_catagory}/${item?.account}`}>  <li className='serch-li'> {item?.account_view?.team_name}</li> </Link>
+                              </ul>
                             )
                           })
                         }
-                      </ul>
+                      {/* </ul> */}
                       </div>
-                      </div>
+                      </div> : null
+                    
+                  
+                  
+                  
+                  
+                  
+                  }
+                 
                  
                 </div>
                
