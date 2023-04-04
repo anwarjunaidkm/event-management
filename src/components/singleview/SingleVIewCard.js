@@ -97,7 +97,7 @@ function SingleVIewCard() {
                     <img
                       className="single-view-profile-pic"
                       src={singleData?.team_profilepic}
-                      alt=""
+                      alt="error"
                     />
                   </div>
                 </Col>

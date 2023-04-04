@@ -17,11 +17,9 @@ function Banner() {
     
     
     const [search,setSerach] = useState()
-    const [searchresult,setSerachresult] = useState()
    const dispatch = useDispatch()
    const filterSearch =searchdata.results
    console.log("foundeed==",filterSearch)
-   console.log("foundeed222==",searchresult)
    
 
     const searchHandle = (e) => {
@@ -29,7 +27,6 @@ function Banner() {
         ...search,
         [e.target.name]: e.target.value
       })
-      dispatch(searchingApi(search))
 
 
 
@@ -48,6 +45,25 @@ function Banner() {
     
 
     }, [search])
+
+
+
+
+    useEffect(() => {
+      const handleClickOutside = (event) => {
+        const searchResult = document.querySelector('.serach-result');
+        console.log("quryyy",searchResult);
+        if (searchResult && !searchResult.contains(event.target)) {
+          searchResult.style.display = 'none';
+        }
+      };
+    
+      document.addEventListener('mousedown', handleClickOutside);
+    
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }, [search]);
     
 
 
@@ -70,7 +86,7 @@ function Banner() {
                       onChange={searchHandle}
                       className="dropdown-search"
                     >
-                      <option className="dropdown-option" value={""}>
+                      <option className="dropdown-option" value="">
                         Location
                       </option>
                       {location.map((item) => {
@@ -118,14 +134,34 @@ function Banner() {
                       {/* <ul  style={{padding:"0px"}}> */}
                         {
                           filterSearch?.map((item)=>{
-                            return(
-
-
-                              <ul  style={{padding:"0px",margin:"10px" ,display:"flex"}}>
-                                <img style={{width:"30px", }} src={item.team_profilepic} alt=""  />
-                                <Link style={{ textDecoration: "none", color: "inherit" }}   to={`/singleview/${item?.id}/${item?.sub_catagory}/${item?.account}`}>  <li className='serch-li'> {item?.account_view?.team_name}</li> </Link>
+                            return (
+                              <ul
+                                style={{
+                                  padding: "0px",
+                                  margin: "10px",
+                                  display: "flex",
+                                }}
+                              >
+                                <img
+                                  style={{ width: "30px" }}
+                                  src={item?.team_profilepic}
+                                  alt=""
+                                />
+                                <Link
+                                  style={{
+                                    textDecoration: "none",
+                                    color: "inherit",
+                                  }}
+                                  to={`/singleview/${item?.id}/${item?.sub_catagory}/${item?.account}`}
+                                >
+                                  {" "}
+                                  <li className="serch-li">
+                                    {" "}
+                                    {item?.account_view?.team_name}
+                                  </li>{" "}
+                                </Link>
                               </ul>
-                            )
+                            );
                           })
                         }
                       {/* </ul> */}

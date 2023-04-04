@@ -196,17 +196,14 @@ import axiosApi from "../AxiosInstance";
 
  export const searchingApi = createAsyncThunk(
     "user/searching",
-    async(data)=>{
-        console.log({data});
-        const res = await axiosApi.get(`/store/service/?account__district=${data.district}&search=${data.search}`)
-        console.log(res.data);
+    async({search,district})=>{
+        console.log('DATA',search);
+        console.log('DATA',district);
+        const res = await axiosApi.get(`/store/service/?account__district=${district}&search=${search}`)
+        console.log("Serach==",res.data);
         return res.data
     }
  )
-
-
-
-
 
 
 
