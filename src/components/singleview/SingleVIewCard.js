@@ -248,47 +248,13 @@ function SingleVIewCard() {
                 )
               })}
              
-              {/* <Card className="single-review-card">
-                <Row>
-                  <Col md={6}>
-                    <div className="d-flex align-items-center">
-                      <img className="review-profile" src={avatar2} alt="" />
-                      <div>
-                        <h5 className="m-0 review-name">Anwarjuaid km</h5>
-                        <span className="review-date">20 Aug 2023</span>
-                      </div>
-                    </div>
-                  </Col>
-                  <Col md={6}>
-                    {" "}
-                    <div className="d-flex justify-content-end">
-                      {" "}
-                      <ReactStars value={3} size={30}></ReactStars>
-                    </div>
-                  </Col>
-                  <hr
-                    style={{
-                      color: "#80808047",
-                      margin: "0px",
-                      height: "0",
-                    }}
-                  />
-                </Row>
-                <Row>
-                  <Col md={12}>
-                    <p className="review-style">
-                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                      Error eos nulla quae culpa voluptate dolorum debitis
-                      placeat in iure quam.
-                    </p>
-                  </Col>
-                </Row>
-              </Card> */}
+              
             </Card>
           </Col>
 
           <Col className='singleview-right' md={3}>
-            <h1 style={{ backgroundColor: "gray", minHeight: "100vh" }}>2</h1>
+            {/* // right-side--- */}
+            {/* <h1 style={{ backgroundColor: "gray", minHeight: "100vh" }}>2</h1> */}
           </Col>
         </Row>
       </Container>

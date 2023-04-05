@@ -118,7 +118,7 @@ function CompanyListCard() {
            
           </Col>
           <Col className='right-company-list' md={3}>
-            <h1 style={{ backgroundColor: "blue" }}>2</h1>
+            {/* <h1 style={{ backgroundColor: "blue" }}>2</h1> */}
           </Col>
         </Row>
       </Container>
